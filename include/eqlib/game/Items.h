@@ -1076,7 +1076,7 @@ public:
 /*0x010*/ int                   OrnamentationIcon;
 /*0x014*/ int                   ScriptIndex;
 /*0x018*/ ItemGlobalIndex       GlobalIndex;
-/*0x024*/ unsigned int          ItemHash;
+/*0x024*/ int                   ID;
 /*0x028*/ int                   Luck;
 /*0x02c*/ bool                  bConvertable;
 /*0x030*/ int64_t               DontKnow;
@@ -1104,7 +1104,7 @@ public:
 /*0x0d9*/ EqItemGuid            ItemGUID;
 /*0x0f0*/ int64_t               MerchantSlot;
 /*0x0f8*/ unsigned int          NoDropFlag;
-/*0x0fc*/ int                   ID;
+/*0x0fc*/ int                   ItemHash;
 /*0x100*/ unsigned int          LastCastTime;
 /*0x104*/ int                   Open;
 /*0x108*/
