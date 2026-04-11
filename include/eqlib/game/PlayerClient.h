@@ -578,7 +578,7 @@ public:
 /*0x0504*/ unsigned int              SpellGemETA[15];
 /*0x0540*/ unsigned int              Unknown0x540;
 /*0x0544*/ unsigned int              Unknown0x544;
-/*0x0548*/ unsigned int              LastRangedUsedTime;
+/*0x0548*/ unsigned int              LastSecondaryUseTime;
 /*0x054c*/ bool                      Linkdead;
 /*0x0550*/ int                       Trader;
 /*0x0554*/ bool                      bAnimationOnPop;
