@@ -582,7 +582,7 @@ public:
 /*0x0550*/ int                       Trader;
 /*0x0554*/ bool                      bAnimationOnPop;
 /*0x0558*/ int                       CorpseDragCount;
-/*0x055c*/ uint8_t                   TitleVisible;
+/*0x055c*/ uint8_t                   Light;
 /*0x0560*/ int64_t                   SomeData;
 /*0x0568*/ float                     GetMeleeRangeVar1;
 /*0x056c*/ unsigned int              CombatSkillTicks[CONCURRENT_SKILLS];
