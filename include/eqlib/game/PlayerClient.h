@@ -601,13 +601,13 @@ public:
 /*0x05cc*/ char                      Handle[0x20];
 /*0x05ec*/ int                       Unknown0x5EC;
 /*0x05f0*/ void*                     pRaceGenderInfo;
-/*0x05f8*/ unsigned int              SpellCooldownETA;
+/*0x05f8*/ unsigned int              Unknown0x5F8;
 /*0x05fc*/ int                       ManaMax;
 /*0x0600*/ int                       ManaCurrent;
 /*0x0604*/ uint8_t                   LastAttack;
 /*0x0608*/ float                     RunSpeed;
 /*0x060c*/ bool                      bAttackRelated;
-/*0x0610*/ unsigned int              NextIntimidateTime;
+/*0x0610*/ unsigned int              SpellCooldownETA;
 /*0x0614*/ unsigned int              FishingETA;
 /*0x0618*/ int                       Unknown0x618;
 /*0x061c*/ uint8_t                   FD;
