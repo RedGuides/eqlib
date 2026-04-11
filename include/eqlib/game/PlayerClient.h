@@ -603,7 +603,7 @@ public:
 /*0x05f0*/ void*                     pRaceGenderInfo;
 /*0x05f8*/ unsigned int              Unknown0x5F8;
 /*0x05fc*/ int                       ManaMax;
-/*0x0600*/ int                       ManaCurrent;
+/*0x0600*/ int                       Unknown0x600;
 /*0x0604*/ uint8_t                   LastAttack;
 /*0x0608*/ float                     RunSpeed;
 /*0x060c*/ bool                      bAttackRelated;
