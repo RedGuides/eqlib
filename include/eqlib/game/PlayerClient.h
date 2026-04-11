@@ -513,7 +513,7 @@ public:
 /*0x01fb*/ uint8_t                   Unknown0x1FB;
 /*0x01fc*/ char                      LoginRelated[21];
 /*0x0214*/ int                       EnduranceMax;
-/*0x0218*/ bool                      Unknown0x218;
+/*0x0218*/ bool                      FishingEvent;
 /*0x021c*/ float                     AnimationSpeedRelated;
 /*0x0220*/ bool                      bStationary;
 /*0x0224*/ float                     ViewHeight;
