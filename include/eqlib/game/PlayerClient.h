@@ -517,7 +517,7 @@ public:
 /*0x021c*/ float                     AnimationSpeedRelated;
 /*0x0220*/ bool                      bStationary;
 /*0x0224*/ float                     ViewHeight;
-/*0x0228*/ EQSwitch*                 pTouchingSwitch;
+/*0x0228*/ PlayerClient*             pViewPlayer;
 /*0x0230*/ uint8_t                   FindBits;
 /*0x0231*/ uint8_t                   Blind;
 /*0x0234*/ int                       Unknown0x234;
@@ -554,7 +554,7 @@ public:
 /*0x03ef*/ bool                      PvPFlag;
 /*0x03f0*/ int                       Unknown0x3F0;
 /*0x03f4*/ uint8_t                   GMRank;
-/*0x03f8*/ float                     BearingToTarget;
+/*0x03f8*/ float                     CameraOffset;
 /*0x03fc*/ char                      GM;
 /*0x03fd*/ uint8_t                   Level;
 /*0x0400*/ int                       PetID;
