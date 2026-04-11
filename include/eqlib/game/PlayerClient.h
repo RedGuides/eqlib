@@ -617,7 +617,7 @@ public:
 /*0x0630*/ unsigned int              Unknown0x630;
 /*0x0634*/ int                       Unknown0x634;
 /*0x0638*/ int                       NpcTintIndex;
-/*0x063c*/ int                       PrimaryTintIndex;
+/*0x063c*/ unsigned int              LastMealTime;
 /*0x0640*/ unsigned int              LastTick;
 /*0x0644*/ unsigned int              CombatSkillUsed[CONCURRENT_SKILLS];
 /*0x064c*/ int                       RealEstateItemId;
