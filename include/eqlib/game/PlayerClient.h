@@ -545,7 +545,7 @@ public:
 /*0x02c8*/ int                       EnduranceCurrent;
 /*0x02cc*/ uint8_t                   Unknown0x2CC[0x80]; // structured data block (two 64-byte sub-structs), contains Deity at 0x34C
 /*0x034c*/ int                       Deity;
-/*0x0350*/ int                       Unknown0x350;
+/*0x0350*/ unsigned int              LastCombatTime;
 /*0x0354*/ float                     MyWalkSpeed;
 /*0x0358*/ int                       Unknown0x358;
 /*0x035c*/ EqItemGuid                realEstateItemGuid;
