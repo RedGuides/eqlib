@@ -569,7 +569,8 @@ public:
 /*0x0465*/ uint8_t                   HoldingAnimation;
 /*0x0468*/ unsigned int              LastRefresh;
 /*0x046c*/ unsigned int              MinuteTimer;
-/*0x0470*/ char                      DragNames[129];
+/*0x0470*/ uint8_t                   InPvPArea;
+/*0x0471*/ char                      Title[0x80];
 /*0x04f8*/ CharacterZoneClient*      pCharacter;
 /*0x0500*/ bool                      bOfflineMode;
 /*0x0501*/ uint8_t                   CharClass;
@@ -581,7 +582,7 @@ public:
 /*0x0550*/ int                       Trader;
 /*0x0554*/ bool                      bAnimationOnPop;
 /*0x0558*/ int                       CorpseDragCount;
-/*0x055c*/ uint8_t                   Light;
+/*0x055c*/ uint8_t                   TitleVisible;
 /*0x0560*/ int64_t                   SomeData;
 /*0x0568*/ float                     GetMeleeRangeVar1;
 /*0x056c*/ unsigned int              CombatSkillTicks[CONCURRENT_SKILLS];
@@ -590,7 +591,7 @@ public:
 /*0x057c*/ unsigned int              RespawnTimer;
 /*0x0580*/ bool                      bShowHelm;
 /*0x0584*/ CPhysicsInfo              LastCollision;
-/*0x05b4*/ uint8_t                   LastAttack;
+/*0x05b4*/ uint8_t                   Unknown0x5B4;
 /*0x05b8*/ int                       AltAttack;
 /*0x05bc*/ bool                      bSwitchMoved;
 /*0x05c0*/ int                       Birthdate;
@@ -602,7 +603,7 @@ public:
 /*0x05f8*/ unsigned int              SpellCooldownETA;
 /*0x05fc*/ int                       ManaMax;
 /*0x0600*/ int                       ManaCurrent;
-/*0x0604*/ uint8_t                   FishingEvent;
+/*0x0604*/ uint8_t                   LastAttack;
 /*0x0608*/ float                     RunSpeed;
 /*0x060c*/ bool                      bAttackRelated;
 /*0x0610*/ unsigned int              NextIntimidateTime;
