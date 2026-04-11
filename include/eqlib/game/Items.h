@@ -1110,9 +1110,6 @@ public:
 /*0x108*/
 // @end: ItemBase Members
 
-	// Backward compatibility alias: ID was eliminated, RealEstateID is at 0x008
-	ALT_MEMBER_ALIAS_DEPRECATED(int, RealEstateID, ID, "Use RealEstateID instead of ID");
-
 
 	EQLIB_OBJECT ItemBase();
 
