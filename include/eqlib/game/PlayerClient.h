@@ -517,7 +517,7 @@ public:
 /*0x021c*/ float                     AnimationSpeedRelated;
 /*0x0220*/ bool                      bStationary;
 /*0x0224*/ float                     ViewHeight;
-/*0x0228*/ PlayerClient*             pViewPlayer;
+/*0x0228*/ EQSwitch*                 pTouchingSwitch;
 /*0x0230*/ uint8_t                   FindBits;
 /*0x0231*/ uint8_t                   Blind;
 /*0x0234*/ int                       Unknown0x234;
@@ -547,12 +547,12 @@ public:
 /*0x034c*/ int                       Deity;
 /*0x0350*/ unsigned int              LastCombatTime;
 /*0x0354*/ float                     MyWalkSpeed;
-/*0x0358*/ int                       Unknown0x358;
+/*0x0358*/ int                       AttackRound;
 /*0x035c*/ EqItemGuid                realEstateItemGuid;
 /*0x036e*/ char                      Suffix[0x80];
 /*0x03ee*/ bool                      bBuffTimersOnHold;
 /*0x03ef*/ bool                      PvPFlag;
-/*0x03f0*/ int                       Unknown0x3F0;
+/*0x03f0*/ int                       IsAttacking;
 /*0x03f4*/ uint8_t                   GMRank;
 /*0x03f8*/ float                     CameraOffset;
 /*0x03fc*/ char                      GM;
@@ -603,7 +603,7 @@ public:
 /*0x05f0*/ void*                     pRaceGenderInfo;
 /*0x05f8*/ unsigned int              Unknown0x5F8;
 /*0x05fc*/ int                       ManaMax;
-/*0x0600*/ int                       Unknown0x600;
+/*0x0600*/ int                       ManaCurrent;
 /*0x0604*/ uint8_t                   LastAttack;
 /*0x0608*/ float                     RunSpeed;
 /*0x060c*/ bool                      bAttackRelated;
