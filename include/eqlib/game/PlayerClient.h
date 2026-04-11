@@ -552,7 +552,7 @@ public:
 /*0x036e*/ char                      Suffix[0x80];
 /*0x03ee*/ bool                      bBuffTimersOnHold;
 /*0x03ef*/ bool                      PvPFlag;
-/*0x03f0*/ int                       IsAttacking;
+/*0x03f0*/ int                       Unknown0x3F0;
 /*0x03f4*/ uint8_t                   GMRank;
 /*0x03f8*/ float                     BearingToTarget;
 /*0x03fc*/ char                      GM;
