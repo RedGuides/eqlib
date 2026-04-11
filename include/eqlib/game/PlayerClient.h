@@ -512,7 +512,7 @@ public:
 /*0x01fa*/ uint8_t                   Unknown0x1FA;
 /*0x01fb*/ uint8_t                   Unknown0x1FB;
 /*0x01fc*/ char                      LoginRelated[21];
-/*0x0214*/ int                       Unknown0x214;
+/*0x0214*/ int                       EnduranceMax;
 /*0x0218*/ bool                      Unknown0x218;
 /*0x021c*/ float                     AnimationSpeedRelated;
 /*0x0220*/ bool                      bStationary;
@@ -543,11 +543,11 @@ public:
 /*0x02c0*/ int                       WarCry;
 /*0x02c4*/ bool                      berserker;
 /*0x02c8*/ int                       EnduranceCurrent;
-/*0x02cc*/ unsigned int              EnduranceMax;
-/*0x02d0*/ unsigned int              LastPrimaryUseTime;
-/*0x02d4*/ float                     MyWalkSpeed;
-/*0x02d8*/ char                      Title[0x80];
-/*0x0358*/ int                       Deity;
+/*0x02cc*/ uint8_t                   Unknown0x2CC[0x80]; // structured data block (two 64-byte sub-structs), contains Deity at 0x34C
+/*0x034c*/ int                       Deity;
+/*0x0350*/ int                       Unknown0x350;
+/*0x0354*/ float                     MyWalkSpeed;
+/*0x0358*/ int                       Unknown0x358;
 /*0x035c*/ EqItemGuid                realEstateItemGuid;
 /*0x036e*/ char                      Suffix[0x80];
 /*0x03ee*/ bool                      bBuffTimersOnHold;
