@@ -564,7 +564,7 @@ public:
 /*0x0450*/ int                       AFK;
 /*0x0454*/ int                       CurrIOState;
 /*0x0458*/ int                       Unknown0x458;
-/*0x045c*/ uint8_t                   InPvPArea;
+/*0x045c*/ uint8_t                   Unknown0x45C;
 /*0x0460*/ int                       Unknown0x460;
 /*0x0464*/ uint8_t                   Original;
 /*0x0465*/ uint8_t                   HoldingAnimation;
