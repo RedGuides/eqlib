@@ -497,7 +497,7 @@ public:
 /*0x01d8*/ float                     MerchantGreed;
 /*0x01dc*/ int                       Unknown0x1DC;
 /*0x01e0*/ int64_t                   HPCurrent;
-/*0x01e8*/ unsigned int              SitStartTime;
+/*0x01e8*/ unsigned int              LastTimeStoodStill;
 /*0x01ec*/ unsigned int              LastResendAddPlayerPacket;
 /*0x01f0*/ uint8_t                   IntimidateCount;
 /*0x01f1*/ bool                      bBetaBuffed;
@@ -563,7 +563,7 @@ public:
 /*0x040c*/ char                      DraggingPlayer[0x41];
 /*0x0450*/ int                       AFK;
 /*0x0454*/ int                       CurrIOState;
-/*0x0458*/ int                       Unknown0x458;
+/*0x0458*/ float                     ModelScale;
 /*0x045c*/ uint8_t                   Unknown0x45C;
 /*0x0460*/ int                       Unknown0x460;
 /*0x0464*/ uint8_t                   Original;
