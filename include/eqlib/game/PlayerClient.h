@@ -532,7 +532,8 @@ public:
 /*0x0294*/ bool                      Sneak;
 /*0x0298*/ unsigned int              MasterID;
 /*0x029c*/ int                       Unknown0x29C;
-/*0x02a0*/ int64_t                   GuildID;
+/*0x02a0*/ int                       GuildID;
+/*0x02a4*/ int                       Unknown0x2A4;
 /*0x02a8*/ bool                      bSummoned;
 /*0x02ac*/ int                       Unknown1;
 /*0x02b0*/ int                       Unknown0x2B0;
