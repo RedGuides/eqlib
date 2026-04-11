@@ -609,7 +609,7 @@ public:
 /*0x060c*/ bool                      bAttackRelated;
 /*0x0610*/ unsigned int              SpellCooldownETA;
 /*0x0614*/ unsigned int              FishingETA;
-/*0x0618*/ int                       Unknown0x618;
+/*0x0618*/ unsigned int              NextSwim;
 /*0x061c*/ uint8_t                   FD;
 /*0x0620*/ int64_t                   Unknown0x620;
 /*0x0628*/ bool                      Unknown0x628;
