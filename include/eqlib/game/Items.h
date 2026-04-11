@@ -1104,7 +1104,7 @@ public:
 /*0x0d9*/ EqItemGuid            ItemGUID;
 /*0x0f0*/ int64_t               MerchantSlot;
 /*0x0f8*/ unsigned int          NoDropFlag;
-/*0x0fc*/ int                   Unknown0x0fc;
+/*0x0fc*/ int                   ID;
 /*0x100*/ unsigned int          LastCastTime;
 /*0x104*/ int                   Open;
 /*0x108*/

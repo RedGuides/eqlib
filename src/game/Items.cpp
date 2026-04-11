@@ -313,7 +313,7 @@ ItemBase::ItemBase()
 	ItemHash = 0;
 	StackCount = 0;
 	OrnamentationIcon = 0;
-	Unknown0x0fc = 1;
+	ID = 1;
 	bItemNeedsUpdate = false;
 	Price = 0;
 	NewArmorID = -1;
