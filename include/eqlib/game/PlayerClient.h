@@ -496,7 +496,7 @@ public:
 /*0x01d4*/ int                       DoSpecialMelee;
 /*0x01d8*/ float                     MerchantGreed;
 /*0x01dc*/ int                       Unknown0x1DC;
-/*0x01e0*/ int64_t                   HPMax;
+/*0x01e0*/ int64_t                   HPCurrent;
 /*0x01e8*/ unsigned int              SitStartTime;
 /*0x01ec*/ unsigned int              LastResendAddPlayerPacket;
 /*0x01f0*/ uint8_t                   IntimidateCount;
@@ -521,7 +521,7 @@ public:
 /*0x0230*/ uint8_t                   FindBits;
 /*0x0231*/ uint8_t                   Blind;
 /*0x0234*/ int                       Unknown0x234;
-/*0x0238*/ int64_t                   HPCurrent;
+/*0x0238*/ int64_t                   HPMax;
 /*0x0240*/ bool                      LFG;
 /*0x0244*/ int                       Buyer;
 /*0x0248*/ uint8_t                   StandState;
