@@ -1072,7 +1072,7 @@ class [[offsetcomments]] ItemBase : public IChildItemContainer
 public:
 // @start: ItemBase Members
 /*0x008*/ int                   RealEstateID;
-/*0x00c*/ int                   MerchantQuantity;
+/*0x00c*/ int                   StackCount;
 /*0x010*/ int                   OrnamentationIcon;
 /*0x014*/ int                   ScriptIndex;
 /*0x018*/ ItemGlobalIndex       GlobalIndex;
@@ -1090,7 +1090,7 @@ public:
 /*0x054*/ unsigned int          RespawnTime;
 /*0x058*/ int                   NewArmorID;
 /*0x05c*/ bool                  bCollected;
-/*0x060*/ int                   StackCount;
+/*0x060*/ int                   MerchantQuantity;
 /*0x068*/ ItemEvolutionDataPtr  pEvolutionData;
 /*0x078*/ SoeUtil::String       SaveString;
 /*0x090*/ int64_t               Price;

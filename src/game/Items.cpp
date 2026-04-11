@@ -313,7 +313,7 @@ ItemBase::ItemBase()
 	ItemHash = 0;
 	StackCount = 1;
 	OrnamentationIcon = 0;
-	MerchantQuantity = 1;
+	MerchantQuantity = 0;
 	bItemNeedsUpdate = false;
 	Price = 0;
 	Open = 0;
