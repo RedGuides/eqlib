@@ -536,7 +536,7 @@ public:
 /*0x02a4*/ int                       Unknown0x2A4;
 /*0x02a8*/ bool                      bSummoned;
 /*0x02ac*/ int                       Unknown1;
-/*0x02b0*/ int                       Unknown0x2B0;
+/*0x02b0*/ float                     FallingStartZ;
 /*0x02b4*/ float                     MissileRangeToTarget;
 /*0x02b8*/ int                       Anon;
 /*0x02bc*/ int                       Unknown0x2BC;
