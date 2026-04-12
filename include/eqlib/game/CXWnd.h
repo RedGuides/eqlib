@@ -838,7 +838,7 @@ public:
 /*0x254*/ CXRect             ClientRect;
 /*0x264*/ bool               bUsesClassicUI;
 /*0x265*/ bool               bMouseOverEvent;
-// @end: CXWnd Members
+/*0x268*/ // @end: CXWnd Members
 /*0x268*/
 
 	ALT_MEMBER_ALIAS(bool, bEscapable, CloseOnESC);

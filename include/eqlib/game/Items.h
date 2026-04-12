@@ -964,7 +964,15 @@ public:
 /*0x614*/ bool                bInteractiveObject;
 /*0x615*/ uint8_t             SocketSubClassCount;
 /*0x618*/ int                 SocketSubClass[10];
-/*0x640*/
+// Apr 7: struct grew by 0x48 bytes (0x640->0x688)
+// 0x640-0x65B is the tail of a char[64] field at 0x61C (shuffled string, possibly ornament/socket related per patch notes)
+// 0x65C+0x660 mirror the SocketSubClassCount/SocketSubClass pattern exactly (deserializer + constructor confirmed)
+// Patch notes: ornament socket icon fixes, texture rendering crash fix, Hero's Forge keyring cap increase
+/*0x640*/ uint8_t             Unknown0x640[0x1C];           // tail of char[64] string at 0x61C (shuffled field)
+/*0x65c*/ uint8_t             Unknown0x65C;                 // count for array at 0x660 (mirrors SocketSubClassCount)
+/*0x65d*/ uint8_t             Unknown0x65D[0x3];            // alignment padding
+/*0x660*/ int                 Unknown0x660[10];             // int array looped by count at 0x65C (mirrors SocketSubClass[10])
+/*0x688*/
 
 	EQLIB_OBJECT ItemDefinition();
 
