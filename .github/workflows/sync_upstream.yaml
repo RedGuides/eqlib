@@ -1,0 +1,57 @@
+# Merges macroquest/eqlib branches (except live, test) into redguides/eqlib.
+name: Sync upstream eqlib
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [sync-upstream]
+
+concurrency:
+  group: upstream-sync
+  cancel-in-progress: false
+
+jobs:
+  merge-upstream:
+    if: github.repository == 'redguides/eqlib'
+    runs-on: [fast, self-hosted, Windows, X64]
+    env:
+      REPO_DIR: C:\actions-runner\repos\eqlib
+      RG_SYNC_PAT: ${{ secrets.RG_SYNC_PAT }}
+    steps:
+      - name: Merge macroquest/eqlib (except live, test)
+        shell: pwsh
+        run: |
+          $auth = "https://x-access-token:$env:RG_SYNC_PAT@github.com/redguides/eqlib.git"
+
+          if (-not (Test-Path $env:REPO_DIR)) {
+            git clone $auth $env:REPO_DIR
+            if ($LASTEXITCODE -ne 0) { throw "Initial clone failed." }
+          }
+          Set-Location $env:REPO_DIR
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git merge --abort 2>$null
+          git reset --hard HEAD
+          git clean -ffdx
+
+          git remote add upstream https://github.com/macroquest/eqlib.git 2>$null
+          git fetch origin --prune
+          git fetch upstream --prune
+
+          $exclude = @('live', 'test')
+          $branches = (git ls-remote --heads upstream) -replace '.*refs/heads/', '' | Where-Object { $exclude -notcontains $_ }
+
+          foreach ($b in $branches) {
+            Write-Host "=== Syncing $b ==="
+            if (git show-ref --verify --quiet "refs/remotes/origin/$b") {
+              git checkout -B $b "origin/$b"
+              git merge "upstream/$b" --no-edit
+              if ($LASTEXITCODE -ne 0) { throw "Merge upstream/$b failed. Resolve in $env:REPO_DIR." }
+            } else {
+              git checkout -B $b "upstream/$b"
+            }
+            git push $auth "${b}:${b}"
+            if ($LASTEXITCODE -ne 0) { throw "Push $b failed." }
+          }

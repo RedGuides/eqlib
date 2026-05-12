@@ -182,7 +182,7 @@ private:
 	void ClearRoles();
 };
 
-constexpr size_t CGroupMember_size = 0x68; // @sizeof(CGroupMember) :: 2026-04-07 (test) @ 0x1402E7540
+constexpr size_t CGroupMember_size = 0x68; // @sizeof(CGroupMember) :: 2026-04-30 (live) @ 0x1402e788a
 
 class [[offsetcomments]] CGroupMember : public CGroupMemberBase
 {
@@ -1148,11 +1148,12 @@ public:
 /*0x28ac*/ int                                   NoBuffItemEnduranceRegen;
 /*0x28b0*/ int                                   NoBuffItemDamageShield;
 /*0x28b4*/ int                                   NoBuffItemDamageShieldMitigation;
-/*0x28b8*/ int                                   NoBuffItemHaste;
-/*0x28bc*/ int                                   NoBuffItemSkillMinDamageMod[NUM_ITEM_SKILL_DMG_MOD];
-/*0x28e0*/ bool                                  bOutputHpRegen;
-/*0x28e1*/ bool                                  bInvulnerable;
-/*0x28e2*/ bool                                  bOnAVehicle;
+/*0x28b8*/ int                                   Unknown0x28b8;
+/*0x28bc*/ int                                   NoBuffItemHaste;
+/*0x28c0*/ int                                   NoBuffItemSkillMinDamageMod[NUM_ITEM_SKILL_DMG_MOD];
+/*0x28e4*/ bool                                  bOutputHpRegen;
+/*0x28e5*/ bool                                  bInvulnerable;
+/*0x28e6*/ bool                                  bOnAVehicle;
 /*0x28e8*/ SpellCache                            spellCache;
 /*0x2978*/ HashListSet<int, 128>                 DoomEffectsBySlot;
 /*0x2d98*/ uint32_t                              LastHitEval;
@@ -1679,7 +1680,7 @@ public:
 	int GetDeityBitmask() const { return 1 << (GetDeityReal() - 1); }
 };
 
-constexpr size_t PcClient_size = 0x3298; // @sizeof(PcClient) :: 2026-04-07 (test) @ 0x14028D59B
+constexpr size_t PcClient_size = 0x3298; // @sizeof(PcClient) :: 2026-04-30 (live) @ 0x14028d85b
 
 class [[offsetcomments]] PcClient : public PcZoneClient
 {

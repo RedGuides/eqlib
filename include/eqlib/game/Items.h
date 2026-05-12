@@ -115,7 +115,7 @@ public:
 	enum { MAX_INVENTORY_DEPTH = 3 };
 
 /*0x00*/ short m_slots[MAX_INVENTORY_DEPTH];
-/*0x08*/
+/*0x08*/ // incorrect, there is no padding. ItemIndex is 0x06 bytes.
 
 	EQLIB_OBJECT ItemIndex()
 	{
@@ -803,7 +803,7 @@ public:
 	}
 };
 
-constexpr size_t ItemDefinition_size = 0x688; // @sizeof(ItemDefinition) :: 2026-04-07 (test) @ 0x140223744
+constexpr size_t ItemDefinition_size = 0x688; // @sizeof(ItemDefinition) :: 2026-04-30 (live) @ 0x1402239f4
 
 class [[offsetcomments]] ItemDefinition
 {
@@ -855,6 +855,7 @@ public:
 /*0x100*/ char                CHA;
 /*0x101*/ char                INT;
 /*0x102*/ char                WIS;
+/*0x103*/ char                Unknown0x103;
 /*0x104*/ int                 HP;
 /*0x108*/ int                 Mana;
 /*0x10c*/ int                 AC;
@@ -962,16 +963,10 @@ public:
 /*0x60c*/ float               PlaceableDefPitch;
 /*0x610*/ float               PlaceableDefRoll;
 /*0x614*/ bool                bInteractiveObject;
-/*0x615*/ uint8_t             SocketSubClassCount;
-/*0x618*/ int                 SocketSubClass[10];
-// Apr 7: struct grew by 0x48 bytes (0x640->0x688)
-// 0x640-0x65B is the tail of a char[64] field at 0x61C (shuffled string, possibly ornament/socket related per patch notes)
-// 0x65C+0x660 mirror the SocketSubClassCount/SocketSubClass pattern exactly (deserializer + constructor confirmed)
-// Patch notes: ornament socket icon fixes, texture rendering crash fix, Hero's Forge keyring cap increase
-/*0x640*/ uint8_t             Unknown0x640[0x1C];           // tail of char[64] string at 0x61C (shuffled field)
-/*0x65c*/ uint8_t             Unknown0x65C;                 // count for array at 0x660 (mirrors SocketSubClassCount)
-/*0x65d*/ uint8_t             Unknown0x65D[0x3];            // alignment padding
-/*0x660*/ int                 Unknown0x660[10];             // int array looped by count at 0x65C (mirrors SocketSubClass[10])
+/*0x618*/ uint32_t            ConvertItemID;
+/*0x61c*/ char                ConvertItemName[0x40];
+/*0x65c*/ uint8_t             SocketSubClassCount;
+/*0x660*/ int                 SocketSubClass[10];
 /*0x688*/
 
 	EQLIB_OBJECT ItemDefinition();
@@ -1079,45 +1074,46 @@ class [[offsetcomments]] ItemBase : public IChildItemContainer
 {
 public:
 // @start: ItemBase Members
-/*0x008*/ int                   RealEstateID;
-/*0x00c*/ int                   StackCount;
-/*0x010*/ int                   OrnamentationIcon;
-/*0x014*/ int                   ScriptIndex;
-/*0x018*/ ItemGlobalIndex       GlobalIndex;
-/*0x024*/ int                   ID;
-/*0x028*/ int                   Luck;
-/*0x02c*/ bool                  bConvertable;
-/*0x030*/ int64_t               DontKnow;
-/*0x038*/ bool                  bCopied;
-/*0x03c*/ int                   ArmorType;
-/*0x040*/ bool                  bDisableAugTexture;
-/*0x044*/ int                   AugFlag;
-/*0x048*/ int                   Power;
-/*0x04c*/ int                   Charges;
-/*0x050*/ unsigned int          Tint;
-/*0x054*/ unsigned int          RespawnTime;
-/*0x058*/ int                   NewArmorID;
-/*0x05c*/ bool                  bCollected;
-/*0x060*/ int                   MerchantQuantity;
-/*0x068*/ ItemEvolutionDataPtr  pEvolutionData;
-/*0x078*/ SoeUtil::String       SaveString;
-/*0x090*/ int64_t               Price;
-/*0x098*/ int                   ActorTag1;
-/*0x09c*/ int                   ActorTag2;
-/*0x0a0*/ int                   NoteStatus;
-/*0x0a4*/ bool                  bItemNeedsUpdate;
-/*0x0a8*/ ItemContainer         Contents;
-/*0x0d0*/ ItemDefinition*       ItemDef;
-/*0x0d8*/ bool                  bRankDisabled;
-/*0x0d9*/ EqItemGuid            ItemGUID;
-/*0x0f0*/ int64_t               MerchantSlot;
-/*0x0f8*/ unsigned int          NoDropFlag;
-/*0x0fc*/ int                   ItemHash;
-/*0x100*/ unsigned int          LastCastTime;
-/*0x104*/ int                   Open;
+/*0x008*/ bool                  bCopied;
+/*0x009*/ EqItemGuid            ItemGUID;
+/*0x01c*/ int                   Unknown0x1c;
+/*0x020*/ int64_t               Price;
+/*0x028*/ int                   OrnamentationIcon;
+/*0x02c*/ int                   RealEstateID;
+/*0x030*/ int                   ID;
+/*0x034*/ bool                  bCollected;
+/*0x038*/ SoeUtil::String       SaveString;
+/*0x050*/ int                   Power;
+/*0x054*/ int                   Charges;
+/*0x058*/ int                   StackCount;
+/*0x05c*/ int                   MerchantQuantity;
+/*0x060*/ bool                  bConvertable;
+/*0x064*/ unsigned int          ItemHash;
+/*0x068*/ int                   MerchantSlot;
+/*0x070*/ int64_t               DontKnow;
+/*0x078*/ int                   Unknown0x78;
+/*0x07c*/ int                   Unknown0x7c;
+/*0x080*/ ItemContainer         Contents;
+/*0x0a8*/ int                   ScriptIndex;
+/*0x0ac*/ uint32_t              Unknown_0x0ac;
+/*0x0b0*/ ItemDefinition*       ItemDef;
+/*0x0b8*/ ItemGlobalIndex       GlobalIndex;
+/*0x0c4*/ uint8_t               Unknown_0x0c4;
+/*0x0c8*/ ItemEvolutionDataPtr  pEvolutionData;
+/*0x0d8*/ int                   AugFlag;
+/*0x0dc*/ unsigned int          NewArmorID;
+/*0x0e0*/ unsigned int          Luck;
+/*0x0e4*/ bool                  bDisableAugTexture;
+/*0x0e8*/ int                   Open;
+/*0x0ec*/ int                   NoDropFlag;
+/*0x0f0*/ int                   NoteStatus;
+/*0x0f4*/ int                   ConvertItemID;
+/*0x0f8*/ unsigned int          LastCastTime;
+/*0x0fc*/ uint8_t               Unknown_0x0fc;
+/*0x100*/ int                   ActorTag1;
+/*0x104*/ int                   ActorTag2;
 /*0x108*/
 // @end: ItemBase Members
-
 
 	EQLIB_OBJECT ItemBase();
 
@@ -1213,8 +1209,8 @@ public:
 	// Convertible Item and Collection fields
 	bool IsCollected() const { return bCollected; }
 	bool IsConvertible() const { return bConvertable; }
-	int GetConvertItemID() const { return 0; }
-	CXStr GetConvertItemName() const { return CXStr(); }
+	int GetConvertItemID() const { return GetItemDefinition()->ConvertItemID; }
+	CXStr GetConvertItemName() const { return GetItemDefinition()->ConvertItemName; }
 
 	// Luck Accessors
 	int GetLuck() const { return Luck; }
@@ -1262,7 +1258,7 @@ public:
 	__declspec(property(get = get_Item2)) ItemDefinition* Item2;
 };
 
-constexpr size_t ItemClient_size = 0x120; // @sizeof(ItemClient) :: 2026-04-07 (test) @ 0x1401EB1B9
+constexpr size_t ItemClient_size = 0x120; // @sizeof(ItemClient) :: 2026-04-30 (live) @ 0x1401ebae9
 
 class [[offsetcomments]] ItemClient : public ItemBase
 {

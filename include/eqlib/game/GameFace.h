@@ -136,16 +136,17 @@ public:
 	virtual void Unknown0x388();
 	virtual void Unknown0x390(const CXRect& rect);
 
-/*0x2d0*/ UIScreenComponent                                 WindowComponent;
-/*0x378*/ eqstd::unordered_map<eqstd::string, UIComponent*> ChildComponents;
-/*0x3b8*/
+/*0x2c0*/ UIScreenComponent                                 WindowComponent;
+/*0x368*/ eqstd::unordered_map<eqstd::string, UIComponent*> ChildComponents;
+/*0x3a8*/
 
 	struct [[offsetcomments]] VirtualFunctionTable : public CSidlScreenWnd::VirtualFunctionTable
 	{
 	/*0x380*/ void* HandleJsEvent;  // Probably something like HandleJSEvent
 	/*0x388*/ void* Unknown0x388;
 	/*0x390*/ void* Unknown0x390;   // Probably Center()
-	/*0x398*/ };
+	/*0x398*/
+	};
 
 	// Returns the current instance of this class's vftable. Might represent some other
 	// inherited class (and not CSidlScreenWnd's)

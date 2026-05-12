@@ -301,11 +301,12 @@ ItemBase::ItemBase()
 {
 	ScriptIndex = 0;
 	bCollected = false;
-	bRankDisabled = false;
-	bDisableAugTexture = false;
+//	bRankDisabled = false;
+//	bDisableAugTexture = false;
 	Luck = 0;
 	ID = 0;
 	MerchantSlot = 0;
+//	ConvertItemID = 0;
 	DontKnow = 0;
 	NoDropFlag = 0;
 	LastCastTime = 0;
@@ -313,14 +314,13 @@ ItemBase::ItemBase()
 	ItemHash = 0;
 	StackCount = 1;
 	OrnamentationIcon = 0;
-	MerchantQuantity = 0;
-	bItemNeedsUpdate = false;
+	MerchantQuantity = 1;
+//	bItemNeedsUpdate = false;
 	Price = 0;
 	Open = 0;
-	NoteStatus = 0;
 	bConvertable = false;
-	Tint = 0;
-	ArmorType = 0;
+//	Tint = 0;
+//	ArmorType = 0;
 	AugFlag = 0;
 	NewArmorID = 0;
 	RealEstateID = -1;
