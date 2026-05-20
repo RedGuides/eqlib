@@ -108,7 +108,7 @@ class [[offsetcomments]] UIInvSlotComponent
 {
 public:
 /*0x00*/ eqstd::string name;
-/*0x20*/ eqstd::string fullName;
+/*0x20*/ eqstd::string fullName;    // itemPath?
 /*0x40*/ eqstd::string modelPrefix;
 /*0x60*/ CInvSlotWnd*  target;
 /*0x68*/ int           i32_68;   // -2

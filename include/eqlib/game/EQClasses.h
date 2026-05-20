@@ -710,7 +710,7 @@ public:
 /*0x198*/ uint64_t           ZoneFlags;
 /*0x1a0*/ int                eqstrID;
 /*0x1a4*/ uint8_t            AccessLevel;
-/*0x1a8*/ int                MinLevel;
+/*0x1a8*/ int                MinLevel;      // the level each class gains this skill
 /*0x1ac*/ int                CurPlayerCount;
 /*0x1b0*/ int                MaxPlayerCount;
 /*0x1b4*/ uint16_t           NextInstanceID;
@@ -725,7 +725,7 @@ public:
 /*0x1d8*/
 };
 
-constexpr size_t EQWorldData_size = 0x1F88; // @sizeof(EQWorldData) :: 2026-04-30 (live) @ 0x14026df66
+constexpr size_t EQWorldData_size = 0x1F88; // @sizeof(EQWorldData) :: 2026-05-11 (test) @ 0x14026e586
 
 class [[offsetcomments]] EQWorldData
 {
@@ -1229,7 +1229,7 @@ using SKILL = EQ_Skill;
 using PSKILL = EQ_Skill*;
 
 
-constexpr size_t SkillManager_size = 0x399C80; // @sizeof(SkillManager) :: 2026-04-30 (live) @ 0x14026e0a6
+constexpr size_t SkillManager_size = 0x399C80; // @sizeof(SkillManager) :: 2026-05-11 (test) @ 0x14026e6c6
 
 class [[offsetcomments]] SkillManager
 {

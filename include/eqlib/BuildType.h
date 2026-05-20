@@ -20,7 +20,7 @@
 
 // Do not change this value. This value identifies the version of the client
 // that this branch of code is designed to work with.
-#define LIVE
+#define TEST
 
 
 //----------------------------------------------------------------------------

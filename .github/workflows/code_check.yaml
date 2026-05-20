@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - live
+      - emu
       - test
 
 concurrency:
@@ -12,7 +13,7 @@ concurrency:
 
 jobs:
   check:
-    if: github.repository == 'redguides/eqlib'
+    if: github.repository == 'macroquest/eqlib'
     runs-on: windows-latest
     steps:
       - name: Check out code

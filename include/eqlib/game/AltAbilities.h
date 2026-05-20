@@ -35,7 +35,7 @@ struct AltAbilityEffectData
 	int slot;
 };
 
-constexpr size_t CAltAbilityData_size = 0xE0; // @sizeof(CAltAbilityData) :: 2026-04-30 (live) @ 0x14021e14d
+constexpr size_t CAltAbilityData_size = 0xE0; // @sizeof(CAltAbilityData) :: 2026-05-11 (test) @ 0x14021e2cd
 
 class [[offsetcomments]] CAltAbilityData
 {
@@ -55,8 +55,8 @@ public:
 /*0x04*/ bool                bShowInAbilityWindow;               // [0] = enabled flag? everything 1
 /*0x08*/ int                 nShortName;
 /*0x0c*/ int                 nShortName2;
-/*0x10*/ int                 nName;
-/*0x14*/ int                 nDesc;
+/*0x10*/ int                 nName;                    // eMercenaryAbilityName
+/*0x14*/ int                 nDesc;                    // eMercenaryAbilityDescription
 /*0x18*/ int                 MinLevel;                           // LevelNeeded
 /*0x1c*/ int                 Cost;                               // Initial Cost or cost the last time you bought a level of it
 /*0x20*/ int                 GroupID;                            // ID of the AA group (/alt activate id)
