@@ -80,7 +80,7 @@ public:
 
 /*0x00*/ // vtable
 /*0x08*/ uint64_t            Unknown0x08;
-/*0x10*/ uint32_t            Unknown0x10;
+/*0x10*/ uint32_t            Unknown0x10;                 // <-- seems to start here?
 /*0x14*/ uint32_t            Unknown0x14;
 /*0x18*/ uint64_t            Unknown0x18;
 /*0x20*/ uint32_t            Unknown0x20;

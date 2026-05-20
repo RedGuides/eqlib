@@ -238,7 +238,7 @@ public:
 /*0x50*/ virtual void DebugSetActorModelDisplay(EDebugActorNode) = 0;
 /*0x58*/ virtual EDebugActorNode DebugGetActorModelDisplay() = 0;
 /*0x60*/ virtual void Unknown0x60() = 0;
-/*0x68*/ virtual void Unknown0x68() = 0;
+/*0x68*/ virtual void Unknown0x68() = 0;  // Called from ObjectPreviewView::CleanUp, ObjectPreviewView::OnResetDevice
 /*0x70*/ virtual void Unknown0x70() = 0;
 /*0x78*/ virtual void Unknown0x78() = 0;
 /*0x80*/ virtual void Unknown0x80() = 0;
