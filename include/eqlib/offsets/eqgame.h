@@ -244,7 +244,7 @@
 
 // CBarterSearchWnd
 #define CBarterSearchWnd__WndNotification_x                        0x14038B2E0
-#define CBarterSearchWnd__UpdateInventoryList_x                    0x14038F080
+#define CBarterSearchWnd__UpdateInventoryList_x                    0x14038A350
 
 // CBazaarSearchWnd
 #define CBazaarSearchWnd__HandleSearchResults_x                    0x140391E80
