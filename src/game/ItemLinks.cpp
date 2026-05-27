@@ -337,7 +337,7 @@ bool ParseSpellLink(std::string_view link, SpellLinkInfo& linkInfo)
 		return false;
 
 	data += 2;
-	sscanf_s(data, "%d^%d^", &linkInfo.spellID, &linkInfo.unknown);
+	sscanf_s(data, "%d^%d^", &linkInfo.spellID, &linkInfo.castAsLevel);
 
 	return true;
 }
