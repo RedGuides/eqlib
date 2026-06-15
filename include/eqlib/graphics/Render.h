@@ -388,16 +388,16 @@ class [[offsetcomments]] CRender : public CRenderInterface
 {
 public:
 /*0x0000*/ //vftable
-/*0x0008*/ uint64_t                  Unknown0x8;
-/*0x0010*/ SDevice                   aDevices[16];
-/*0x0e50*/ int                       nDeviceCount;
+/*0x0008*/ SDevice                   aDevices[16];
+/*0x0e48*/ int                       nDeviceCount;
+/*0x0e50*/ uint64_t                  Unknown0xe50;
 /*0x0e58*/ SDevice*                  pCurrentDevice;
 /*0x0e60*/ bool                      bDeviceInitialized;
 /*0x0e64*/ D3DFORMAT                 adapterFormat;
-/*0x0e68*/ int                       Unknown0xe64;
-/*0x0e6c*/ int                       Unknown0xe68;
-/*0x0e70*/ int                       Unknown0xe6c;
-/*0x0e74*/ int                       Unknown0xe70;
+/*0x0e68*/ int                       Unknown0xe60;
+/*0x0e6c*/ int                       Unknown0xe64;
+/*0x0e70*/ int                       Unknown0xe68;
+/*0x0e74*/ int                       Unknown0xe6c;
 /*0x0e78*/ int                       nDisplayWidth;
 /*0x0e7c*/ int                       nDisplayHeight;
 /*0x0e80*/ int                       nDisplayDepth;
@@ -424,7 +424,7 @@ public:
 /*0x0ee7*/ bool                      bUse1PassTechniques;
 /*0x0ee8*/ uint32_t                  uTotalTextureMemory;
 /*0x0eec*/ int                       nTextureQuality;
-/*0x0ef0*/ uint64_t                  Unknown0xef0;
+/*0x0ef0*/ uint64_t                  unknown0xee8;
 /*0x0ef8*/ HWND                      hWnd;
 /*0x0f00*/ Direct3D9*                pDirect3D;             // "CRender::InitDevice: Direct3DCreate9 failed.\n"
 /*0x0f08*/ Direct3DDevice9*          pD3DDevice;            // "Failed to create device with error %X.\n"
