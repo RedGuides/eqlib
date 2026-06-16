@@ -356,7 +356,7 @@
 #define CEverQuest__GetLangDesc_x                          0x1406727F0
 #define CEverQuest__GetRaceDesc_x                          0x1402856F0
 #define CEverQuest__InterpretCmd_x                         0x140287330
-#define CEverQuest__LeftClickedOnPlayer_x                  0x14049BD50
+#define CEverQuest__LeftClickedOnPlayer_x                  0x14029CDA0
 #define CEverQuest__LMouseUp_x                             0x140288E40
 #define CEverQuest__RightClickedOnPlayer_x                 0x14029A140
 #define CEverQuest__RMouseUp_x                             0x1402937E0

@@ -587,7 +587,9 @@ public:
 /*0x4f6*/ uint8_t                  FindBits;
 /*0x4f7*/ uint8_t                  Light;
 /*0x4f8*/ CharacterZoneClient*     pCharacter;
-/*0x500*/ uint8_t                  _pad_500[0x4c];
+/*0x500*/ uint8_t                  _pad_500[0x4];
+/*0x504*/ unsigned int             SpellGemETA[15];
+/*0x540*/ uint8_t                  _pad_540[0xc];
 /*0x54c*/ bool                     Linkdead;
 /*0x54d*/ uint8_t                  _pad_54d[3];
 /*0x550*/ int                      Trader;
@@ -602,7 +604,7 @@ public:
 /*0x57c*/ float                    AnimationSpeedRelated;
 /*0x580*/ unsigned int             LastTimeStoodStill;
 /*0x584*/ CPhysicsInfo             LastCollision;
-/*0x5b4*/ unsigned int             SpellGemETA[15];
+/*0x5b4*/ uint8_t                  Unknown0x5b4[0x3c];
 /*0x5f0*/ PlayerClient*            pViewPlayer;
 /*0x5f8*/ int                      Unknown0x3a0;
 /*0x5fc*/ int                      ManaMax;
@@ -611,7 +613,7 @@ public:
 /*0x608*/ unsigned int             HibernatingCount;
 /*0x60c*/ uint8_t                  InPvPArea;
 /*0x60d*/ uint8_t                  Unknown0x60d[3];
-/*0x610*/ unsigned int             SitStartTime;
+/*0x610*/ unsigned int             SpellCooldownETA;
 /*0x614*/ unsigned int             StunTimer;
 /*0x618*/ unsigned int             LastMealTime;
 /*0x61c*/ float                    RunSpeed;
@@ -622,7 +624,7 @@ public:
 /*0x630*/ unsigned int             MasterID;
 /*0x634*/ int                      NpcTintIndex;
 /*0x638*/ unsigned int             LastRangedUsedTime;
-/*0x63c*/ unsigned int             SpellCooldownETA;
+/*0x63c*/ unsigned int             Unknown0x63c;
 /*0x640*/ unsigned int             LoginSerial;
 /*0x644*/ unsigned int             TimeStamp;
 /*0x648*/ float                    MyWalkSpeed;
