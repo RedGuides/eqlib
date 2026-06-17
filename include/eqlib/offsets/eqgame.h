@@ -215,7 +215,7 @@
 #define CharacterZoneClient__GetFocusDurationMod_x                 0x1400D16A0
 #define CharacterZoneClient__GetHPRegen_x                          0x1400F86C0
 #define CharacterZoneClient__GetItemCountInInventory_x             0x1400F0B50
-#define CharacterZoneClient__GetItemCountWorn_x                    0x1400F7810
+#define CharacterZoneClient__GetItemCountWorn_x                    0x1400F9240
 #define CharacterZoneClient__GetLastEffectSlot_x                   0x1400E0220
 #define CharacterZoneClient__GetManaRegen_x                        0x1400F9F30
 #define CharacterZoneClient__GetModCap_x                           0x140101530
@@ -903,9 +903,6 @@
 
 // CTargetManager
 #define CTargetManager__Get_x                                      0x140349790
-
-// RealEstateManagerClient
-#define RealEstateManagerClient__Instance_x                        0x1403370F0
 
 // KeyCombo
 #define KeyCombo__GetTextDescription_x                             0x1405C3690
