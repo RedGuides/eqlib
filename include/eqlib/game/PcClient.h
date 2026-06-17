@@ -182,7 +182,7 @@ private:
 	void ClearRoles();
 };
 
-constexpr size_t CGroupMember_size = 0x68; // @sizeof(CGroupMember) :: 2026-04-30 (live) @ 0x1402e788a
+constexpr size_t CGroupMember_size = 0x68; // @sizeof(CGroupMember) :: 2026-05-11 (test) @ 0x1402ce7ed
 
 class [[offsetcomments]] CGroupMember : public CGroupMemberBase
 {
@@ -1490,7 +1490,7 @@ public:
 /*0x21bc*/ bool                                  bPrivateForEqPlayers; // -684 !
 /*0x21c0*/ long                                  AchievementFilesModificationTime;
 /*0x21c4*/ char                                  StationID[EQ_MAX_STATION_ID];
-/*0x21e8*/ EqGuid                                Guid;
+/*0x21e8*/ EqGuid                                Guid;     // 2388
 /*0x21f0*/ bool                                  bBetaBuffed;
 /*0x21f4*/ int                                   Unknown0x1ee4;
 /*0x21f8*/ int                                   MainLevel;
@@ -1680,8 +1680,7 @@ public:
 	int GetDeityBitmask() const { return 1 << (GetDeityReal() - 1); }
 };
 
-constexpr size_t PcClient_size = 0x3298; // @sizeof(PcClient) :: 2026-04-30 (live) @ 0x14028d85b
-
+constexpr size_t PcClient_size = 0x3358;
 class [[offsetcomments]] PcClient : public PcZoneClient
 {
 	// has a vftable but we get it from PcZoneClient
@@ -1701,7 +1700,8 @@ public:
 /*0x2ee0*/ short                                 BaseKeyRingSlots[eKeyRingTypeCount];
 /*0x2eee*/ bool                                  bPickZoneFewest;
 /*0x2ef0*/ int                                   Unknown0x28a4;                // used in CContainerWnd::HandleCombine
-/*0x2ef4*/
+/*0x2ef4*/ uint8_t                               Unknown0x2ef4[0xC0];          // pad before virtual base CharacterBase
+/*0x2fb4*/
 
 	ALT_MEMBER_GETTER(ExtendedTargetList*, pExtendedTargetList, pXTargetMgr);  // cannot be null
 	ALT_MEMBER_GETTER(uint32_t, DowntimeStart, DowntimeStamp);

@@ -302,13 +302,14 @@ ItemBase::ItemBase()
 	ScriptIndex = 0;
 	bCollected = false;
 //	bRankDisabled = false;
-//	bDisableAugTexture = false;
+	bDisableAugTexture = false;
 	Luck = 0;
 	ID = 0;
 	MerchantSlot = 0;
-//	ConvertItemID = 0;
+	ConvertItemID = 0;
 	DontKnow = 0;
 	NoDropFlag = 0;
+	NoteStatus = 0;
 	LastCastTime = 0;
 	Power = 0;
 	ItemHash = 0;

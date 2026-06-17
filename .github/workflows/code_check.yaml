@@ -12,11 +12,11 @@ concurrency:
 
 jobs:
   check:
-    if: github.repository == 'redguides/eqlib'
+    if: startsWith(github.repository, 'redguides/eqlib')
     runs-on: windows-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
         with:
           fetch-depth: '1'
 
