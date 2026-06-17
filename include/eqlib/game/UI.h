@@ -6251,7 +6251,7 @@ public:
 /*0x3a0*/ bool               bFailed;
 /*0x3a4*/ ESpellDisplayType  SpellDisplayType;
 /*0x3a8*/ int                SpellID;
-/*0x3ac*/ int                Unknown;                   // Used in 3rd param of spell tag string %d
+/*0x3ac*/ int                CastAsLevel;               // Used in 3rd param of spell tag string %d
 /*0x3b0*/ int                LastUpdateTime;
 /*0x3b4*/
 };
