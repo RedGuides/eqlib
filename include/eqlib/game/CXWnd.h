@@ -251,7 +251,7 @@ public:
 // CXWnd
 //============================================================================
 
-constexpr size_t CXWnd_size = 0x268; // @sizeof(CXWnd) :: 2026-05-22 (live) @ 0x1405D8506
+constexpr size_t CXWnd_size = 0x268; // @sizeof(CXWnd) :: 2026-06-11 (live) @ 0x1405DA226
 constexpr size_t CXWnd_vftable_size = 0x348;
 
 class [[offsetcomments]] CXWnd
@@ -873,7 +873,7 @@ enum eIniFlags
 	eIniFlag_All                     = 0xffffffff
 };
 
-constexpr size_t CSidlScreenWnd_size = 0x2D0; // @sizeof(CSidlScreenWnd) :: 2026-05-22 (live) @ 0x1405F7E81
+constexpr size_t CSidlScreenWnd_size = 0x2D0; // @sizeof(CSidlScreenWnd) :: 2026-06-11 (live) @ 0x1405F9AF1
 constexpr size_t CSidlScreenWnd_vftable_size = 0x380;
 
 class [[offsetcomments]] CSidlScreenWnd : public CXWnd
@@ -1178,7 +1178,7 @@ public:
 // CEQXWndManager
 //============================================================================
 
-constexpr size_t CEQXWndManager_size = 0x298; // @sizeof(CEQXWndManager) :: 2026-05-22 (live) @ 0x14019F8E5
+constexpr size_t CEQXWndManager_size = 0x298; // @sizeof(CEQXWndManager) :: 2026-06-11 (live) @ 0x1401A1BB5
 
 class [[offsetcomments]] CEQXWndManager : public CXWndManager
 {

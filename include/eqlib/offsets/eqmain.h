@@ -18,7 +18,7 @@
 // eqmain.dll offsets
 //
 
-#define EQMain__CEQSuiteTextureLoader__GetTexture_x                0x180091860
+#define EQMain__CEQSuiteTextureLoader__GetTexture_x                0x18008E6C0
 #define EQMain__CLoginViewManager__HandleLButtonUp_x               0x18001B0E0
 //#define EQMain__CXWndManager__GetCursorToDisplay_x                 0x0          // inlined into CXWndManager::DrawCursor
 #define EQMain__LoginController__GiveTime_x                        0x180016640
@@ -26,12 +26,12 @@
 #define EQMain__LoginServerAPI__JoinServer_x                       0x180018050
 #define EQMain__WndProc_x                                          0x18000C220
 
-#define EQMain__pinstCEQSuiteTextureLoader_x                       0x18017CDF0
-#define EQMain__pinstCLoginViewManager_x                           0x1801845A8
-#define EQMain__pinstCXWndManager_x                                0x180387598
-#define EQMain__pinstCSidlManager_x                                0x1803875A0
-#define EQMain__pinstLoginController_x                             0x1801845B0
-#define EQMain__pinstLoginServerAPI_x                              0x180184590
+#define EQMain__pinstCEQSuiteTextureLoader_x                       0x180176DF0
+#define EQMain__pinstCLoginViewManager_x                           0x18017E4F8
+#define EQMain__pinstCXWndManager_x                                0x1803814C8
+#define EQMain__pinstCSidlManager_x                                0x1803814D0
+#define EQMain__pinstLoginController_x                             0x18017E500
+#define EQMain__pinstLoginServerAPI_x                              0x18017E4E0
 
 #if __has_include("../../../../private/eqmain-private.h")
 #include "../../../../private/eqmain-private.h"
