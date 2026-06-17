@@ -549,7 +549,7 @@ public:
 /*0x36e*/ char                     DragNames[2][0x40];
 /*0x3ee*/ uint8_t                  FD;
 /*0x3ef*/ uint8_t                  Unknown0x3ef;
-/*0x3f0*/ bool                     Mercenary;
+/*0x3f0*/ uint8_t                  Unknown0x3f0;
 /*0x3f1*/ bool                     bSummoned;
 /*0x3f2*/ uint8_t                  GMRank;
 	// is-GM is GMRank != 0; GM aliases GMRank below. Read-only accessor (MQ never writes GM).
@@ -838,6 +838,8 @@ public:
 /*0x1374*/ unsigned int      LastParticleUpdateTime;
 /*0x1378*/ unsigned int      MercID;                       // if the spawn is player and has a merc up this is it's spawn ID
 /*0x137c*/ unsigned int      ContractorID;                 // if the spawn is a merc this is its contractor's spawn ID
+	bool getter_Mercenary() const { return ContractorID != 0; }
+	__declspec(property(get = getter_Mercenary)) bool Mercenary;
 /*0x1380*/ float             CeilingHeightAtCurrLocation;
 /*0x1388*/ EqMobileEmitter*  MobileEmitter;
 /*0x1390*/ bool              bInstantHPGaugeChange;
