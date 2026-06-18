@@ -1720,35 +1720,38 @@ enum eAdvLootStatus
 struct [[offsetcomments]] AdvancedLootItem
 {
 /*0x00*/ int64_t              ItemID;                   // EqGuid?
-/*0x08*/ char                 Name[0x40];
-/*0x48*/ int                  IconID;
-/*0x4c*/ bool                 bStackable;
-/*0x50*/ int                  MaxStack;
-/*0x54*/ bool                 NoDrop;
-/*0x58*/ int                  ComboID;
-/*0x5c*/ unsigned int         LootID;
-/*0x60*/ eAdvLootState        State;
-/*0x64*/ eAdvLootStatus       Status;
-/*0x68*/ bool                 bAutoRoll;
-/*0x69*/ bool                 ActivelyManaged;          // User has the manage Window up
-/*0x6a*/ bool                 ContextMenu;              // item has a context menu
-/*0x6b*/ bool                 AskRandomMode;            // item is in AskRandom mode
-/*0x6c*/ bool                 CLootInProgress;
-/*0x6d*/ bool                 PLootInProgress;
-/*0x70*/ SoeUtil::Array<AdvancedLootItemNPC> LootDetails;
-/*0x88*/ unsigned int         AskTimer;
-/*0x8c*/ bool                 AutoRoll;
-/*0x8d*/ bool                 FG;
-/*0x8e*/ bool                 Need;
-/*0x8f*/ bool                 Greed;
-/*0x90*/ bool                 No;
-/*0x91*/ bool                 AlwaysNeed;
-/*0x92*/ bool                 AlwaysGreed;
-/*0x93*/ bool                 Never;
-/*0x98*/ uint64_t             Unk0;
-/*0xa0*/ uint64_t             Unk1;
-/*0xa8*/
+/*0x08*/ uint8_t              Unknown0x08[0x8];
+/*0x10*/ char                 Name[0x40];
+/*0x50*/ int                  IconID;
+/*0x54*/ bool                 bStackable;
+/*0x58*/ int                  MaxStack;
+/*0x5c*/ bool                 NoDrop;
+/*0x60*/ int                  ComboID;
+/*0x64*/ unsigned int         LootID;
+/*0x68*/ eAdvLootState        State;
+/*0x6c*/ eAdvLootStatus       Status;
+/*0x70*/ bool                 bAutoRoll;
+/*0x71*/ bool                 ActivelyManaged;          // User has the manage Window up
+/*0x72*/ bool                 ContextMenu;              // item has a context menu
+/*0x73*/ bool                 AskRandomMode;            // item is in AskRandom mode
+/*0x74*/ bool                 CLootInProgress;
+/*0x75*/ bool                 PLootInProgress;
+/*0x78*/ SoeUtil::Array<AdvancedLootItemNPC> LootDetails;
+/*0x90*/ unsigned int         AskTimer;
+/*0x94*/ bool                 AutoRoll;
+/*0x95*/ bool                 FG;
+/*0x96*/ bool                 Need;
+/*0x97*/ bool                 Greed;
+/*0x98*/ bool                 No;
+/*0x99*/ bool                 AlwaysNeed;
+/*0x9a*/ bool                 AlwaysGreed;
+/*0x9b*/ bool                 Never;
+/*0xa0*/ uint64_t             Unk0;
+/*0xa8*/ uint64_t             Unk1;
+/*0xb0*/ uint8_t              Unknown0xb0[0x8];
+/*0xb8*/
 };
+SIZE_CHECK(AdvancedLootItem, 0xb8);
 
 inline namespace deprecated {
 	using LOOTITEM DEPRECATE("Use AdvancedLootItem instead of LOOTITEM") = AdvancedLootItem;
