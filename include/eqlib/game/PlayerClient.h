@@ -528,7 +528,7 @@ public:
 /*0x24c*/ LaunchSpellData          CastingData;
 /*0x290*/ unsigned int             Unknown0x290;
 /*0x294*/ unsigned int             LastSecondaryUseTime;
-/*0x298*/ float                    GetMeleeRangeVar1;
+/*0x298*/ unsigned int             MasterID;
 /*0x29c*/ unsigned int             LastResendAddPlayerPacket;
 /*0x2a0*/ int64_t                  GuildID;
 /*0x2a8*/ char                     Title[0x10];
@@ -623,7 +623,7 @@ public:
 /*0x628*/ bool                     Sneak;
 /*0x629*/ uint8_t                  Unknown0x629[3];
 /*0x62c*/ int                      DoSpecialMelee;
-/*0x630*/ unsigned int             MasterID;
+/*0x630*/ unsigned int             Unknown0x630;
 /*0x634*/ int                      NpcTintIndex;
 /*0x638*/ unsigned int             LastRangedUsedTime;
 /*0x63c*/ unsigned int             Unknown0x63c;
@@ -653,7 +653,7 @@ public:
 /*0x0fe0*/ ActorClient              mActorClient;
 /*0x11f0*/ PlayerAnimationBase*     pAnimation;
 /*0x11f8*/ float                    MeleeRadius;                        // used by GetMeleeRange
-/*0x11fc*/ unsigned int             Unknown0x11d4;
+/*0x11fc*/ float                    GetMeleeRangeVar1;
 /*0x1200*/ unsigned int             CollisionCounter;
 /*0x1204*/ float                    CachedCeilingLocationY;
 /*0x1208*/ float                    CachedCeilingLocationX;
