@@ -563,7 +563,9 @@ public:
 /*0x3f8*/ float                    FallingStartZ;
 /*0x3fc*/ bool                     LFG;
 /*0x3fd*/ uint8_t                  Level;
-/*0x3fe*/ char                     DraggingPlayer[0x40];
+/*0x3fe*/ uint8_t                  Unknown0x3fe[0x2];
+/*0x400*/ int                      PetID;
+/*0x404*/ uint8_t                  Unknown0x404[0x3a];
 /*0x43e*/ uint8_t                  Unknown0x43e;
 /*0x43f*/ uint8_t                  TitleVisible;
 /*0x440*/ uint8_t                  CharClass;
@@ -597,7 +599,7 @@ public:
 /*0x560*/ void*                    pTouchingSwitch;
 /*0x568*/ unsigned int             LastRefresh;
 /*0x56c*/ int                      Unknown0x1d8;
-/*0x570*/ int                      PetID;
+/*0x570*/ int                      Unknown0x570;
 /*0x574*/ unsigned int             CorpseDragCount;
 /*0x578*/ bool                     Buyer;                  // 1-byte flag
 /*0x579*/ uint8_t                  Unknown_0x579[3];
