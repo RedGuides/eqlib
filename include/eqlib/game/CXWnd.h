@@ -744,7 +744,7 @@ public:
 /*0x048*/ int                               VScrollMax;
 /*0x04c*/ bool                              bEscapable;           // CloseOnESC aliases this
 /*0x04d*/ uint8_t                           _pad_4d[0x3];
-/*0x050*/ CXStr                             WindowText;
+/*0x050*/ CXStr                             Tooltip;
 /*0x058*/ bool                              bClientRectChanged;
 /*0x059*/ bool                              bFullyScreenClipped;
 /*0x05a*/ bool                              bEnableShowBorder;
@@ -766,7 +766,7 @@ public:
 /*0x084*/ CXRect                            IconRect;
 /*0x094*/ uint32_t                          LastBlinkFadeRefreshTime;
 /*0x098*/ int64_t                           Data;
-/*0x0a0*/ CXStr                             Tooltip;
+/*0x0a0*/ CXStr                             XMLToolTip;
 /*0x0a8*/ uint32_t                          TransitionDuration;
 /*0x0ac*/ uint32_t                          LastTimeMouseOver;
 /*0x0b0*/ CStaticTintedBlendAnimationTemplate* TitlePiece2;
@@ -836,7 +836,7 @@ public:
 /*0x1c4*/ CXRect                            ClipRectScreen;
 /*0x1d4*/ bool                              bIsTransitioning;
 /*0x1d5*/ uint8_t _pad_1d5[0x3];
-/*0x1d8*/ CXStr                             XMLToolTip;
+/*0x1d8*/ CXStr                             WindowText;
 /*0x1e0*/ uint8_t _pad_1e0[0x8];
 /*0x1e8*/ CTextObjectInterface*             pTextObject;
 /*0x1f0*/ uint8_t _pad_1f0[0x8];
