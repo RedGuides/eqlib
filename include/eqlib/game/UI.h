@@ -1720,7 +1720,7 @@ enum eAdvLootStatus
 struct [[offsetcomments]] AdvancedLootItem
 {
 /*0x00*/ int64_t              ItemID;                   // EqGuid?
-/*0x08*/ void*                Unknown_0x08;
+/*0x08*/ uint8_t              Unknown0x08[0x8];
 /*0x10*/ char                 Name[0x40];
 /*0x50*/ int                  IconID;
 /*0x54*/ bool                 bStackable;
@@ -1748,9 +1748,10 @@ struct [[offsetcomments]] AdvancedLootItem
 /*0x9b*/ bool                 Never;
 /*0xa0*/ uint64_t             Unk0;
 /*0xa8*/ uint64_t             Unk1;
-/*0xb0*/ uint64_t             Unknown_0xb0;
+/*0xb0*/ uint8_t              Unknown0xb0[0x8];
 /*0xb8*/
 };
+SIZE_CHECK(AdvancedLootItem, 0xb8);
 
 inline namespace deprecated {
 	using LOOTITEM DEPRECATE("Use AdvancedLootItem instead of LOOTITEM") = AdvancedLootItem;
