@@ -23,6 +23,7 @@
 #include "eqlib/game/Requirements.h"
 #include "eqlib/game/Types.h"
 #include "eqstd/map.h"
+#include "eqstd/vector.h"
 
 namespace eqlib {
 
