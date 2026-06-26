@@ -13,9 +13,9 @@ concurrency:
 jobs:
   merge-upstream:
     if: github.repository == 'redguides/eqlib'
-    runs-on: [fast, self-hosted, Windows, X64]
+    runs-on: ubuntu-latest
     env:
-      REPO_DIR: C:\actions-runner\repos\eqlib
+      REPO_DIR: ${{ runner.temp }}/eqlib
       RG_SYNC_PAT: ${{ secrets.RG_SYNC_PAT }}
     steps:
       - name: Merge macroquest/eqlib (except live, test)
