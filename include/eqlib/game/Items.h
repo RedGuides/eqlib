@@ -1074,47 +1074,47 @@ class [[offsetcomments]] ItemBase : public IChildItemContainer
 {
 public:
 // @start: ItemBase Members
-/*0x008*/ int                   Unknown_0x008;
-/*0x00c*/ int                   StackCount;            // number in the stack
-/*0x010*/ int                   OrnamentationIcon;     // icon override returned by GetImageNum
-/*0x014*/ int                   Unknown_0x014;
-/*0x018*/ ItemGlobalIndex       GlobalIndex;           // Location + ItemIndex
-/*0x024*/ int                   ID;                    // matches ItemDef->ID
-/*0x028*/ int                   RealEstateID;
-/*0x02c*/ bool                  bConvertable;
-/*0x02d*/ uint8_t               Unknown_0x02d[3];
-/*0x030*/ int64_t               DontKnow;
-/*0x038*/ int                   NoteStatus;
-/*0x03c*/ int                   Power;                 // power-source capacity
-/*0x040*/ uint32_t              ItemHash;
+/*0x008*/ ItemGlobalIndex       GlobalIndex;           // Location + ItemIndex (verified @0x08)
+/*0x014*/ int                   OrnamentationIcon;     // icon override returned by GetImageNum
+/*0x018*/ bool                  bConvertable;
+/*0x019*/ uint8_t               Unknown_0x019[7];
+/*0x020*/ SoeUtil::String       ClientString;          // verified @0x20
+/*0x038*/ int                   ID;                    // matches ItemDef->ID (verified @0x38)
+/*0x03c*/ int                   RealEstateID;
+/*0x040*/ int                   NoteStatus;
 /*0x044*/ int                   NoDropFlag;
-/*0x048*/ int                   ConvertItemID;
-/*0x04c*/ int                   AugFlag;
-/*0x050*/ unsigned int          NewArmorID;
-/*0x054*/ int                   LastCastTime;
-/*0x058*/ int                   ScriptIndex;
-/*0x05c*/ bool                  bCopied;
-/*0x05d*/ uint8_t               Unknown_0x05d[3];
-/*0x060*/ int                   Open;                  // item charges (aliased as Charges below)
-/*0x064*/ int                   Unknown_0x064;
-/*0x068*/ ItemEvolutionDataPtr  pEvolutionData;
-/*0x078*/ SoeUtil::String       ClientString;
+/*0x048*/ bool                  bCopied;
+/*0x049*/ bool                  bCollected;
+/*0x04a*/ uint8_t               Unknown_0x04a[6];
+/*0x050*/ ItemContainer         Contents;              // verified @0x50 (0x28)
+/*0x078*/ int                   MerchantQuantity;      // -1 if unlimited
+/*0x07c*/ uint8_t               Unknown_0x07c[4];
+/*0x080*/ int64_t               DontKnow;
+/*0x088*/ int                   ConvertItemID;
+/*0x08c*/ uint8_t               Unknown_0x08c[4];
 /*0x090*/ uint64_t              Unknown_0x090;
-/*0x098*/ int                   MerchantSlot;          // merchant-item guard; true slot is in GlobalIndex
-/*0x09c*/ unsigned int          Luck;
-/*0x0a0*/ int                   Unknown_0x0a0;
-/*0x0a4*/ uint32_t              bDisableAugTexture;
-/*0x0a8*/ ItemContainer         Contents;
-/*0x0d0*/ ItemDefinition*       ItemDef;
-/*0x0d8*/ bool                  bCollected;
-/*0x0d9*/ EqItemGuid            ItemGUID;              // char[18]
-/*0x0eb*/ uint8_t               Unknown_0x0eb[5];
-/*0x0f0*/ int64_t               Price;                 // merchant price in copper
-/*0x0f8*/ int                   Unknown_0x0f8;
-/*0x0fc*/ int                   MerchantQuantity;      // -1 if unlimited
-/*0x100*/ uint8_t               ActorTag1;
-/*0x101*/ uint8_t               Unknown_0x101[3];
-/*0x104*/ int                   ActorTag2;
+/*0x098*/ ItemDefinition*       ItemDef;               // bare-ItemBase def; ItemClient uses SharedItemDef
+/*0x0a0*/ EqItemGuid            ItemGUID;              // char[18] (verified @0xa0)
+/*0x0b2*/ uint8_t               Unknown_0x0b2[2];
+/*0x0b4*/ int                   AugFlag;
+/*0x0b8*/ uint32_t              ItemHash;
+/*0x0bc*/ int                   Open;                  // item charges (aliased as Charges below) (verified @0xbc)
+/*0x0c0*/ unsigned int          NewArmorID;
+/*0x0c4*/ int                   LastCastTime;
+/*0x0c8*/ int                   ScriptIndex;
+/*0x0cc*/ int                   StackCount;            // number in the stack (verified @0xcc)
+/*0x0d0*/ int64_t               Price;                 // merchant price in copper
+/*0x0d8*/ int                   MerchantSlot;          // merchant-item guard; true slot is in GlobalIndex
+/*0x0dc*/ unsigned int          Luck;
+/*0x0e0*/ uint32_t              bDisableAugTexture;
+/*0x0e4*/ uint8_t               ActorTag1;
+/*0x0e5*/ uint8_t               Unknown_0x0e5[3];
+/*0x0e8*/ ItemEvolutionDataPtr  pEvolutionData;        // verified @0xe8 (0x10)
+/*0x0f8*/ uint8_t               Unknown_0x0f8;
+/*0x0f9*/ uint8_t               Unknown_0x0f9[3];
+/*0x0fc*/ int                   ActorTag2;
+/*0x100*/ int                   Unknown_0x100;
+/*0x104*/ int                   Power;                 // power-source current (verified @0x104)
 /*0x108*/
 // @end: ItemBase Members
 
