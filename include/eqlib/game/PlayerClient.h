@@ -501,7 +501,8 @@ public:
 /*0x244*/ int                      Unknown0x1e8;
 /*0x248*/ int                      CurrIOState;
 /*0x24c*/ int                      Unknown0x1f0;
-/*0x250*/ void*                    pRaceGenderInfo;
+/*0x250*/ uint8_t                  Unknown0x250[0x4];
+/*0x254*/ int                      ManaMax;          // re-resolved: live A/B (helmet -64) + idac cur*100/max
 /*0x258*/ int                      EnduranceCurrent;
 /*0x25c*/ int                      WarCry;
 /*0x260*/ float                    BearingToTarget;
@@ -525,7 +526,8 @@ public:
 /*0x290*/ unsigned int             CombatSkillTicks[CONCURRENT_SKILLS];
 /*0x298*/ uint8_t                  Unknown0x249;
 /*0x299*/ uint8_t                  Unknown0x299[0x3];
-/*0x29c*/ LaunchSpellData          CastingData;
+/*0x29c*/ unsigned int             LastRefresh;       // relocated out of CastingData's real slot (1 ref, value harmless)
+/*0x2a0*/ uint8_t                  Unknown0x29c[0x40];
 /*0x2e0*/ unsigned int             Unknown0x290;
 /*0x2e4*/ unsigned int             LastSecondaryUseTime;
 /*0x2e8*/ unsigned int             LastResendAddPlayerPacket;
@@ -572,7 +574,7 @@ public:
 /*0x3fd*/ uint8_t                  StandState;
 /*0x3fe*/ uint8_t                  Unknown0x3fe[0x2];
 /*0x400*/ unsigned int             RespawnTimer;          // 0 while alive, nonzero on hover/death; drives ${Me.State}==HOVER
-/*0x404*/ int                      ManaCurrent;
+/*0x404*/ int                      Unknown0x404;
 /*0x408*/ unsigned int             NextSwim;
 /*0x40c*/ char                     LoginRelated[0x20];
 /*0x42c*/ bool                     bTempPet;
@@ -581,13 +583,7 @@ public:
 /*0x42f*/ uint8_t                  Light;
 /*0x430*/ int                      Unknown0x594;
 /*0x434*/ unsigned int             Zone;
-/*0x438*/ unsigned int             NextIntimidateTime;
-/*0x43c*/ float                    MissileRangeToTarget;
-/*0x440*/ uint8_t                  Unknown0x440[0x2c];
-/*0x46c*/ uint8_t                  Unknown0x46c[0x4];
-/*0x470*/ unsigned int             LastRefresh;
-/*0x474*/ int                      Unknown0x1d8;
-/*0x478*/ int                      Unknown0x570;
+/*0x438*/ LaunchSpellData          CastingData;       // re-resolved: live A/B (SpellID -1<->442) + idac cmp -1
 /*0x47c*/ unsigned int             CorpseDragCount;
 /*0x480*/ float                    AnimationSpeedRelated;
 /*0x484*/ unsigned int             LastTimeStoodStill;
@@ -601,8 +597,8 @@ public:
 /*0x4a8*/ int64_t                  HPCurrent;
 /*0x4b0*/ CPhysicsInfo             LastCollision;
 /*0x4e0*/ int                      Unknown0x3a0;
-/*0x4e4*/ int                      ManaMax;
-/*0x4e8*/ void*                    pTouchingSwitch;
+/*0x4e4*/ int                      Unknown0x4e4;
+/*0x4e8*/ uint8_t                  Unknown0x4e8[0x8];
 /*0x4f0*/ uint8_t                  Unknown0x4f0[0x4];
 /*0x4f4*/ unsigned int             FishingETA;
 /*0x4f8*/ unsigned int             HibernatingCount;
@@ -627,7 +623,8 @@ public:
 /*0x53d*/ uint8_t                  Unknown0x53d[0x3];
 /*0x540*/ unsigned int             SpellGemETA[15];
 /*0x57c*/ uint8_t                  Unknown0x57c[0x24];
-/*0x5a0*/ PlayerClient*            pViewPlayer;
+/*0x5a0*/ uint8_t                  Unknown0x5a0[0x4];
+/*0x5a4*/ int                      ManaCurrent;      // re-resolved: live A/B (cast-cost drop) + idac cur*100/max
 /*0x5a8*/ unsigned int**           ppUDP;
 /*0x5b0*/ int                      Deity;
 /*0x5b4*/ uint8_t                  Unknown0x5b4[0x1c];
@@ -637,7 +634,9 @@ public:
 /*0x604*/ int                      HideMode;          // MQ Spawn.Invis = HideMode != 0
 /*0x608*/ uint8_t                  Unknown0x608[0x10];
 /*0x618*/ int64_t                  HPMax;
-/*0x620*/ uint8_t                  Unknown0x620[0x1c];
+/*0x620*/ uint8_t                  Unknown0x620[0x8];
+/*0x628*/ void*                    pTouchingSwitch;   // no CSwitch* populated on this client (collision tracked by CollidingType@0x34); pointed at reliably-null reserved region so IsTouchingSwitch reads false instead of always-true
+/*0x630*/ uint8_t                  Unknown0x630pad[0xc];
 /*0x63c*/ int                      AFK;
 	// is-GM is GMRank != 0; GM aliases GMRank below. Read-only accessor (MQ never writes GM).
 	uint8_t getter_GM() const { return GMRank; }
