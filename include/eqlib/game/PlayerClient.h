@@ -635,7 +635,7 @@ public:
 /*0x608*/ uint8_t                  Unknown0x608[0x10];
 /*0x618*/ int64_t                  HPMax;
 /*0x620*/ uint8_t                  Unknown0x620[0x8];
-/*0x628*/ void*                    pTouchingSwitch;   // no CSwitch* populated on this client (collision tracked by CollidingType@0x34); pointed at reliably-null reserved region so IsTouchingSwitch reads false instead of always-true
+/*0x628*/ void*                    pTouchingSwitch;   // bazaar platform
 /*0x630*/ uint8_t                  Unknown0x630pad[0xc];
 /*0x63c*/ int                      AFK;
 	// is-GM is GMRank != 0; GM aliases GMRank below. Read-only accessor (MQ never writes GM).
