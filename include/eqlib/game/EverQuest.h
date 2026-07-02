@@ -474,7 +474,7 @@ struct [[offsetcomments]] EverQuestinfo
 /*0x0054c*/ float             StrafeRate;
 /*0x00550*/ float             MoveDownSpeed;
 /*0x00554*/ char              Motd[1024];
-/*0x00954*/ EQZoneIndex       ZoneID;                    // unique "design" id for this zone
+/*0x00954*/ EQZoneIndex       ZoneID;
 /*0x00958*/ bool              PrimaryAttackReady;
 /*0x00959*/ bool              SecondaryAttackReady;
 /*0x0095c*/ uint32_t          AutosaveCounter;

@@ -32,7 +32,7 @@
 
 #include <type_traits>
 
-// This is the home of all things related to what used to be called CHARINFO 
+// This is the home of all things related to what used to be called CHARINFO
 // plus a few extra things until they find a home of their own.
 //
 // Class hierarchy:
@@ -1490,7 +1490,7 @@ public:
 /*0x21bc*/ bool                                  bPrivateForEqPlayers; // -684 !
 /*0x21c0*/ long                                  AchievementFilesModificationTime;
 /*0x21c4*/ char                                  StationID[EQ_MAX_STATION_ID];
-/*0x21e8*/ EqGuid                                Guid;     // 2388
+/*0x21e8*/ EqGuid                                Guid;
 /*0x21f0*/ bool                                  bBetaBuffed;
 /*0x21f4*/ int                                   Unknown0x1ee4;
 /*0x21f8*/ int                                   MainLevel;
@@ -1700,7 +1700,7 @@ public:
 /*0x2ee0*/ short                                 BaseKeyRingSlots[eKeyRingTypeCount];
 /*0x2eee*/ bool                                  bPickZoneFewest;
 /*0x2ef0*/ int                                   Unknown0x28a4;                // used in CContainerWnd::HandleCombine
-/*0x2ef4*/ uint8_t                               Unknown0x2ef4[0xC0];          // pad before virtual base CharacterBase
+/*0x2ef4*/ uint8_t                               Unknown0x2ef4[0xC0];
 /*0x2fb4*/
 
 	ALT_MEMBER_GETTER(ExtendedTargetList*, pExtendedTargetList, pXTargetMgr);  // cannot be null

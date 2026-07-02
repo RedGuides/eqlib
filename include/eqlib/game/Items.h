@@ -732,13 +732,13 @@ public:
 	{
 	/*0x00*/ int                   SpellID;
 	/*0x04*/ uint8_t               RequiredLevel;
-	/*0x05*/ eItemEffectType       EffectType;                       // bIsActivated
+	/*0x05*/ eItemEffectType       EffectType;
 	/*0x08*/ int                   EffectiveCasterLevel;
 	/*0x0c*/ int                   MaxCharges;
 	/*0x10*/ int                   CastTime;
 	/*0x14*/ int                   RecastTime;
 	/*0x18*/ int                   RecastType;
-	/*0x1c*/ int                   ProcRate;                         // chance to proc
+	/*0x1c*/ int                   ProcRate;
 	/*0x20*/ char                  OverrideName[64];            // name override
 	/*0x60*/ int                   OverrideDesc;                // override description id
 	/*0x64*/
@@ -1074,52 +1074,51 @@ class [[offsetcomments]] ItemBase : public IChildItemContainer
 {
 public:
 // @start: ItemBase Members
-/*0x008*/ ItemGlobalIndex       GlobalIndex;           // Location + ItemIndex (verified @0x08)
-/*0x014*/ int                   OrnamentationIcon;     // icon override returned by GetImageNum
+/*0x008*/ ItemGlobalIndex       GlobalIndex;
+/*0x014*/ int                   OrnamentationIcon;
 /*0x018*/ bool                  bConvertable;
 /*0x019*/ uint8_t               Unknown_0x019[7];
-/*0x020*/ SoeUtil::String       ClientString;          // verified @0x20
-/*0x038*/ int                   ID;                    // matches ItemDef->ID (verified @0x38)
+/*0x020*/ SoeUtil::String       ClientString;
+/*0x038*/ int                   ID;
 /*0x03c*/ int                   RealEstateID;
 /*0x040*/ int                   NoteStatus;
 /*0x044*/ int                   NoDropFlag;
 /*0x048*/ bool                  bCopied;
 /*0x049*/ bool                  bCollected;
 /*0x04a*/ uint8_t               Unknown_0x04a[6];
-/*0x050*/ ItemContainer         Contents;              // verified @0x50 (0x28)
-/*0x078*/ int                   MerchantQuantity;      // -1 if unlimited
+/*0x050*/ ItemContainer         Contents;
+/*0x078*/ int                   MerchantQuantity;
 /*0x07c*/ uint8_t               Unknown_0x07c[4];
 /*0x080*/ int64_t               DontKnow;
 /*0x088*/ int                   ConvertItemID;
 /*0x08c*/ uint8_t               Unknown_0x08c[4];
 /*0x090*/ uint64_t              Unknown_0x090;
-/*0x098*/ ItemDefinition*       ItemDef;               // bare-ItemBase def; ItemClient uses SharedItemDef
-/*0x0a0*/ EqItemGuid            ItemGUID;              // char[18] (verified @0xa0)
+/*0x098*/ ItemDefinition*       ItemDef;
+/*0x0a0*/ EqItemGuid            ItemGUID;
 /*0x0b2*/ uint8_t               Unknown_0x0b2[2];
 /*0x0b4*/ int                   AugFlag;
 /*0x0b8*/ uint32_t              ItemHash;
-/*0x0bc*/ int                   Open;                  // item charges (aliased as Charges below) (verified @0xbc)
+/*0x0bc*/ int                   Open;
 /*0x0c0*/ unsigned int          NewArmorID;
 /*0x0c4*/ int                   LastCastTime;
 /*0x0c8*/ int                   ScriptIndex;
-/*0x0cc*/ int                   StackCount;            // number in the stack (verified @0xcc)
-/*0x0d0*/ int64_t               Price;                 // merchant price in copper
-/*0x0d8*/ int                   MerchantSlot;          // merchant-item guard; true slot is in GlobalIndex
+/*0x0cc*/ int                   StackCount;
+/*0x0d0*/ int64_t               Price;
+/*0x0d8*/ int                   MerchantSlot;
 /*0x0dc*/ unsigned int          Luck;
 /*0x0e0*/ uint32_t              bDisableAugTexture;
 /*0x0e4*/ uint8_t               ActorTag1;
 /*0x0e5*/ uint8_t               Unknown_0x0e5[3];
-/*0x0e8*/ ItemEvolutionDataPtr  pEvolutionData;        // verified @0xe8 (0x10)
+/*0x0e8*/ ItemEvolutionDataPtr  pEvolutionData;
 /*0x0f8*/ uint8_t               Unknown_0x0f8;
 /*0x0f9*/ uint8_t               Unknown_0x0f9[3];
 /*0x0fc*/ int                   ActorTag2;
 /*0x100*/ int                   Unknown_0x100;
-/*0x104*/ int                   Power;                 // power-source current (verified @0x104)
+/*0x104*/ int                   Power;
 /*0x108*/ uint64_t              Unknown_0x108;
 /*0x110*/
 // @end: ItemBase Members
 
-	// Charges is the field at 0x60 (historically named 'Open'); alias so pItem->Charges works.
 	ALT_MEMBER_ALIAS(int, Open, Charges);
 
 	EQLIB_OBJECT ItemBase();
@@ -1150,7 +1149,6 @@ public:
 
 	ItemPtr GetHeldItem(int index) const { return Contents.GetItem(index); }
 	ItemPtr GetHeldItem(const ItemIndex& index) const { return Contents.GetItem(index); }
-	// Route through the virtual GetChildItemContainer() to reach the real container.
 	ItemContainer& GetHeldItems() { return *GetChildItemContainer(); }
 	const ItemContainer& GetHeldItems() const { return *GetChildItemContainer(); }
 	const ItemGlobalIndex& GetItemLocation() const { return GlobalIndex; }
@@ -1280,7 +1278,7 @@ public:
 
 	EQLIB_OBJECT static ItemPtr Create() { return eqstd::make_shared<ItemClient>(); }
 
-/*0x110*/ ItemDefinitionPtr SharedItemDef;            // owned ItemDefinition
+/*0x110*/ ItemDefinitionPtr SharedItemDef;
 /*0x120*/ SoeUtil::String   SaveString;
 /*0x128*/
 };

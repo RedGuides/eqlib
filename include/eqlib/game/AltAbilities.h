@@ -55,8 +55,8 @@ public:
 /*0x04*/ bool                bShowInAbilityWindow;               // [0] = enabled flag? everything 1
 /*0x08*/ int                 nShortName;
 /*0x0c*/ int                 nShortName2;
-/*0x10*/ int                 nName;                    // eMercenaryAbilityName
-/*0x14*/ int                 nDesc;                    // eMercenaryAbilityDescription
+/*0x10*/ int                 nName;
+/*0x14*/ int                 nDesc;
 /*0x18*/ int                 MinLevel;                           // LevelNeeded
 /*0x1c*/ int                 Cost;                               // Initial Cost or cost the last time you bought a level of it
 /*0x20*/ int                 GroupID;                            // ID of the AA group (/alt activate id)

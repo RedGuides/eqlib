@@ -486,7 +486,6 @@ public:
 	void SetDisabledBackground(COLORREF Value) { DisabledBackground = Value; }
 	COLORREF GetDisabledBackground() const { return DisabledBackground; }
 
-	// DisabledBackground at 0x084, BackgroundDrawType at 0x20C
 
 	bool IsEnabled() const { return Enabled; }
 	void SetEnabled(bool bValue) { Enabled = bValue; }

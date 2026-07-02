@@ -710,7 +710,7 @@ public:
 /*0x198*/ uint64_t           ZoneFlags;
 /*0x1a0*/ int                eqstrID;
 /*0x1a4*/ uint8_t            AccessLevel;
-/*0x1a8*/ int                MinLevel;      // the level each class gains this skill
+/*0x1a8*/ int                MinLevel;
 /*0x1ac*/ int                CurPlayerCount;
 /*0x1b0*/ int                MaxPlayerCount;
 /*0x1b4*/ uint16_t           NextInstanceID;

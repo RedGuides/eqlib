@@ -125,7 +125,7 @@ public:
 
 struct [[offsetcomments]] PhysicsEffect
 {
-/*0x00*/ int SpellID;             // -1 = not casting a spell
+/*0x00*/ int SpellID;
 /*0x04*/ int CasterID;
 /*0x08*/ int EffectID;
 /*0x0c*/ int BaseEffect;
@@ -135,10 +135,10 @@ struct [[offsetcomments]] PhysicsEffect
 struct [[offsetcomments]] SFellowshipMember
 {
 /*0x00*/ EqGuid       UniqueEntityID;
-/*0x08*/ char         Name[EQ_MAX_NAME];            // ie priest_of_discord00
+/*0x08*/ char         Name[EQ_MAX_NAME];
 /*0x48*/ int          ZoneID;
 /*0x4c*/ int          Level;
-/*0x50*/ int          Class;               // mActorClient.Class
+/*0x50*/ int          Class;
 /*0x54*/ int          LastOn;
 /*0x58*/
 };
@@ -502,7 +502,7 @@ public:
 /*0x248*/ int                      CurrIOState;
 /*0x24c*/ int                      Unknown0x1f0;
 /*0x250*/ uint8_t                  Unknown0x250[0x4];
-/*0x254*/ int                      ManaMax;          // re-resolved: live A/B (helmet -64) + idac cur*100/max
+/*0x254*/ int                      ManaMax;
 /*0x258*/ int                      EnduranceCurrent;
 /*0x25c*/ int                      WarCry;
 /*0x260*/ float                    BearingToTarget;
@@ -526,7 +526,7 @@ public:
 /*0x290*/ unsigned int             CombatSkillTicks[CONCURRENT_SKILLS];
 /*0x298*/ uint8_t                  Unknown0x249;
 /*0x299*/ uint8_t                  Unknown0x299[0x3];
-/*0x29c*/ unsigned int             LastRefresh;       // relocated out of CastingData's real slot (1 ref, value harmless)
+/*0x29c*/ unsigned int             LastRefresh;
 /*0x2a0*/ uint8_t                  Unknown0x29c[0x40];
 /*0x2e0*/ unsigned int             Unknown0x290;
 /*0x2e4*/ unsigned int             LastSecondaryUseTime;
@@ -555,10 +555,10 @@ public:
 /*0x3d7*/ uint8_t                  Unknown0x3f5;
 /*0x3d8*/ uint8_t                  IntimidateCount;
 /*0x3d9*/ uint8_t                  Unknown0x3f7;
-/*0x3da*/ bool                     Linkdead;          // parked at always-0 byte (cosmetic; real offset unresolved)
+/*0x3da*/ bool                     Linkdead;
 /*0x3db*/ uint8_t                  Unknown0x3db[0x1];
 /*0x3dc*/ float                    FallingStartZ;
-/*0x3e0*/ uint8_t                  GMRank;            // parked at always-0 byte (no GMs/Guides on Test server; real offset unverifiable without a live GM)
+/*0x3e0*/ uint8_t                  GMRank;
 /*0x3e1*/ uint8_t                  Unknown0x3e1[0x7];
 /*0x3e8*/ uint8_t                  Unknown0x43e;
 /*0x3e9*/ uint8_t                  TitleVisible;
@@ -573,7 +573,7 @@ public:
 /*0x3fc*/ uint8_t                  Unknown0x3fc[0x1];
 /*0x3fd*/ uint8_t                  StandState;
 /*0x3fe*/ uint8_t                  Unknown0x3fe[0x2];
-/*0x400*/ unsigned int             RespawnTimer;          // 0 while alive, nonzero on hover/death; drives ${Me.State}==HOVER
+/*0x400*/ unsigned int             RespawnTimer;
 /*0x404*/ int                      Unknown0x404;
 /*0x408*/ unsigned int             NextSwim;
 /*0x40c*/ char                     LoginRelated[0x20];
@@ -583,16 +583,16 @@ public:
 /*0x42f*/ uint8_t                  Light;
 /*0x430*/ int                      Unknown0x594;
 /*0x434*/ unsigned int             Zone;
-/*0x438*/ LaunchSpellData          CastingData;       // re-resolved: live A/B (SpellID -1<->442) + idac cmp -1
+/*0x438*/ LaunchSpellData          CastingData;
 /*0x47c*/ unsigned int             CorpseDragCount;
 /*0x480*/ float                    AnimationSpeedRelated;
 /*0x484*/ unsigned int             LastTimeStoodStill;
 /*0x488*/ uint8_t                  Unknown0x488[0x4];
 /*0x48c*/ unsigned int             MasterID;
 /*0x490*/ uint8_t                  Unknown0x490[0x4];
-/*0x494*/ bool                     LFG;               // A/B-verified 0x494 (LFG toggle 0->1)
+/*0x494*/ bool                     LFG;
 /*0x495*/ uint8_t                  Unknown0x495[0x7];
-/*0x49c*/ int                      Anon;          // Anonymous==1, Roleplay==2
+/*0x49c*/ int                      Anon;
 /*0x4a0*/ uint8_t                  Unknown0x4a0[0x8];
 /*0x4a8*/ int64_t                  HPCurrent;
 /*0x4b0*/ CPhysicsInfo             LastCollision;
@@ -619,32 +619,31 @@ public:
 /*0x530*/ unsigned int             TimeStamp;
 /*0x534*/ float                    MyWalkSpeed;
 /*0x538*/ int                      Unknown0x590;
-/*0x53c*/ bool                     Buyer;          // 1-byte flag
+/*0x53c*/ bool                     Buyer;
 /*0x53d*/ uint8_t                  Unknown0x53d[0x3];
 /*0x540*/ unsigned int             SpellGemETA[15];
 /*0x57c*/ uint8_t                  Unknown0x57c[0x24];
 /*0x5a0*/ uint8_t                  Unknown0x5a0[0x4];
-/*0x5a4*/ int                      ManaCurrent;      // re-resolved: live A/B (cast-cost drop) + idac cur*100/max
+/*0x5a4*/ int                      ManaCurrent;
 /*0x5a8*/ unsigned int**           ppUDP;
 /*0x5b0*/ int                      Deity;
 /*0x5b4*/ uint8_t                  Unknown0x5b4[0x1c];
 /*0x5d0*/ uint8_t                  Level;
 /*0x5d1*/ uint8_t                  Unknown0x5d1[0x32];
 /*0x603*/ uint8_t                  InPvPArea;
-/*0x604*/ int                      HideMode;          // MQ Spawn.Invis = HideMode != 0
+/*0x604*/ int                      HideMode;
 /*0x608*/ uint8_t                  Unknown0x608[0x10];
 /*0x618*/ int64_t                  HPMax;
 /*0x620*/ uint8_t                  Unknown0x620[0x8];
-/*0x628*/ void*                    pTouchingSwitch;   // bazaar platform
+/*0x628*/ void*                    pTouchingSwitch;
 /*0x630*/ uint8_t                  Unknown0x630pad[0xc];
 /*0x63c*/ int                      AFK;
-	// is-GM is GMRank != 0; GM aliases GMRank below. Read-only accessor (MQ never writes GM).
 	uint8_t getter_GM() const { return GMRank; }
 	__declspec(property(get = getter_GM)) uint8_t GM;
 // @end: PlayerZoneClient Members
 
 /*0x0660*/ TCircularBuffer<SDoCollisionMovementStats, MAX_MOVEMENT_STATS> MovementStats;
-/*0x0f78*/ PlayerClient*            WhoFollowing;                       // set only while autofollowing
+/*0x0f78*/ PlayerClient*            WhoFollowing;                       // NULL if autofollow off
 /*0x0f80*/ unsigned int             GroupAssistNPC[MAX_GROUP_ASSISTS];
 /*0x0f84*/ unsigned int             RaidAssistNPC[MAX_RAID_ASSISTS];
 /*0x0f90*/ unsigned int             GroupMarkNPC[MAX_GROUP_MARK_TARGETS];
