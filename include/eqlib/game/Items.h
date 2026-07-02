@@ -1115,7 +1115,8 @@ public:
 /*0x0fc*/ int                   ActorTag2;
 /*0x100*/ int                   Unknown_0x100;
 /*0x104*/ int                   Power;                 // power-source current (verified @0x104)
-/*0x108*/
+/*0x108*/ uint64_t              Unknown_0x108;
+/*0x110*/
 // @end: ItemBase Members
 
 	// Charges is the field at 0x60 (historically named 'Open'); alias so pItem->Charges works.
@@ -1265,7 +1266,7 @@ public:
 	__declspec(property(get = get_Item2)) ItemDefinition* Item2;
 };
 
-constexpr size_t ItemClient_size = 0x130; // @sizeof(ItemClient) :: 2026-05-11 (test) @ 0x1401ebce9
+constexpr size_t ItemClient_size = 0x128; // @sizeof(ItemClient) :: 2026-06-23 (test) @ 0x1401edfd9
 
 class [[offsetcomments]] ItemClient : public ItemBase
 {
@@ -1279,9 +1280,9 @@ public:
 
 	EQLIB_OBJECT static ItemPtr Create() { return eqstd::make_shared<ItemClient>(); }
 
-/*0x108*/ ItemDefinitionPtr SharedItemDef;            // owned ItemDefinition
-/*0x118*/ SoeUtil::String   SaveString;
-/*0x130*/
+/*0x110*/ ItemDefinitionPtr SharedItemDef;            // owned ItemDefinition
+/*0x120*/ SoeUtil::String   SaveString;
+/*0x128*/
 };
 
 SIZE_CHECK(ItemClient, ItemClient_size);
