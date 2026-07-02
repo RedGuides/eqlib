@@ -423,7 +423,7 @@
 // CListWnd
 #define CListWnd__CListWnd_x                               0x1405D2320
 #define CListWnd__dCListWnd_x                              0x1405D2760
-#define CListWnd__vftable_x                                0x14085E430
+#define CListWnd__vftable_x                                0x140AECE60
 #define CListWnd__AddColumn_x                              0x1405D2DF0
 #define CListWnd__AddColumn1_x                             0x1405D2E90
 #define CListWnd__AddLine_x                                0x1405D2FF0
@@ -624,7 +624,7 @@
 #define CXWnd__SetMouseOver_x                              0x1405CCCA0
 #define CXWnd__SetParent_x                                 0x1405CCD20
 #define CXWnd__StartFade_x                                 0x1405CD160
-#define CXWnd__vftable_x                                   0x140A05ED0
+#define CXWnd__vftable_x                                   0x140AEC6C0
 #define CXWnd__CXWnd_x                                     0x1405C4AE0
 #define CXWnd__dCXWnd_x                                    0x1405C5410
 

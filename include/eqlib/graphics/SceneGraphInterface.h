@@ -91,6 +91,7 @@ public:
 	virtual EStatus GetWorldExtents(CVector3* min, CVector3* max) = 0;
 	virtual uint32_t GetWorldTime() = 0;
 	virtual void SetWorldTime(uint32_t) = 0;
+	virtual void SceneGraph_Reserved_0xB8() = 0;
 	virtual int GetNearestActorTag(CVector3&, float, EActorType, bool, char*) const = 0;
 };
 
@@ -99,7 +100,7 @@ class CSceneGraphInterface : public CSceneGraphInterfaceBase
 {
 public:
 	virtual EStatus CreateActorInstance(CActorDefinitionInterface*, CVector3*, CVector3*, ECollisionVolumeType,
-		float, float, float, bool, bool, bool, bool, CActorInterface**, const CCollisionGroup&) = 0;
+		float, float, float, bool, bool, bool, bool, CActorInterface**, const CCollisionGroup&,	int, bool) = 0;
 	virtual EStatus CreateDuplicateActorInstance(CActorInterface*, CActorInterface**, bool) = 0;
 	virtual EStatus DestroyActor(CActorInterface*) = 0;
 	virtual CActorInterface* GetACtorInstance(const char*) = 0;
