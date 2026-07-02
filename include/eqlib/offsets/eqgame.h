@@ -115,7 +115,7 @@
 ////
 //Section 2:  UI Related Offsets
 ////
-#define pinstCChatWindowManager_x                          0x140EADF18
+#define pinstCChatWindowManager_x                          0x140F42660
 #define pinstCContainerMgr_x                               0x140DFD018
 #define pinstCContextMenuManager_x                         0x140F57360
 #define pinstCInvSlotMgr_x                                 0x140DFD000
