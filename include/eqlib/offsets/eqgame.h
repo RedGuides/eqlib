@@ -365,6 +365,7 @@
 #define CEverQuest__IssuePetCommand_x                              0x140288DF0
 #define CEverQuest__ReportSuccessfulHeal_x                         0x140294FA0
 #define CEverQuest__ReportSuccessfulHit_x                          0x140295DC0
+#define CEverQuest__StartCasting_x                                 0x1402A0FD0
 
 // CGaugeWnd
 #define CGaugeWnd__Draw_x                                          0x1403E5400
@@ -490,7 +491,7 @@
 
 // CPacketScrambler
 #define CPacketScrambler__ntoh_x                                   0x1406970E0
-#define CPacketScrambler__hton_x                                   0x140568B60
+#define CPacketScrambler__hton_x                                   0x1406970D0
 
 // CSidlManagerBase
 #define CSidlManagerBase__FindButtonDrawTemplate_x                 0x1405FB880
@@ -648,7 +649,7 @@
 // CCharacterListWnd
 #define CCharacterListWnd__SelectCharacter_x                       0x1400D76D0
 #define CCharacterListWnd__EnterWorld_x                            0x1400D64D0
-#define CCharacterListWnd__Quit_x                                  0x14012C780
+#define CCharacterListWnd__Quit_x                                  0x1400D76B0
 #define CCharacterListWnd__UpdateList_x                            0x1400D8410
 
 // ItemClient
@@ -815,7 +816,7 @@
 #define CCastSpellWnd__RefreshSpellGemButtons_x                    0x1403AAA50
 
 // messages
-#define msg_spell_worn_off_x                                       0x140499C70
+#define msg_spell_worn_off_x                                       0x1402214F0
 #define msg_new_text_x                                             0x14021CCC0
 #define __msgTokenTextParam_x                                      0x140214050
 #define msgTokenText_x                                             0x140213F60

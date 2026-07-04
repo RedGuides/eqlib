@@ -664,6 +664,7 @@ INITIALIZE_EQGAME_OFFSET(CEverQuest__ReportSuccessfulHit);
 INITIALIZE_EQGAME_OFFSET(CEverQuest__RightClickedOnPlayer);
 INITIALIZE_EQGAME_OFFSET(CEverQuest__RMouseUp);
 INITIALIZE_EQGAME_OFFSET(CEverQuest__SetGameState);
+INITIALIZE_EQGAME_OFFSET(CEverQuest__StartCasting);
 INITIALIZE_EQGAME_OFFSET(CEverQuest__trimName);
 INITIALIZE_EQGAME_OFFSET(CEverQuest__UPCNotificationFlush);
 INITIALIZE_EQGAME_OFFSET(CFindItemWnd__PickupSelectedItem);

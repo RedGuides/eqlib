@@ -333,6 +333,7 @@ EQLIB_VAR uintptr_t CEverQuest__ReportSuccessfulHit;
 EQLIB_VAR uintptr_t CEverQuest__RightClickedOnPlayer;
 EQLIB_VAR uintptr_t CEverQuest__RMouseUp;
 EQLIB_VAR uintptr_t CEverQuest__SetGameState;
+EQLIB_VAR uintptr_t CEverQuest__StartCasting;
 EQLIB_VAR uintptr_t CEverQuest__trimName;
 EQLIB_VAR uintptr_t CEverQuest__UPCNotificationFlush;
 EQLIB_VAR uintptr_t CFindItemWnd__CFindItemWnd;
