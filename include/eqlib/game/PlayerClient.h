@@ -520,7 +520,7 @@ public:
 /*0x28a*/ uint8_t                  HoldingAnimation;
 /*0x28b*/ bool                     IntimidateState;
 /*0x28c*/ uint8_t                  Unknown0x230;
-/*0x28d*/ uint8_t                  Blind;
+/*0x28d*/ uint8_t                  Unknown0x28d;
 /*0x28e*/ uint8_t                  Unknown0x3f0;
 /*0x28f*/ bool                     bSummoned;
 /*0x290*/ unsigned int             CombatSkillTicks[CONCURRENT_SKILLS];
@@ -531,7 +531,8 @@ public:
 /*0x2e0*/ unsigned int             Unknown0x290;
 /*0x2e4*/ unsigned int             LastSecondaryUseTime;
 /*0x2e8*/ unsigned int             LastResendAddPlayerPacket;
-/*0x2ec*/ uint8_t                  Unknown0x2ec[0x8];
+/*0x2ec*/ uint8_t                  Unknown0x2ec[0x4];
+/*0x2f0*/ unsigned int             RespawnTimer;
 /*0x2f4*/ bool                     Sneak;
 /*0x2f5*/ uint8_t                  Unknown0x2f5[0x3];
 /*0x2f8*/ unsigned int             Zone;
@@ -571,7 +572,7 @@ public:
 /*0x3f9*/ uint8_t                  LastAttack;
 /*0x3fa*/ bool                     berserker;
 /*0x3fb*/ uint8_t                  Original;
-/*0x3fc*/ uint8_t                  Unknown0x3fc[0x1];
+/*0x3fc*/ uint8_t                  Blind;
 /*0x3fd*/ uint8_t                  StandState;
 /*0x3fe*/ uint8_t                  Unknown0x3fe[0x2];
 /*0x400*/ unsigned int             Unknown0x400;
@@ -594,7 +595,8 @@ public:
 /*0x494*/ bool                     LFG;
 /*0x495*/ uint8_t                  Unknown0x495[0x7];
 /*0x49c*/ int                      Anon;
-/*0x4a0*/ uint8_t                  Unknown0x4a0[0x8];
+/*0x4a0*/ uint8_t                  Unknown0x4a0[0x4];
+/*0x4a4*/ unsigned int             StunTimer;
 /*0x4a8*/ int64_t                  HPCurrent;
 /*0x4b0*/ CPhysicsInfo             LastCollision;
 /*0x4e0*/ int                      Unknown0x3a0;
@@ -606,7 +608,7 @@ public:
 /*0x4fc*/ bool                     PvPFlag;
 /*0x4fd*/ uint8_t                  Unknown0x4fd[0x3];
 /*0x500*/ unsigned int             SpellCooldownETA;
-/*0x504*/ unsigned int             StunTimer;
+/*0x504*/ unsigned int             Unknown0x504;
 /*0x508*/ unsigned int             LastMealTime;
 /*0x50c*/ float                    RunSpeed;
 /*0x510*/ uint8_t                  Unknown0x510[0x4];
@@ -624,7 +626,7 @@ public:
 /*0x53d*/ uint8_t                  Unknown0x53d[0x3];
 /*0x540*/ unsigned int             SpellGemETA[15];
 /*0x57c*/ uint8_t                  Unknown0x57c[0x4];
-/*0x580*/ unsigned int             RespawnTimer;
+/*0x580*/ unsigned int             Unknown0x58;
 /*0x584*/ uint8_t                  Unknown0x584[0x1c];
 /*0x5a0*/ uint8_t                  Unknown0x5a0[0x4];
 /*0x5a4*/ int                      ManaCurrent;

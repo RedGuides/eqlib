@@ -200,25 +200,7 @@ public:
 
 using CTargetRing DEPRECATE("Use FreeTargetTracker instead of CTargetRing") = CTargetRing;
 
-
-#if IS_EMU_CLIENT
 #pragma pack(push, 1)
-struct [[offsetcomments]] EQSuccessfulHit
-{
-/*0x00*/ uint16_t      DamagedID;                // Spawn that was hit
-/*0x02*/ uint16_t      AttackerID;               // Spawn who did the hit
-/*0x04*/ uint8_t       Skill;                    // 1 HS etc...
-/*0x05*/ int           SpellID;
-/*0x09*/ int           DamageCaused;
-/*0x0d*/ float         Force;
-/*0x11*/ float         HitHeading;
-/*0x15*/ float         HitPitch;
-/*0x19*/ bool          bSecondary;
-/*0x1a*/ uint8_t       Unknown0x1A[6];
-/*0x20*/
-};
-#pragma pack(pop)
-#else
 struct [[offsetcomments]] EQSuccessfulHit
 {
 /*0x00*/ uint16_t      DamagedID;                // Spawn that was hit
@@ -227,7 +209,7 @@ struct [[offsetcomments]] EQSuccessfulHit
 /*0x08*/ int64_t       DamageCaused;
 /*0x10*/ uint32_t      Flags;
 /*0x14*/ int           SpellID;
-/*0x18*/ uint8_t       Unknown0x18[4];
+/*0x18*/ int           SpellLevel;
 /*0x1c*/ float         Force;
 /*0x20*/ float         HitHeading;
 /*0x24*/ float         HitPitch;
@@ -236,21 +218,9 @@ struct [[offsetcomments]] EQSuccessfulHit
 /*0x2a*/ uint8_t       Unknown0x2A[6];
 /*0x30*/
 };
-#endif
+#pragma pack(pop)
 using pEQSuccessfulHit DEPRECATE("Use EQSuccessfulHit* instead of pEQSuccessfulHit") = EQSuccessfulHit*;
 
-#if IS_EMU_CLIENT
-struct [[offsetcomments]] EQSuccessfulHeal
-{
-/*0x00*/ uint16_t      HealedID; // Spawn that was healed
-/*0x02*/ uint16_t      HealerID; // Spawn who did the healing
-/*0x04*/ int           SpellID;
-/*0x08*/ int           ActualHeal; // Amount that was actually healed
-/*0x0c*/ int           TotalHeal; // Amount that would have been healed if it didn't go over max HP
-/*0x10*/ uint32_t      EffectBitmask;
-/*0x14*/
-};
-#else
 struct [[offsetcomments]] EQSuccessfulHeal
 {
 /*0x00*/ uint16_t      HealedID; // Spawn that was healed
@@ -261,7 +231,6 @@ struct [[offsetcomments]] EQSuccessfulHeal
 /*0x18*/ uint32_t      EffectBitmask;
 /*0x1c*/
 };
-#endif
 using pEQSuccessfulHeal DEPRECATE("Use EQSuccessfulHeal* instead of pEQSuccessfulHeal") = EQSuccessfulHeal*;
 
 //============================================================================
