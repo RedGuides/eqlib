@@ -25,7 +25,7 @@ namespace eqlib {
 class PlayerClient;
 class CParticleCloudInterface;
 
-constexpr size_t EQGroundItem_size = 0xA0; // @sizeof(EQGroundItem) :: 2026-05-11 (test) @ 0x140200910
+constexpr size_t EQGroundItem_size = 0xA0; // @sizeof(EQGroundItem) :: 2026-07-08 (test) @ 0x14020583B
 
 class [[offsetcomments]] EQGroundItem
 {
@@ -134,7 +134,7 @@ public:
 	static EQObject* top;
 };
 
-constexpr size_t EQSwitch_size = 0x108; // @sizeof(EQSwitch) :: 2026-05-11 (test) @ 0x1401f78b4
+constexpr size_t EQSwitch_size = 0x108; // @sizeof(EQSwitch) :: 2026-07-08 (test) @ 0x1401FC90E
 
 class [[offsetcomments]] EQSwitch : public CActorApplicationData
 {

@@ -725,7 +725,7 @@ public:
 /*0x1d8*/
 };
 
-constexpr size_t EQWorldData_size = 0x1F88; // @sizeof(EQWorldData) :: 2026-05-11 (test) @ 0x14026e586
+constexpr size_t EQWorldData_size = 0x1F88; // @sizeof(EQWorldData) :: 2026-07-07 (test) @ 0x140273557
 
 class [[offsetcomments]] EQWorldData
 {
@@ -1229,7 +1229,7 @@ using SKILL = EQ_Skill;
 using PSKILL = EQ_Skill*;
 
 
-constexpr size_t SkillManager_size = 0x399C80; // @sizeof(SkillManager) :: 2026-05-11 (test) @ 0x14026e6c6
+constexpr size_t SkillManager_size = 0x399C80; // @sizeof(SkillManager) :: 2026-07-07 (test) @ 0x140273697
 
 class [[offsetcomments]] SkillManager
 {
