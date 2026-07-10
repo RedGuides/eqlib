@@ -29,7 +29,7 @@
 #define __MemChecker0_x                                            0x1402D2230
 #define __MemChecker1_x                                            0x1405AD140
 #define __MemChecker4_x                                            0x14029F500
-#define __EncryptPad0_x                                            0x14070846C
+#define __EncryptPad0_x                                            0x140D6EC40
 
 // EverQuestInfo
 #define pinstEverQuestInfo_x                                       0x140EB75C0
@@ -41,16 +41,16 @@
 #define __gfMaxCameraDistance_x                                    0x140AD0C64
 #define __CurrentSocial_x                                          0x140C230E4
 #define __BindList_x                                               0x140D62970
-#define g_eqCommandStates_x                                        0x1401F0C80
+#define g_eqCommandStates_x                                        0x140D63A10
 #define __CommandList_x                                            0x140D63C50
 #define __ScreenMode_x                                             0x140DFEE7C
 #define __gWorld_x                                                 0x140EB1CA0
 #define __gpbCommandEvent_x                                        0x140EB1FF8
 #define __ServerHost_x                                             0x140EB21E8
-#define __Guilds_x                                                 0x1400570D0
+#define __Guilds_x                                                 0x140EB6180
 #define __MemCheckBitmask_x                                        0x140EB7B03
 #define __MemCheckActive_x                                         0x140EB921D
-#define __MouseEventTime_x                                         0x1405F6540
+#define __MouseEventTime_x                                         0x140F2CB98
 #define DI8__MouseState_x                                          0x140F30D78
 #define __heqmain_x                                                0x140F33208
 #define DI8__Mouse_x                                               0x140F33220
@@ -59,7 +59,7 @@
 #define DI8__Keyboard_x                                            0x140F33250
 #define __LoginName_x                                              0x140F339BC
 #define __CurrentMapLabel_x                                        0x140F474F0
-#define __LabelCache_x                                             0x140576605
+#define __LabelCache_x                                             0x140F480C0
 #define __ChatFilterDefs_x                                         0x140A6ABC0
 #define Teleport_Table_Size_x                                      0x140EB2084
 #define Teleport_Table_x                                           0x140EAFA40

@@ -377,7 +377,7 @@ struct ResolutionUpdateData
 	}
 };
 
-class CResolutionHandlerBase
+class [[offsetcomments]] CResolutionHandlerBase
 {
 public:
 	EQLIB_OBJECT static bool IsFullscreenAvailable();
@@ -394,31 +394,44 @@ public:
 	EQLIB_OBJECT static void ToggleScreenMode();
 	EQLIB_OBJECT static void UpdateWindowPosition();
 
-	DWORD              vfTable;
-	bool               bIsFullscreen;
-	int                FullscreenBitsPerPixel;
-	int                FullscreenRefreshRate;
-	int                FullscreenWidth;
-	int                FullscreenHeight;
-	int                WindowedWidth;
-	int                WindowedHeight;
-	int                WindowOffsetX;
-	int                WindowOffsetY;
-	int                RestoredWidth;
-	int                RestoredHeight;
-	int                RestoredOffsetX;
-	int                RestoredOffsetY;
-	SDeviceInfo        DeviceTable[0x10];
-	int                DeviceCount;
-	long               DeviceIndex;
-	bool               bUseD3DTextureCompression;
-	bool               bResizable;
-	bool               bMaximized;
-	bool               bAlwaysOnTop;
-	bool               bActive;
-	UINT               ActiveThreadID;
-	HWND               ActiveWnd;
-	bool               bChangingScreenResolutions;
+/*0x000*/ void*              vfTable;
+/*0x008*/ bool               bIsFullscreen;
+/*0x009*/ uint8_t            Unknown0x009[0x3];
+/*0x00c*/ int                FullscreenBitsPerPixel;
+/*0x010*/ int                FullscreenRefreshRate;
+/*0x014*/ int                Unknown0x014;
+/*0x018*/ int                FullscreenWidth;
+/*0x01c*/ int                FullscreenHeight;
+/*0x020*/ int                WindowOffsetX;
+/*0x024*/ int                WindowOffsetY;
+/*0x028*/ int                WindowedWidth;
+/*0x02c*/ int                WindowedHeight;
+/*0x030*/ int                RestoredOffsetX;
+/*0x034*/ int                RestoredOffsetY;
+/*0x038*/ int                RestoredWidth;
+/*0x03c*/ int                RestoredHeight;
+/*0x040*/ int                OffsetX;
+/*0x044*/ int                OffsetY;
+/*0x048*/ int                Width;
+/*0x04c*/ int                Height;
+/*0x050*/ int                BitsPerPixel;
+/*0x054*/ int                RefreshRate;
+/*0x058*/ uint8_t            PendingResolution[0x50];
+/*0x0a8*/ SDeviceInfo        DeviceTable[0x10];
+/*0x8a8*/ int                Unknown0x8a8;
+/*0x8ac*/ int                DeviceCount;
+/*0x8b0*/ int                DeviceIndex;
+/*0x8b4*/ bool               bUseD3DTextureCompression;
+/*0x8b5*/ bool               bResizable;
+/*0x8b6*/ bool               bMaximized;
+/*0x8b7*/ bool               bAlwaysOnTop;
+/*0x8b8*/ bool               bActive;
+/*0x8b9*/ uint8_t            Unknown0x8b9[0x3];
+/*0x8bc*/ UINT               ActiveThreadID;
+/*0x8c0*/ HWND               ActiveWnd;
+/*0x8c8*/ bool               bChangingScreenResolutions;
+/*0x8c9*/ uint8_t            Unknown0x8c9[0x3];
+/*0x8cc*/
 };
 
 class CResolutionHandler : public CResolutionHandlerBase

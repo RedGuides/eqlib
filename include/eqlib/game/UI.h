@@ -312,7 +312,7 @@ public:
 // CButtonWnd
 //============================================================================
 
-constexpr size_t CButtonWnd_size = 0x348; // @sizeof(CButtonWnd) :: 2026-07-07 (test) @ 0x1405FCD79 (+CXWnd base)
+constexpr size_t CButtonWnd_size = 0x350; // @sizeof(CButtonWnd) :: 2026-07-09 (test) @ 0x1405F6B60
 
 class [[offsetcomments]] CButtonWnd : public CXWnd
 {
@@ -373,29 +373,30 @@ public:
 /*0x268*/ int                   MouseButtonState;
 /*0x26c*/ bool                  bPicture;
 /*0x270*/ CRadioGroup*          pGroup;
-/*0x278*/ bool                  Checked;
-/*0x279*/ bool                  bMouseOverLastFrame;
-/*0x27c*/ CXPoint               DecalOffset;
-/*0x284*/ CXSize                DecalSize;
-/*0x28c*/ COLORREF              DecalTint;                // Color
-/*0x290*/ CXRect                TextOffsets;
-/*0x2a0*/ int                   TextModeBits;
-/*0x2a4*/ COLORREF              Mouseover;
-/*0x2a8*/ COLORREF              Pressed;
-/*0x2ac*/ COLORREF              Disabled;
-/*0x2b0*/ unsigned int          CoolDownBeginTime;
-/*0x2b4*/ unsigned int          CoolDownDuration;
-/*0x2b8*/ CXStr                 Indicator;
-/*0x2c0*/ unsigned int          IndicatorVal;
-/*0x2c8*/ CTextObjectInterface* pIndicatorTextObject;
-/*0x2d0*/ unsigned int          Unknown0x248;
-/*0x2d8*/ CButtonDrawTemplate   DrawTemplate;
-/*0x340*/ bool                  bAllowButtonClickThrough;
-/*0x341*/ bool                  bCoolDownDoDelayedStart;
-/*0x342*/ bool                  bIsCheckbox;
-/*0x343*/ bool                  bIsDrawLasso;
-/*0x344*/ uint32_t              ButtonStyle;              // tbd
-/*0x348*/
+/*0x278*/ void*                 pGroupRefCtrl;
+/*0x280*/ bool                  Checked;
+/*0x281*/ bool                  bMouseOverLastFrame;
+/*0x284*/ CXPoint               DecalOffset;
+/*0x28c*/ CXSize                DecalSize;
+/*0x294*/ COLORREF              DecalTint;                // Color
+/*0x298*/ CXRect                TextOffsets;
+/*0x2a8*/ int                   TextModeBits;
+/*0x2ac*/ COLORREF              Mouseover;
+/*0x2b0*/ COLORREF              Pressed;
+/*0x2b4*/ COLORREF              Disabled;
+/*0x2b8*/ unsigned int          CoolDownBeginTime;
+/*0x2bc*/ unsigned int          CoolDownDuration;
+/*0x2c0*/ CXStr                 Indicator;
+/*0x2c8*/ unsigned int          IndicatorVal;
+/*0x2d0*/ CTextObjectInterface* pIndicatorTextObject;
+/*0x2d8*/ unsigned int          Unknown0x248;
+/*0x2e0*/ CButtonDrawTemplate   DrawTemplate;
+/*0x348*/ bool                  bAllowButtonClickThrough;
+/*0x349*/ bool                  bCoolDownDoDelayedStart;
+/*0x34a*/ bool                  bIsCheckbox;
+/*0x34b*/ bool                  bIsDrawLasso;
+/*0x34c*/ uint32_t              ButtonStyle;              // tbd
+/*0x350*/
 
 	ALT_MEMBER_ALIAS(bool, Checked, bChecked);
 
@@ -452,8 +453,8 @@ public:
 	EQLIB_OBJECT void SetRadioLook();
 
 	// protected
-/*0x348*/ bool bOrgState;
-/*0x34c*/
+/*0x350*/ bool bOrgState;
+/*0x354*/
 };
 
 //============================================================================
@@ -4695,28 +4696,28 @@ public:
 	/*0xa8*/
 	};
 
-/*0x348*/ InvSlotComponent   component;
-/*0x3f0*/ CTextureAnimation* pBackground;
-/*0x3f8*/ ItemGlobalIndex    ItemLocation;            // WindowType = ItemLocation.Location, InvSlot = ItemLocation.GetTopSlot()
-/*0x408*/ ItemPtr            LinkedItem;              // If the slot is linked to a specific item
-/*0x418*/ int                ItemOffsetX;
-/*0x41c*/ int                ItemOffsetY;
-/*0x420*/ CTextureAnimation* ptItem;
-/*0x428*/ int                Quantity;
-/*0x42c*/ bool               bSelected;
-/*0x42d*/ bool               bFindSelected;
-/*0x430*/ int                RecastLeft;
-/*0x434*/ bool               bHotButton;
-/*0x435*/ bool               bInventorySlotLinked;
-/*0x438*/ CInvSlot*          pInvSlot;
-/*0x440*/ CTextObjectInterface* pTextObject;
-/*0x448*/ int                TextFontStyle;
-/*0x44c*/ int                Mode;
-/*0x450*/ D3DCOLOR           BGTintRollover;
-/*0x454*/ D3DCOLOR           BGTintNormal;
-/*0x458*/ int                LastTime;
-/*0x45c*/ int                Unknown0x2cc;
-/*0x460*/
+/*0x350*/ InvSlotComponent   component;
+/*0x3f8*/ CTextureAnimation* pBackground;
+/*0x400*/ ItemGlobalIndex    ItemLocation;            // WindowType = ItemLocation.Location, InvSlot = ItemLocation.GetTopSlot()
+/*0x410*/ ItemPtr            LinkedItem;              // If the slot is linked to a specific item
+/*0x420*/ int                ItemOffsetX;
+/*0x424*/ int                ItemOffsetY;
+/*0x428*/ CTextureAnimation* ptItem;
+/*0x430*/ int                Quantity;
+/*0x434*/ bool               bSelected;
+/*0x435*/ bool               bFindSelected;
+/*0x438*/ int                RecastLeft;
+/*0x43c*/ bool               bHotButton;
+/*0x43d*/ bool               bInventorySlotLinked;
+/*0x440*/ CInvSlot*          pInvSlot;
+/*0x448*/ CTextObjectInterface* pTextObject;
+/*0x450*/ int                TextFontStyle;
+/*0x454*/ int                Mode;
+/*0x458*/ D3DCOLOR           BGTintRollover;
+/*0x45c*/ D3DCOLOR           BGTintNormal;
+/*0x460*/ int                LastTime;
+/*0x464*/ int                Unknown0x2cc;
+/*0x468*/
 
 	bool IsHotButton() const { return bHotButton; }
 
@@ -6281,24 +6282,24 @@ public:
 	//----------------------------------------------------------------------------
 	// data members
 
-/*0x348*/ int                MouseButtonState;
-/*0x34c*/ bool               bChecked;
-/*0x350*/ unsigned int       LastRefresh;
-/*0x354*/ D3DCOLOR           SpellGemTintArray[11];
-/*0x380*/ int                SpellGemAlphaArray[11];
-/*0x3ac*/ int                SpellIconOffsetX;
-/*0x3b0*/ int                SpellIconOffsetY;
-/*0x3b4*/ int                SpellIconWidth;
-/*0x3b8*/ int                SpellIconHeight;
-/*0x3bc*/ int                SpellIconIndex;           // if this is equal to -1 there is no spell memmed in this slot
-/*0x3c0*/ int                spellstate;               // 1 = cast in progress or refreshtime not met 2 means we ducked or aborted cast, 0 means its ok to cast, should really rename this to tintstage
-/*0x3c4*/ int                TintIndex;
-/*0x3c8*/ CTextureAnimation* SpellIconTexture;         // CTextureAnimation
-/*0x3d0*/ CTextureAnimation* CustomIconTexture;        // CTextureAnimation
-/*0x3d8*/ int                SpellSlot;
-/*0x3dc*/ int                Percent;
-/*0x3e0*/ CSpellGemDrawTemplate DrawTemplate;
-/*0x400*/
+/*0x350*/ int                MouseButtonState;
+/*0x354*/ bool               bChecked;
+/*0x358*/ unsigned int       LastRefresh;
+/*0x35c*/ D3DCOLOR           SpellGemTintArray[11];
+/*0x388*/ int                SpellGemAlphaArray[11];
+/*0x3b4*/ int                SpellIconOffsetX;
+/*0x3b8*/ int                SpellIconOffsetY;
+/*0x3bc*/ int                SpellIconWidth;
+/*0x3c0*/ int                SpellIconHeight;
+/*0x3c4*/ int                SpellIconIndex;           // if this is equal to -1 there is no spell memmed in this slot
+/*0x3c8*/ int                spellstate;               // 1 = cast in progress or refreshtime not met 2 means we ducked or aborted cast, 0 means its ok to cast, should really rename this to tintstage
+/*0x3cc*/ int                TintIndex;
+/*0x3d0*/ CTextureAnimation* SpellIconTexture;         // CTextureAnimation
+/*0x3d8*/ CTextureAnimation* CustomIconTexture;        // CTextureAnimation
+/*0x3e0*/ int                SpellSlot;
+/*0x3e4*/ int                Percent;
+/*0x3e8*/ CSpellGemDrawTemplate DrawTemplate;
+/*0x408*/
 
 	ALT_MEMBER_GETTER(int, SpellIconIndex, spellicon);
 };
