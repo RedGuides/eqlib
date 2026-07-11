@@ -154,7 +154,7 @@ ItemDefinition::ItemDefinition()
 	MarketPlace = false;
 	bFreeSlot = false;
 	bAutoUse = false;
-	Unknown0x0e4 = -1;
+	LoreEquippedGroup = -1;
 	Size = 0;
 	Type = 0;
 	TradeSkills = false;

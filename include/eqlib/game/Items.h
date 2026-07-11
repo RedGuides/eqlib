@@ -834,7 +834,7 @@ public:
 /*0x0de*/ bool                MarketPlace;
 /*0x0df*/ bool                bFreeSlot;
 /*0x0e0*/ bool                bAutoUse;
-/*0x0e4*/ int                 Unknown0x0e4;
+/*0x0e4*/ int                 LoreEquippedGroup;
 /*0x0e8*/ uint8_t             Size;
 /*0x0e9*/ uint8_t             Type;
 /*0x0ea*/ bool                TradeSkills;
