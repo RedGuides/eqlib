@@ -180,7 +180,7 @@
 #define CAAWnd__UpdateSelected_x                                   0x14036A6C0
 
 // CAdvancedLootWnd
-#define CAdvancedLootWnd__DoAdvLootAction_x                        0x1400B3770
+#define CAdvancedLootWnd__DoAdvLootAction_x                        0x1400AC000
 #define CAdvancedLootWnd__DoSharedAdvLootAction_x                  0x1400ABDF0
 #define CAdvancedLootWnd__AddPlayerToList_x                        0x1400A81A0
 #define CAdvancedLootWnd__UpdateMasterLooter_x                     0x1400B40D0

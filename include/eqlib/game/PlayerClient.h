@@ -619,7 +619,7 @@ public:
 /*0x658*/ unsigned int             NextIntimidateTime;
 // @end: PlayerZoneClient Members
 
-/*0x0660*/ TCircularBuffer<SDoCollisionMovementStats, MAX_MOVEMENT_STATS> MovementStats;
+/*0x065c*/ TCircularBuffer<SDoCollisionMovementStats, MAX_MOVEMENT_STATS> MovementStats;
 /*0x0f78*/ PlayerClient*            WhoFollowing;                       // NULL if autofollow off
 /*0x0f80*/ unsigned int             GroupAssistNPC[MAX_GROUP_ASSISTS];
 /*0x0f84*/ unsigned int             RaidAssistNPC[MAX_RAID_ASSISTS];
@@ -881,7 +881,6 @@ public:
 /*0x20d0*/ int               MountAnimationRelated;
 /*0x20d4*/ bool              bGuildShowAnim;               // or sprite? need to check
 /*0x20d5*/ bool              bWaitingForPort;
-	uint8_t Unknown0xtail[0x22]; // @start MovementStats starts 0x640 (-0x20 vs header); reclaim here to keep size 0x20d8
 /*0x20d8*/
 
 	void Initialize(PlayerClient*, unsigned char, unsigned int, unsigned char, char*);
