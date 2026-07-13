@@ -556,7 +556,7 @@ public:
 /*0x3fc*/ bool                     LFG;
 /*0x3fd*/ uint8_t                  Level;
 /*0x3fe*/ uint8_t                  IntimidateCount;
-/*0x3ff*/ bool                     Linkdead;
+/*0x3ff*/ uint8_t                  Unknown0x3ff;
 /*0x400*/ int                      PetID;
 /*0x404*/ uint8_t                  Unknown0x404[0x4c];
 /*0x450*/ int                      AFK;
@@ -577,9 +577,10 @@ public:
 /*0x540*/ unsigned int             Unknown0x540;
 /*0x544*/ int                      WarCry;
 /*0x548*/ int                      IsAttacking;
-/*0x54c*/ int                      NpcTintIndex;
+/*0x54c*/ bool                     Linkdead;
+/*0x54d*/ uint8_t                  Unknown0x54d[0x3];
 /*0x550*/ int                      Trader;
-/*0x554*/ uint8_t                  Unknown0x554[0x4];
+/*0x554*/ int                      NpcTintIndex;
 /*0x558*/ unsigned int             Unknown0x558;
 /*0x55c*/ uint8_t                  Unknown0x55c[0x4];
 /*0x560*/ unsigned int             CorpseDragCount;
@@ -860,6 +861,7 @@ public:
 /*0x1ec0*/ bool              bIsPlacingItem;
 /*0x1ec1*/ uint8_t           GMRank;
 /*0x1ec2*/ bool              bGMCreatedNPC;
+
 	uint8_t getter_GM() const { return GMRank; }
 	__declspec(property(get = getter_GM)) uint8_t GM;
 /*0x1ec4*/ int               ObjectAnimationID;
