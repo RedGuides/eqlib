@@ -1689,8 +1689,8 @@ FUNCTION_AT_ADDRESS(void, CEverQuest::PrepareLocalPCForRepop(), CEverQuest__Prep
 #ifdef CEverQuest__SavePCForce_x
 FUNCTION_AT_ADDRESS(void, CEverQuest::SavePCForce(int), CEverQuest__SavePCForce);
 #endif
-#ifdef CEverQuest__StartCasting_x
-FUNCTION_AT_ADDRESS(void, CEverQuest::StartCasting(void*), CEverQuest__StartCasting);
+#ifdef CEverQuest__PlayActionVisualEffect_x
+FUNCTION_AT_ADDRESS(void, CEverQuest::PlayActionVisualEffect(void*), CEverQuest__PlayActionVisualEffect);
 #endif
 #ifdef CEverQuest__Consider_x
 FUNCTION_AT_ADDRESS(void, CEverQuest::Consider(EQPlayer*, void*), CEverQuest__Consider);

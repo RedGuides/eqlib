@@ -365,7 +365,7 @@
 #define CEverQuest__IssuePetCommand_x                              0x14028B7F0
 #define CEverQuest__ReportSuccessfulHeal_x                         0x1402979A0
 #define CEverQuest__ReportSuccessfulHit_x                          0x1402987C0
-#define CEverQuest__StartCasting_x                                 0x1402A39D0
+#define CEverQuest__PlayActionVisualEffect_x                                 0x1402A39D0
 
 // CGaugeWnd
 #define CGaugeWnd__Draw_x                                          0x1403E8C10

@@ -73,6 +73,7 @@ public:
 	virtual EStatus DestroyActor(CActorInterfaceBase* pActor) = 0;
 	virtual CActorInterfaceBase* GetActorBaseInstance(const char* name) = 0;
 	virtual CActorInterfaceBase* GetActorBaseInstanceByName(const char* name) = 0;
+	virtual CActorInterfaceBase* GetActorBaseInstanceByDefinitionTag(const char* name) = 0;
 	virtual CActorInterfaceBase* GetFirstActor() = 0;
 	virtual CActorInterfaceBase* GetNextActor(CActorInterfaceBase* pActor) = 0;
 	virtual uint32_t GetEnvironment(float x, float y, float z, uint32_t) = 0;
@@ -91,7 +92,6 @@ public:
 	virtual EStatus GetWorldExtents(CVector3* min, CVector3* max) = 0;
 	virtual uint32_t GetWorldTime() = 0;
 	virtual void SetWorldTime(uint32_t) = 0;
-	virtual void SceneGraph_Reserved_0xB8() = 0;
 	virtual int GetNearestActorTag(CVector3&, float, EActorType, bool, char*) const = 0;
 };
 
@@ -151,6 +151,12 @@ public:
 	virtual int ClearandFlagAreasAt(CVector3*) = 0;
 	virtual bool AreaAPVOptimizationsOn() const = 0;
 	virtual void SetAreaPortalOptimizations(bool) = 0;
+	virtual void SceneGraph_Reserved_Slot71() = 0;
+	virtual const RGB& GetGlobalAmbientFloat() = 0;
+	virtual const RGB& GetGlobalBounceFloat() = 0;
+	virtual const RGB& GetVisionAmbientFloat() = 0;
+	virtual const RGB& GetConstantAmbientFloat() = 0;
+	virtual bool IsDynamicLod() const = 0;
 };
 
 //============================================================================

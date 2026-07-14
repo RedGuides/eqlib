@@ -891,7 +891,7 @@ public:
 	EQLIB_OBJECT void SetupCharSelectCamera();
 	EQLIB_OBJECT void Sit();
 	EQLIB_OBJECT void SortSpellLoadouts();
-	EQLIB_OBJECT void StartCasting(void*);
+	EQLIB_OBJECT void PlayActionVisualEffect(void*);
 	EQLIB_OBJECT void StartNetworkGame(HWND, HINSTANCE, char*);
 	EQLIB_OBJECT void Surname(char*);
 	EQLIB_OBJECT void ToggleAutoSplit();
