@@ -316,8 +316,8 @@ struct [[offsetcomments]] PZCPhysicsInfo
 /*0x10*/ float Z;
 /*0x14*/ float X;
 /*0x18*/ float DeltaX;
-/*0x1c*/ float DeltaZ;
-/*0x20*/ unsigned int DeltaHeading : 10;
+/*0x1c*/ unsigned int DeltaHeading : 10;
+/*0x20*/ float DeltaZ;
 /*0x24*/ unsigned int Unknown0x24;
 /*0x28*/
 // @end: PZCPhysicsInfo Members
@@ -504,13 +504,13 @@ public:
 /*0x214*/ int                      EnduranceCurrent;
 /*0x218*/ float                    AnimationSpeedRelated;
 /*0x21c*/ unsigned int             Unknown0x21c;
-/*0x220*/ float                    FallingStartZ;
+/*0x220*/ int                      RealEstateItemId;
 /*0x224*/ float                    MyWalkSpeed;
 /*0x228*/ void*                    pTouchingSwitch;
 /*0x230*/ uint8_t                  HoldingAnimation;
 /*0x231*/ uint8_t                  Blind;
 /*0x232*/ bool                     IntimidateState;
-/*0x233*/ bool                     Sneak;
+/*0x233*/ uint8_t                  Unknown0x233;
 /*0x234*/ unsigned int             Meditating;
 /*0x238*/ int64_t                  HPMax;
 /*0x240*/ int                      CurrIOState;
@@ -530,8 +530,8 @@ public:
 /*0x2aa*/ bool                     bAttackRelated;
 /*0x2ab*/ bool                     IsPassenger;
 /*0x2ac*/ int                      FamiliarID;
-/*0x2b0*/ int                      RealEstateItemId;
-/*0x2b4*/ unsigned int             LastTick;
+/*0x2b0*/ float                    FallingStartZ;
+/*0x2b4*/ unsigned int             Unknown0x2b4;
 /*0x2b8*/ int                      Anon;
 /*0x2bc*/ int                      SecondaryTintIndex;
 /*0x2c0*/ unsigned int             LastTrapDamageTime;
@@ -540,7 +540,7 @@ public:
 /*0x2cc*/ unsigned int             LastSecondaryUseTime;
 /*0x2d0*/ char                     DragNames[2][0x38];
 /*0x340*/ unsigned int             LastResendAddPlayerPacket;
-/*0x344*/ unsigned int             Zone;
+/*0x344*/ unsigned int             Unknown0x344;
 /*0x348*/ float                    CameraOffset;
 /*0x34c*/ int                      Deity;
 /*0x350*/ unsigned int             Unknown0x350;
@@ -581,7 +581,7 @@ public:
 /*0x54d*/ uint8_t                  Unknown0x54d[0x3];
 /*0x550*/ int                      Trader;
 /*0x554*/ int                      NpcTintIndex;
-/*0x558*/ unsigned int             Unknown0x558;
+/*0x558*/ unsigned int             LastTick;
 /*0x55c*/ uint8_t                  Unknown0x55c[0x4];
 /*0x560*/ unsigned int             CorpseDragCount;
 /*0x564*/ uint8_t                  Unknown0x564[0x2];
@@ -607,16 +607,19 @@ public:
 /*0x5ec*/ uint8_t                  Unknown0x5ec[0x10];
 /*0x5fc*/ int                      ManaMax;
 /*0x600*/ int                      HideMode;
-/*0x604*/ int                      SomeData[2];
+/*0x604*/ int                      SomeData;
+/*0x608*/ float                    RunSpeed;
 /*0x60c*/ uint8_t                  InPvPArea;
 /*0x60d*/ uint8_t                  Unknown0x60d[0x3];
 /*0x610*/ unsigned int             SpellCooldownETA;
 /*0x614*/ unsigned int             LoginSerial;
-/*0x618*/ uint8_t                  Unknown0x618[0x2c];
+/*0x618*/ uint8_t                  Unknown0x618[0x10];
+/*0x628*/ bool                     Sneak;
+/*0x629*/ uint8_t                  Unknown0x629[0x1b];
 /*0x644*/ unsigned int             CombatSkillTicks[CONCURRENT_SKILLS];
 /*0x64c*/ unsigned int             LastTimeStoodStill;
 /*0x650*/ float                    ViewHeight;
-/*0x654*/ float                    RunSpeed;
+/*0x654*/ unsigned int             Zone;
 /*0x658*/ unsigned int             NextIntimidateTime;
 // @end: PlayerZoneClient Members
 
