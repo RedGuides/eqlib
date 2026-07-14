@@ -669,7 +669,7 @@ public:
 	/*0x2d0*/
 	};
 
-/// @start: CXWnd Members
+// @start: CXWnd Members
 /*0x030*/ bool bMaximizable;
 /*0x031*/ bool bUseInLayoutHorizontal;
 /*0x032*/ bool bUseInLayoutVertical;
@@ -699,7 +699,7 @@ public:
 /*0x071*/ bool bMarkedForDelete;
 /*0x072*/ bool bFullyScreenClipped;
 /*0x073*/ uint8_t Unknown_0x073[0x1];
-/*0x074*/ int LeftOffset;
+/*0x074*/ int TopOffset;
 /*0x078*/ CXWnd* FocusProxy;
 /*0x080*/ uint8_t Unknown_0x080[0x1];
 /*0x081*/ bool dShow;
@@ -714,18 +714,18 @@ public:
 /*0x0a9*/ uint8_t Unknown_0x0a9[0x3];
 /*0x0ac*/ int FadeState;
 /*0x0b0*/ CStaticTintedBlendAnimationTemplate* TitlePiece2;
-/*0x0b8*/ int TopOffset;
+/*0x0b8*/ int LeftOffset;
 /*0x0bc*/ bool bClickThroughToBackground;
 /*0x0bd*/ uint8_t Unknown_0x0bd[0x3];
 /*0x0c0*/ uint32_t TransitionStartTick;
-/*0x0c4*/ int RightOffset;
+/*0x0c4*/ int BottomOffset;
 /*0x0c8*/ uint32_t LastBlinkFadeRefreshTime;
 /*0x0cc*/ bool bClickThrough;
 /*0x0cd*/ uint8_t Unknown_0x0cd[0x3];
 /*0x0d0*/ CTextureFont* pFont;
 /*0x0d8*/ bool Locked;
 /*0x0d9*/ uint8_t Unknown_0x0d9[0x3];
-/*0x0dc*/ int BottomOffset;
+/*0x0dc*/ int RightOffset;
 /*0x0e0*/ CXRect TransitionRect;
 /*0x0f0*/ uint32_t BlinkFadeStartTime;
 /*0x0f4*/ uint32_t LastTimeMouseOver;
