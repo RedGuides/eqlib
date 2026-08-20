@@ -908,7 +908,7 @@ struct [[offsetcomments]] SpellAffectData
 using SPELLCALCINFO = SpellAffectData;
 using PSPELLCALCINFO = SPELLCALCINFO*;
 
-constexpr size_t EQ_Spell_size = 0x218; // @sizeof(EQ_Spell) :: 2026-07-09 (live) @ 0x1401E7F87
+constexpr size_t EQ_Spell_size = 0x218; // @sizeof(EQ_Spell) :: 2026-08-13 (live) @ 0x1401E8597
 
 class [[offsetcomments]] EQ_Spell
 {
@@ -1321,7 +1321,7 @@ public:
 
 using SpellHashMap = SoeUtil::HashMap<int, EQ_Spell>;
 
-constexpr size_t ClientSpellManager_size = 0x22C0; // @sizeof(ClientSpellManager) :: 2026-07-09 (live) @ 0x14027E840
+constexpr size_t ClientSpellManager_size = 0x22C0; // @sizeof(ClientSpellManager) :: 2026-08-13 (live) @ 0x14027F1A0
 
 class [[offsetcomments]] ClientSpellManager : public SpellManager
 {

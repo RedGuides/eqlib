@@ -50,7 +50,7 @@ enum EPlace
 	CanPlaceAndGoto,
 };
 
-constexpr size_t zoneHeader_size = 0x2A4; // @sizeof(zoneHeader) :: 2026-07-09 (live) @ 0x140EB77B4
+constexpr size_t zoneHeader_size = 0x2A4; // @sizeof(zoneHeader) :: 2026-08-13 (live) @ 0x140EBA7B4
 
 struct [[offsetcomments]] zoneHeader
 {
@@ -314,7 +314,7 @@ struct [[offsetcomments]] EQGameOptions
 
 
 // size of EverQuestinfo is the distance from this byte to the end of the struct
-constexpr size_t EverQuestinfo_size = 0x75278; // @sizeof(EverQuestinfo) :: 2026-07-09 (live) @ 0x140EB75C0
+constexpr size_t EverQuestinfo_size = 0x75278; // @sizeof(EverQuestinfo) :: 2026-08-13 (live) @ 0x140EBA5C0
 
 struct [[offsetcomments]] EverQuestinfo
 {
@@ -443,18 +443,21 @@ struct [[offsetcomments]] EverQuestinfo
 /*0x00500*/ int64_t           ProgressionOpenExpansions;             // EQExpansionOwned
 /*0x00508*/ bool              bHeroicCharacterFlag;
 /*0x0050c*/ int               ProgressionLevelCap;                   // Level Cap for Vaniki server
-/*0x00510*/ bool              bUnused510;
-/*0x00511*/ bool              bIsDevServer;
-/*0x00512*/ bool              bIsBetaServer;
-/*0x00513*/ bool              bIsTestServer;
-/*0x00514*/ bool              bIsStageServer;
-/*0x00515*/ bool              bUseMailSystem;
-/*0x00516*/ bool              bIsEscapeServer;
-/*0x00517*/ bool              bIsTutorialEnabled;
-/*0x00518*/ bool              bHeroicCharacterRelated1;
-/*0x0051a*/ uint16_t          bHeroicCharacterRelated2;              // not sure, but seems heroic character related
-/*0x0051c*/ bool              bCanCreateHeadStartCharacter;
-/*0x0051d*/ bool              bCanCreateHeroicCharacter;
+/*0x00510*/ bool              bCanUseAllClasses;
+/*0x00511*/ bool              bCanUseAllDeities;
+/*0x00512*/ bool              bCanUseAllRaces;
+/*0x00513*/ bool              bUnknown513;
+/*0x00514*/ bool              bIsDevServer;
+/*0x00515*/ bool              bIsBetaServer;
+/*0x00516*/ bool              bIsTestServer;
+/*0x00517*/ bool              bIsStageServer;
+/*0x00518*/ bool              bUseMailSystem;
+/*0x00519*/ bool              bIsEscapeServer;
+/*0x0051a*/ bool              bIsTutorialEnabled;
+/*0x0051b*/ bool              bHeroicCharacterRelated1;
+/*0x0051c*/ uint16_t          bHeroicCharacterRelated2;              // not sure, but seems heroic character related
+/*0x0051e*/ bool              bCanCreateHeadStartCharacter;
+/*0x0051f*/ bool              bCanCreateHeroicCharacter;
 /*0x00520*/ int               nMonthlyClaim;                         // maybe, needs verification.
 /*0x00524*/ bool              MarketPlaceRelated;                    // also maybe, related to marketplace
 /*0x00528*/ int               Heroic50Slots;
@@ -716,7 +719,7 @@ public:
 };
 
 
-constexpr size_t CEverQuest_size = 0x19710; // @sizeof(CEverQuest) :: 2026-07-09 (live) @ 0x140356C83
+constexpr size_t CEverQuest_size = 0x19710; // @sizeof(CEverQuest) :: 2026-08-13 (live) @ 0x140357723
 
 class [[offsetcomments]] CEverQuest : public CEverQuestBase, public UniversalChatProxyHandler, public PopDialogHandler
 {
