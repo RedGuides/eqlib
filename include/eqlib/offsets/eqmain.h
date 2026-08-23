@@ -26,7 +26,7 @@
 #define EQMain__LoginServerAPI__JoinServer_x                       0x180018060
 #define EQMain__WndProc_x                                          0x18000C220
 
-#define EQMain__pinstCEQSuiteTextureLoader_x                       0x180176DE0
+#define EQMain__pinstCEQSuiteTextureLoader_x                       0x180176DF0
 #define EQMain__pinstCLoginViewManager_x                           0x18017E4F8
 #define EQMain__pinstCXWndManager_x                                0x1803814C8
 #define EQMain__pinstCSidlManager_x                                0x1803814D0
