@@ -1263,7 +1263,7 @@ public:
 	__declspec(property(get = get_Item2)) ItemDefinition* Item2;
 };
 
-constexpr size_t ItemClient_size = 0x120; // @sizeof(ItemClient) :: 2026-07-07 (test) @ 0x1401F0A09
+constexpr size_t ItemClient_size = 0x138; // @sizeof(ItemClient) :: 2026-08-11 (test) matches shipped ItemBase layout
 
 class [[offsetcomments]] ItemClient : public ItemBase
 {
