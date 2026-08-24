@@ -1095,7 +1095,7 @@ public:
 /*0x058*/ int                   ScriptIndex;
 /*0x05c*/ bool                  bConvertable;
 /*0x05d*/ uint8_t               Unknown_0x05d[0x3];
-/*0x060*/ int                   Open;
+/*0x060*/ int                   Charges;
 /*0x064*/ uint8_t               Unknown_0x064[0x4];
 /*0x068*/ ItemEvolutionDataPtr  pEvolutionData;
 /*0x078*/ SoeUtil::String       ClientString;
@@ -1115,10 +1115,8 @@ public:
 /*0x0f8*/ int                   NoDropFlag;
 /*0x0fc*/ int                   MerchantQuantity;
 /*0x100*/ int                   ActorTag2;
-/*0x104*/ uint8_t               Unknown_0x104[0x4];
+/*0x104*/ int                   Open;
 // @end: ItemBase Members
-
-	ALT_MEMBER_ALIAS(int, Open, Charges);
 
 	EQLIB_OBJECT ItemBase();
 

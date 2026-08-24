@@ -673,7 +673,7 @@ public:
 /*0x030*/ uint8_t StartAlpha;
 /*0x031*/ bool bShowClickThroughMenuItem;
 /*0x032*/ uint8_t Unknown_0x032[0x2];
-/*0x034*/ uint32_t BackgroundDrawType;
+/*0x034*/ uint8_t Unknown_0x034[0x4];
 /*0x038*/ bool bKeepOnScreen;
 /*0x039*/ bool bIsParentOrContextMenuWindow;
 /*0x03a*/ bool BlinkFadeMouseOverState;
@@ -758,7 +758,8 @@ public:
 /*0x16c*/ CXRect ClipRectClient;
 /*0x17c*/ uint32_t TransitionDuration;
 /*0x180*/ CLayoutStrategy* pLayoutStrategy;
-/*0x188*/ uint8_t Unknown_0x188[0x8];
+/*0x188*/ uint32_t BackgroundDrawType;
+/*0x18c*/ uint8_t Unknown_0x18c[0x4];
 /*0x190*/ CXWnd* ParentWindow;
 /*0x198*/ bool bMaximizable;
 /*0x199*/ bool bActive;
