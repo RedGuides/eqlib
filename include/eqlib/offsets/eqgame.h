@@ -519,7 +519,7 @@
 #define CSidlScreenWnd__GetChildItem_x                             0x1405C4EA0
 #define CSidlScreenWnd__GetSidlPiece_x                             0x1405C50F0
 #define CSidlScreenWnd__HandleLButtonUp_x                          0x1405CF190
-#define CSidlScreenWnd__Init1_x                                    0x1405C5380
+#define CSidlScreenWnd__Init1_x                                    0x1405C5460
 #define CSidlScreenWnd__LoadIniInfo_x                              0x1405C57D0
 #define CSidlScreenWnd__LoadIniListWnd_x                           0x1405C60A0
 #define CSidlScreenWnd__LoadSidlScreen_x                           0x1405C6AA0
