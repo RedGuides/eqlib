@@ -958,8 +958,9 @@ enum class ServerID : int {
 	Teek = 178,
 	Fangbreaker = 179,
 	Frostreaver = 180,
+	Lethar = 181,
 
-	NumServers = 29,
+	NumServers = 30,
 	Invalid = -1,
 };
 
