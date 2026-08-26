@@ -169,7 +169,7 @@ ServerID GetServerIDFromServerName(const char* serverName)
 		{ "fangbreaker", ServerID::Fangbreaker },
 		{ "firiona", ServerID::Firiona },
 		{ "frostreaver", ServerID::Frostreaver },
-		{ "frostreaver", ServerID::Lethar },
+		{ "lethar", ServerID::Lethar },
 		{ "luclin", ServerID::Luclin },
 		{ "mangler", ServerID::Mangler },
 		{ "mayong", ServerID::Mayong },
