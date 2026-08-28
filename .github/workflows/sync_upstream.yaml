@@ -13,13 +13,14 @@ concurrency:
 jobs:
   merge-upstream:
     if: github.repository == 'redguides/eqlib'
-    runs-on: [fast, self-hosted, Windows, X64]
+    runs-on: ubuntu-latest
     env:
-      REPO_DIR: C:\actions-runner\repos\eqlib
       RG_SYNC_PAT: ${{ secrets.RG_SYNC_PAT }}
     steps:
       - name: Merge macroquest/eqlib (except live, test)
         shell: pwsh
+        env:
+          REPO_DIR: ${{ runner.temp }}/eqlib # runner ctx is invalid in job-level env
         run: |
           $auth = "https://x-access-token:$env:RG_SYNC_PAT@github.com/redguides/eqlib.git"
 

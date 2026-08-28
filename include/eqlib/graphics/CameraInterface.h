@@ -33,7 +33,6 @@ class CCamera;
 class CCameraInterface
 {
 public:
-	virtual ~CCameraInterface() = default;
 	virtual CCamera* AsCamera() = 0;
 	virtual void SetNearClipPlane(float) = 0;
 	virtual float GetNearClipPlane() = 0;

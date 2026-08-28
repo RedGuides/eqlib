@@ -308,17 +308,16 @@ public:
 struct [[offsetcomments]] PZCPhysicsInfo
 {
 // @start: PZCPhysicsInfo Members
-/*0x00*/ float Y;
-/*0x04*/ unsigned int ZHeading : 12;
-/*0x08*/ float DeltaY;
-/*0x0c*/ unsigned int Acceleration : 10;
-/*0x0c*/ unsigned int Heading : 12;
-/*0x10*/ float Z;
-/*0x14*/ float X;
+/*0x00*/ float DeltaZ;
+/*0x04*/ float DeltaY;
+/*0x08*/ unsigned int Heading : 12;
+/*0x0c*/ float Y;
+/*0x10*/ float X;
+/*0x14*/ unsigned int ZHeading : 12;
 /*0x18*/ float DeltaX;
-/*0x1c*/ unsigned int DeltaHeading : 10;
-/*0x20*/ float DeltaZ;
-/*0x24*/ unsigned int Unknown0x24;
+/*0x1c*/ int DeltaHeading : 10;
+/*0x20*/ float Z;
+/*0x24*/ int Acceleration : 10;
 /*0x28*/
 // @end: PZCPhysicsInfo Members
 };
@@ -493,183 +492,153 @@ public:
 /*0x01c8*/ unsigned int             LastIntimidateUse;
 
 // @start: PlayerZoneClient Members
-/*0x1cc*/ bool                     GM;
-/*0x1cd*/ bool                     berserker;
-/*0x1ce*/ uint8_t                  Unknown0x1ce[0x2];
-/*0x1d0*/ unsigned int**           ppUDP;
-/*0x1d8*/ float                    AnimationSpeedRelated;
-/*0x1dc*/ uint8_t                  Unknown0x1dc[0x4];
-/*0x1e0*/ int64_t                  HPCurrent;
-/*0x1e8*/ unsigned int             SitStartTime;
-/*0x1ec*/ unsigned int             LastTimeStoodStill;
-/*0x1f0*/ char                     Handle[0x20];
-/*0x210*/ bool                     bBetaBuffed;
-/*0x211*/ uint8_t                  Unknown0x211[0x3];
-/*0x214*/ unsigned int             EnduranceMax;
-/*0x218*/ uint8_t                  FishingEvent;
-/*0x219*/ uint8_t                  Unknown0x219[0x3];
-/*0x21c*/ int                      SomeData;
-/*0x220*/ uint8_t                  Unknown0x220[0x4];
-/*0x224*/ float                    ViewHeight;
-/*0x228*/ void*                    pTouchingSwitch;
-/*0x230*/ uint8_t                  Unknown0x230[0x1];
-/*0x231*/ uint8_t                  Blind;
-/*0x232*/ bool                     IntimidateState;
-/*0x233*/ uint8_t                  Unknown0x233[0x5];
-/*0x238*/ int64_t                  HPMax;
-/*0x240*/ uint8_t                  Original;
-/*0x241*/ uint8_t                  Unknown0x241[0x3];
-/*0x244*/ int                      Buyer;
-/*0x248*/ uint8_t                  StandState;
-/*0x249*/ bool                     bTempPet;
-/*0x24a*/ uint8_t                  Unknown0x24a[0x2];
-/*0x24c*/ LaunchSpellData          CastingData;
-/*0x290*/ int                      PrimaryTintIndex;
-/*0x294*/ bool                     bOfflineMode;
-/*0x295*/ uint8_t                  Unknown0x295[0x3];
-/*0x298*/ unsigned int             MasterID;
-/*0x29c*/ uint8_t                  Unknown0x29c[0x4];
-/*0x2a0*/ int64_t                  GuildID;
-/*0x2a8*/ bool                     bSummoned;
-/*0x2a9*/ uint8_t                  Unknown0x2a9[0x3];
-/*0x2ac*/ int                      FamiliarID;
-/*0x2b0*/ float                    FallingStartZ;
-/*0x2b4*/ float                    MissileRangeToTarget;
-/*0x2b8*/ int                      Anon;
-/*0x2bc*/ int                      DoSpecialMelee;
-/*0x2c0*/ int                      SecondaryTintIndex;
-/*0x2c4*/ unsigned int             LoginSerial;
-/*0x2c8*/ int                      EnduranceCurrent;
-/*0x2cc*/ uint8_t                  Unknown0x2cc[0x80];
-/*0x34c*/ int                      Deity;
-/*0x350*/ unsigned int             LastPrimaryUseTime;
-/*0x354*/ float                    MyWalkSpeed;
-/*0x358*/ int                      IsAttacking;
-/*0x35c*/ EqItemGuid               realEstateItemGuid;
-/*0x36e*/ char                     Title[0x80];
-/*0x3ee*/ uint8_t                  Unknown0x3ee[0x2];
-/*0x3f0*/ int                      CurrIOState;
-/*0x3f4*/ bool                     bAttackRelated;
-/*0x3f5*/ uint8_t                  Unknown0x3f5[0x3];
-/*0x3f8*/ float                    BearingToTarget;
-/*0x3fc*/ bool                     LFG;
-/*0x3fd*/ uint8_t                  Level;
-/*0x3fe*/ uint8_t                  Unknown0x3fe[0x2];
-/*0x400*/ int                      PetID;
-/*0x404*/ uint8_t                  AltAttack;
-/*0x405*/ uint8_t                  Unknown0x405[0x3];
-/*0x408*/ int                      RealEstateItemId;
-/*0x40c*/ bool                     bBuffTimersOnHold;
-/*0x40d*/ bool                     DraggingPlayer;
-/*0x40e*/ uint8_t                  Unknown0x40e[0x3f];
-/*0x44d*/ uint8_t                  TitleVisible;
-/*0x44e*/ uint8_t                  Unknown0x44e[0x2];
-/*0x450*/ int                      AFK;
-/*0x454*/ unsigned int             RespawnTimer;
-/*0x458*/ float                    CameraOffset;
-/*0x45c*/ uint8_t                  CharClass;
-/*0x45d*/ uint8_t                  Unknown0x45d[0x3];
-/*0x460*/ int                      ManaCurrent;
-/*0x464*/ bool                     bSwitchMoved;
-/*0x465*/ uint8_t                  HoldingAnimation;
-/*0x466*/ uint8_t                  Unknown0x466[0x2];
-/*0x468*/ unsigned int             LastRefresh;
-/*0x46c*/ unsigned int             MinuteTimer;
-/*0x470*/ bool                     PvPFlag;
-/*0x471*/ char                     Suffix[0x80];
-/*0x4f1*/ uint8_t                  Unknown0x4f1[0x7];
-/*0x4f8*/ CharacterZoneClient*     pCharacter;
-/*0x500*/ uint8_t                  Unknown0x500[0x1];
-/*0x501*/ uint8_t                  FindBits;
-/*0x502*/ uint8_t                  Unknown0x502[0x2];
-/*0x504*/ unsigned int             SpellGemETA[15];
-/*0x540*/ unsigned int             CorpseDragCount;
-/*0x544*/ unsigned int             LastTick;
-/*0x548*/ unsigned int             LastSecondaryUseTime;
-/*0x54c*/ bool                     Linkdead;
-/*0x54d*/ uint8_t                  Unknown0x54d[0x3];
-/*0x550*/ int                      Trader;
-/*0x554*/ bool                     bStationary;
-/*0x555*/ uint8_t                  Unknown0x555[0x3];
-/*0x558*/ int                      WarCry;
-/*0x55c*/ uint8_t                  Light;
-/*0x55d*/ uint8_t                  InPvPArea;
-/*0x55e*/ uint8_t                  Unknown0x55e[0x2];
-/*0x560*/ PlayerClient*            pViewPlayer;
-/*0x568*/ int                      RealEstateID;
-/*0x56c*/ unsigned int             CombatSkillUsed[CONCURRENT_SKILLS];
-/*0x574*/ unsigned int             Meditating;
-/*0x578*/ bool                     Mercenary;
-/*0x579*/ uint8_t                  Unknown0x579[0x3];
-/*0x57c*/ float                    MerchantGreed;
-/*0x580*/ bool                     bAlwaysShowAura;
-/*0x581*/ uint8_t                  Unknown0x581[0x3];
-/*0x584*/ CPhysicsInfo             LastCollision;
-/*0x5b4*/ bool                     IsPassenger;
-/*0x5b5*/ uint8_t                  Unknown0x5b5[0x3];
-/*0x5b8*/ int                      NpcTintIndex;
-/*0x5bc*/ char                     LoginRelated[0x20];
-/*0x5dc*/ unsigned int             LastResendAddPlayerPacket;
-/*0x5e0*/ bool                     bShowHelm;
-/*0x5e1*/ uint8_t                  Unknown0x5e1[0xf];
-/*0x5f0*/ CRaceGenderInfo*         pRaceGenderInfo;
-/*0x5f8*/ unsigned int             NextIntimidateTime;
-/*0x5fc*/ int                      ManaMax;
-/*0x600*/ int                      HideMode;
-/*0x604*/ uint8_t                  LastAttack;
-/*0x605*/ uint8_t                  Unknown0x605[0x3];
-/*0x608*/ float                    RunSpeed;
-/*0x60c*/ bool                     bAnimationOnPop;
-/*0x60d*/ uint8_t                  Unknown0x60d[0x3];
-/*0x610*/ unsigned int             SpellCooldownETA;
-/*0x614*/ unsigned int             StunTimer;
-/*0x618*/ unsigned int             NextSwim;
-/*0x61c*/ uint8_t                  FD;
-/*0x61d*/ uint8_t                  Unknown0x61d[0xb];
-/*0x628*/ bool                     Sneak;
-/*0x629*/ uint8_t                  Unknown0x629[0x3];
-/*0x62c*/ unsigned int             LastRangedUsedTime;
-/*0x630*/ unsigned int             LastTrapDamageTime;
-/*0x634*/ uint8_t                  Unknown0x634[0x4];
-/*0x638*/ unsigned int             HibernatingCount;
-/*0x63c*/ unsigned int             FishingETA;
-/*0x640*/ unsigned int             TimeStamp;
-/*0x644*/ unsigned int             CombatSkillTicks[CONCURRENT_SKILLS];
-/*0x64c*/ int                      Birthdate;
-/*0x650*/ uint8_t                  IntimidateCount;
-/*0x651*/ uint8_t                  Unknown0x651[0x3];
-/*0x654*/ unsigned int             Zone;
-/*0x658*/ unsigned int             LastMealTime;
+/*0x01cc*/ bool                                                           Sneak;
+/*0x01cd*/ bool                                                           bAlwaysShowAura;
+/*0x01d0*/ unsigned int                                                   NextIntimidateTime;
+/*0x01d4*/ unsigned int                                                   SpellCooldownETA;
+/*0x01d8*/ int                                                            EnduranceCurrent;
+/*0x01dc*/ int                                                            Deity;
+/*0x01e0*/ int                                                            IsAttacking;
+/*0x01e4*/ bool                                                           berserker; // nv
+/*0x01e5*/ bool                                                           bTempPet;
+/*0x01e8*/ float                                                          MyWalkSpeed;
+/*0x01ec*/ int                                                            DoSpecialMelee;
+/*0x01f0*/ void*                                                          ppUDP; // nv
+/*0x01f8*/ unsigned int                                                   LastMealTime;
+/*0x01fc*/ uint8_t                                                        HoldingAnimation;
+/*0x0200*/ unsigned int                                                   CombatSkillUsed[2];
+/*0x0208*/ int                                                            ManaMax;
+/*0x020c*/ int                                                            CorpseDragCount;
+/*0x0210*/ char                                                           Handle[0x20]; // nv
+/*0x0230*/ int                                                            WarCry;
+/*0x0238*/ void*                                                          pRaceGenderInfo;
+/*0x0240*/ uint8_t                                                        padding_0x240; // nv
+/*0x0241*/ bool                                                           bSummoned;
+/*0x0244*/ float                                                          AnimationSpeedRelated;
+/*0x0248*/ char                                                           DraggingPlayer[0x40]; // nv
+/*0x0288*/ uint32_t                                                       padding_0x288; // nv
+/*0x028c*/ unsigned int                                                   MasterID;
+/*0x0290*/ void*                                                          pViewPlayer; // nv
+/*0x0298*/ int64_t                                                        GuildID;
+/*0x02a0*/ bool                                                           GM;
+/*0x02a4*/ unsigned int                                                   LastRefresh;
+/*0x02a8*/ char                                                           Suffix[0x80];
+/*0x0328*/ int                                                            PetID;
+/*0x032c*/ float                                                          BearingToTarget;
+/*0x0330*/ int64_t                                                        HPMax;
+/*0x0338*/ uint8_t                                                        Light;
+/*0x033c*/ uint32_t                                                       padding_0x33c; // nv
+/*0x0340*/ uint8_t                                                        LastAttack;
+/*0x0341*/ uint8_t                                                        Level;
+/*0x0344*/ int                                                            SomeData[2]; // nv
+/*0x034c*/ int                                                            LastPrimaryUseTime;
+/*0x0350*/ CPhysicsInfo                                                   LastCollision;
+/*0x0380*/ bool                                                           LFG;
+/*0x0384*/ int                                                            LastTimeStoodStill;
+/*0x0388*/ uint8_t                                                        GMRank; // nv
+/*0x0390*/ int64_t                                                        HPCurrent;
+/*0x0398*/ bool                                                           bSwitchMoved;
+/*0x039c*/ int                                                            RealEstateItemId;
+/*0x03a0*/ int                                                            Anon;
+/*0x03a4*/ bool                                                           InPvPArea;
+/*0x03a8*/ int                                                            SecondaryTintIndex;
+/*0x03ac*/ uint8_t                                                        Original;
+/*0x03b0*/ int                                                            FamiliarID;
+/*0x03b4*/ bool                                                           Mercenary;
+/*0x03b5*/ uint8_t                                                        Blind;
+/*0x03b6*/ char                                                           DragNames[2][0x40]; // nv
+/*0x0438*/ LaunchSpellData                                                CastingData;
+/*0x047c*/ bool                                                           bBuffTimersOnHold;
+/*0x0480*/ unsigned int                                                   Meditating;
+/*0x0484*/ int                                                            HideMode;
+/*0x0488*/ bool                                                           bStationary;
+/*0x0489*/ char                                                           LoginRelated[0x20]; // nv
+/*0x04ac*/ unsigned int                                                   StunTimer;
+/*0x04b0*/ unsigned int                                                   HibernatingCount;
+/*0x04b4*/ int                                                            Birthdate;
+/*0x04b8*/ int                                                            Trader;
+/*0x04bc*/ int                                                            AltAttack; // nv
+/*0x04c0*/ uint8_t                                                        TitleVisible; // nv
+/*0x04c1*/ uint8_t                                                        padding_0x4c1[3]; // nv
+/*0x04c4*/ bool                                                           Linkdead;
+/*0x04c8*/ int                                                            RespawnTimer;
+/*0x04cc*/ float                                                          MissileRangeToTarget;
+/*0x04d0*/ unsigned int                                                   FishingETA;
+/*0x04d4*/ uint8_t                                                        CharClass; // nv
+/*0x04d8*/ unsigned int                                                   LastSecondaryUseTime;
+/*0x04dc*/ unsigned int                                                   LastTick; // nv
+/*0x04e0*/ float                                                          RunSpeed;
+/*0x04e4*/ int                                                            ManaCurrent;
+/*0x04e8*/ EqItemGuid                                                     realEstateItemGuid;
+/*0x04fc*/ float                                                          ViewHeight;
+/*0x0500*/ unsigned int                                                   Zone;
+/*0x0504*/ uint8_t                                                        FindBits;
+/*0x0508*/ int                                                            RealEstateID; // nv
+/*0x050c*/ bool                                                           FD;
+/*0x0510*/ unsigned int                                                   EnduranceMax;
+/*0x0514*/ int                                                            PrimaryTintIndex;
+/*0x0518*/ CharacterZoneClient*                                           pCharacter;
+/*0x0520*/ unsigned int                                                   CombatSkillTicks[2];
+/*0x0528*/ int                                                            AFK;
+/*0x052c*/ unsigned int                                                   LastTrapDamageTime;
+/*0x0530*/ void*                                                          pTouchingSwitch;
+/*0x0538*/ unsigned int                                                   SitStartTime;
+/*0x053c*/ unsigned int                                                   SpellGemETA[15];
+/*0x0578*/ uint8_t                                                        FishingEvent;
+/*0x0579*/ bool                                                           bAttackRelated;
+/*0x057a*/ uint8_t                                                        IntimidateCount;
+/*0x057b*/ uint8_t                                                        padding_0x57b; // nv
+/*0x057c*/ float                                                          MerchantGreed; // nv
+/*0x0580*/ unsigned int                                                   MinuteTimer;
+/*0x0584*/ unsigned int                                                   NextSwim;
+/*0x0588*/ uint8_t                                                        IsPassenger; // nv
+/*0x058c*/ unsigned int                                                   LoginSerial; // nv
+/*0x0590*/ int                                                            Buyer;
+/*0x0594*/ char                                                           Title[0x80];
+/*0x0614*/ bool                                                           PvPFlag;
+/*0x0618*/ unsigned int                                                   TimeStamp;
+/*0x061c*/ int                                                            LastRangedUsedTime;
+/*0x0620*/ unsigned int                                                   LastResendAddPlayerPacket; // nv
+/*0x0624*/ float                                                          FallingStartZ;
+/*0x0628*/ uint8_t                                                        StandState;
+/*0x062c*/ int                                                            CurrIOState;
+/*0x0630*/ bool                                                           bBetaBuffed;
+/*0x0634*/ int                                                            NpcTintIndex;
+/*0x0638*/ float                                                          CameraOffset;
+/*0x063c*/ bool                                                           bShowHelm; // nv
+/*0x063d*/ bool                                                           bOfflineMode;
+/*0x063e*/ bool                                                           bAnimationOnPop; // nv
+/*0x063f*/ uint8_t                                                        padding_0x63f; // nv
 // @end: PlayerZoneClient Members
 
-/*0x065c*/ TCircularBuffer<SDoCollisionMovementStats, MAX_MOVEMENT_STATS> MovementStats;
-/*0x0f78*/ PlayerClient*            WhoFollowing;                       // NULL if autofollow off
-/*0x0f80*/ unsigned int             GroupAssistNPC[MAX_GROUP_ASSISTS];
-/*0x0f84*/ unsigned int             RaidAssistNPC[MAX_RAID_ASSISTS];
-/*0x0f90*/ unsigned int             GroupMarkNPC[MAX_GROUP_MARK_TARGETS];
-/*0x0f9c*/ unsigned int             RaidMarkNPC[MAX_RAID_MARK_TARGETS];
-/*0x0fa8*/ unsigned int             TargetOfTarget;
-/*0x0fac*/ PZCPhysicsInfo           PZCLastPhysics;
-/*0x0fd4*/ unsigned int             ParticleCastStartTime;
-/*0x0fd8*/ unsigned int             ParticleCastDuration;
-/*0x0fdc*/ int                      ParticleVisualSpellNum;
-/*0x0fe0*/ ActorClient              mActorClient;
-/*0x11f0*/ PlayerAnimationBase*     pAnimation;
-/*0x11f8*/ float                    MeleeRadius;                        // used by GetMeleeRange
-/*0x11fc*/ float                    GetMeleeRangeVar1;
-/*0x1200*/ unsigned int             CollisionCounter;
-/*0x1204*/ float                    CachedCeilingLocationY;
-/*0x1208*/ float                    CachedCeilingLocationX;
-/*0x120c*/ float                    CachedCeilingLocationZ;
-/*0x1210*/ float                    CachedCeilingHeight;
-/*0x1214*/ CCapsule                 StaticCollision;
-/*0x1230*/ float                    CachedFloorLocationY;
-/*0x1234*/ float                    CachedFloorLocationX;
-/*0x1238*/ float                    CachedFloorLocationZ;
-/*0x123c*/ float                    CachedFloorHeight;
-/*0x1240*/ ArrayClass<PhysicsEffect> mPhysicsEffects;
-/*0x1258*/ eqstd::vector<bool>      PhysicsEffectsUpdated;
-/*0x1278*/
+/*0x0640*/ TCircularBuffer<SDoCollisionMovementStats, MAX_MOVEMENT_STATS> MovementStats;
+/*0x0f58*/ PlayerClient*                                                  WhoFollowing; // NULL if autofollow off
+/*0x0f60*/ unsigned int                                                   GroupAssistNPC[MAX_GROUP_ASSISTS];
+/*0x0f64*/ unsigned int                                                   RaidAssistNPC[MAX_RAID_ASSISTS];
+/*0x0f70*/ unsigned int                                                   GroupMarkNPC[MAX_GROUP_MARK_TARGETS];
+/*0x0f7c*/ unsigned int                                                   RaidMarkNPC[MAX_RAID_MARK_TARGETS];
+/*0x0f88*/ unsigned int                                                   TargetOfTarget;
+/*0x0f8c*/ PZCPhysicsInfo                                                 PZCLastPhysics;
+/*0x0fb4*/ unsigned int                                                   ParticleCastStartTime;
+/*0x0fb8*/ unsigned int                                                   ParticleCastDuration;
+/*0x0fbc*/ int                                                            ParticleVisualSpellNum;
+/*0x0fc0*/ ActorClient                                                    mActorClient;
+/*0x11d0*/ PlayerAnimationBase*                                           pAnimation;
+/*0x11d8*/ float                                                          MeleeRadius; // used by GetMeleeRange
+/*0x11dc*/ float                                                          GetMeleeRangeVar1;
+/*0x11e0*/ unsigned int                                                   CollisionCounter;
+/*0x11e4*/ float                                                          CachedCeilingLocationY;
+/*0x11e8*/ float                                                          CachedCeilingLocationX;
+/*0x11ec*/ float                                                          CachedCeilingLocationZ;
+/*0x11f0*/ float                                                          CachedCeilingHeight;
+/*0x11f4*/ CCapsule                                                       StaticCollision;
+/*0x1210*/ float                                                          CachedFloorLocationY;
+/*0x1214*/ float                                                          CachedFloorLocationX;
+/*0x1218*/ float                                                          CachedFloorLocationZ;
+/*0x121c*/ float                                                          CachedFloorHeight;
+/*0x1220*/ ArrayClass<PhysicsEffect>                                      mPhysicsEffects;
+/*0x1238*/ uint8_t                                                        PhysicsEffectsUpdated[32];
+/*0x1258*/
 
 	EQLIB_OBJECT bool LegalPlayerRace();
 
@@ -770,142 +739,136 @@ struct BardQueueUnknown
 // PlayerClient
 //============================================================================
 
-constexpr size_t PlayerClient_size = 0x20D8; // @sizeof(PlayerClient) :: 2026-07-07 (test) @ 0x14030C92E
+constexpr size_t PlayerClient_size = 0x20B8; // @sizeof(PlayerClient) :: 2026-08-25 (test) @ 0x14031ad70
 
 class [[offsetcomments]] PlayerClient : public PlayerZoneClient
 {
 public:
-/*0x1278*/ int               Animation;                    // Current Animation Playing.
-/*0x127c*/ int               NextAnim;
-/*0x1280*/ int               CurrLowerBodyAnim;
-/*0x1284*/ int               NextLowerBodyAnim;
-/*0x1288*/ int               CurrLowerAnimVariation;
-/*0x128c*/ int               CurrAnimVariation;
-/*0x1290*/ int               CurrAnimRndVariation;
+/*0x1258*/ int               Animation;                    // Current Animation Playing.
+/*0x125c*/ int               NextAnim;
+/*0x1260*/ int               CurrLowerBodyAnim;
+/*0x1264*/ int               NextLowerBodyAnim;
+/*0x1268*/ int               CurrLowerAnimVariation;
+/*0x126c*/ int               CurrAnimVariation;
+/*0x1270*/ int               CurrAnimRndVariation;
 
 	// Beginning of sound ids
-/*0x1294*/ int               Loop3d_SoundID;
-/*0x1298*/ int               Step_SoundID;
-/*0x129c*/ int               CurLoop_SoundID;
-/*0x12a0*/ int               Idle3d1_SoundID;
-/*0x12a4*/ int               Idle3d2_SoundID;
-/*0x12a8*/ int               Jump_SoundID;
-/*0x12ac*/ int               Hit1_SoundID;
-/*0x12b0*/ int               Hit2_SoundID;
-/*0x12b4*/ int               Hit3_SoundID;
-/*0x12b8*/ int               Hit4_SoundID;
-/*0x12bc*/ int               Gasp1_SoundID;
-/*0x12c0*/ int               Gasp2_SoundID;
-/*0x12c4*/ int               Drown_SoundID;
-/*0x12c8*/ int               Death_SoundID;
-/*0x12cc*/ int               Attk1_SoundID;
-/*0x12d0*/ int               Attk2_SoundID;
-/*0x12d4*/ int               Attk3_SoundID;
-/*0x12d8*/ int               Walk_SoundID;
-/*0x12dc*/ int               Run_SoundID;
-/*0x12e0*/ int               Crouch_SoundID;
-/*0x12e4*/ int               Swim_SoundID;
-/*0x12e8*/ int               TreadWater_SoundID;
-/*0x12ec*/ int               Climb_SoundID;
-/*0x12f0*/ int               Sit_SoundID;
-/*0x12f4*/ int               Kick_SoundID;
-/*0x12f8*/ int               Bash_SoundID;
-/*0x12fc*/ int               FireBow_SoundID;
-/*0x1300*/ int               MonkAttack1_SoundID;
-/*0x1304*/ int               MonkAttack2_SoundID;
-/*0x1308*/ int               MonkSpecial_SoundID;
-/*0x130c*/ int               PrimaryBlunt_SoundID;
-/*0x1310*/ int               PrimarySlash_SoundID;
-/*0x1314*/ int               PrimaryStab_SoundID;
-/*0x1318*/ int               Punch_SoundID;
-/*0x131c*/ int               Roundhouse_SoundID;
-/*0x1320*/ int               SecondaryBlunt_SoundID;
-/*0x1324*/ int               SecondarySlash_SoundID;
-/*0x1328*/ int               SecondaryStab_SoundID;
-/*0x132c*/ int               SwimAttack_SoundID;
-/*0x1330*/ int               TwoHandedBlunt_SoundID;
-/*0x1334*/ int               TwoHandedSlash_SoundID;
-/*0x1338*/ int               TwoHandedStab_SoundID;
-/*0x133c*/ int               SecondaryPunch_SoundID;
-/*0x1340*/ int               JumpAcross_SoundID;
-/*0x1344*/ int               WalkBackwards_SoundID;
-/*0x1348*/ int               CrouchWalk_SoundID;
-/*0x134c*/ unsigned int      LastHurtSound;
-/*0x1350*/ unsigned int      LastWalkTime;                 // used for animations
-/*0x1354*/ int               ShipRelated;                  // ID? look into.
-/*0x1358*/ int               RightHolding;                 // Nothing=0 Other/Weapon=1 shield=2
-/*0x135c*/ int               LeftHolding;                  // old Holding
-/*0x1360*/ unsigned int      DeathAnimationFinishTime;
-/*0x1364*/ bool              bRemoveCorpseAfterDeathAnim;  // used by /hidecorpse
-/*0x1368*/ unsigned int      LastBubblesTime;
-/*0x136c*/ unsigned int      LastBubblesTime1;
-/*0x1370*/ unsigned int      LastColdBreathTime;
-/*0x1374*/ unsigned int      LastParticleUpdateTime;
-/*0x1378*/ unsigned int      MercID;                       // if the spawn is player and has a merc up this is it's spawn ID
-/*0x137c*/ unsigned int      ContractorID;                 // if the spawn is a merc this is its contractor's spawn ID
-	bool getter_Mercenary() const { return ContractorID != 0; }
-	__declspec(property(get = getter_Mercenary)) bool Mercenary;
-/*0x1380*/ float             CeilingHeightAtCurrLocation;
-/*0x1388*/ EqMobileEmitter*  MobileEmitter;
-/*0x1390*/ bool              bInstantHPGaugeChange;
-/*0x1394*/ unsigned int      LastUpdateReceivedTime;
-/*0x1398*/ float             MaxSpeakDistance;
-/*0x139c*/ float             WalkSpeed;                    // how much we will slow down while sneaking
-/*0x13a0*/ bool              bHideCorpse;
-/*0x13a1*/ char              AssistName[0x40];
-/*0x13e1*/ bool              InvitedToGroup;
-/*0x13e4*/ int               GroupMemberTargeted;          // -1 if no target, else 1 through 5
-/*0x13e8*/ bool              bRemovalPending;
-/*0x13f0*/ void*             pCorpse;
-/*0x13f8*/ float             EmitterScalingRadius;
-/*0x13fc*/ int               DefaultEmitterID;
-/*0x1400*/ bool              bDisplayNameSprite;
-/*0x1401*/ bool              bIdleAnimationOff;
-/*0x1402*/ bool              bIsInteractiveObject;
-/*0x1403*/ uint8_t           InteractiveObjectModelName[0x80];
-/*0x1483*/ uint8_t           InteractiveObjectOtherName[0x80];
-/*0x1503*/ uint8_t           InteractiveObjectName[0x40];
-/*0x1544*/ CPhysicsInfo      PhysicsBeforeLastPort;
-/*0x1574*/ unsigned int      notsure;                      // could be part of CPhysicsInfo?
-/*0x1578*/ SFellowship       Fellowship;
-/*0x1dd8*/ float             CampfireY;
-/*0x1ddc*/ float             CampfireX;
-/*0x1de0*/ float             CampfireZ;
-/*0x1de4*/ int               CampfireZoneID;               // zone ID where campfire is
-/*0x1de8*/ int               CampfireTimestamp;            // CampfireTimestamp-FastTime()=time left on campfire
-/*0x1dec*/ int               CampfireTimestamp2;
-/*0x1df0*/ int               FellowShipID;
-/*0x1df4*/ int               FellowShipID2;
-/*0x1df8*/ int               CampType;
-/*0x1dfc*/ bool              Campfire;
-/*0x1e00*/ TSafeArrayStatic<int, 3> SeeInvis;
-/*0x1e0c*/ EQUIPMENT         Equipment;
-/*0x1ec0*/ bool              bIsPlacingItem;
-/*0x1ec1*/ uint8_t           GMRank;
-/*0x1ec2*/ bool              bGMCreatedNPC;
-
-	uint8_t getter_GM() const { return GMRank; }
-	__declspec(property(get = getter_GM)) uint8_t GM;
-/*0x1ec4*/ int               ObjectAnimationID;
-/*0x1ec8*/ bool              bInteractiveObjectCollidable;
-/*0x1ec9*/ uint8_t           InteractiveObjectType;
-/*0x1ecc*/ int               SoundIDs[10];
-/*0x1ef4*/ int               unk1edc;
-/*0x1ef8*/ int*              unk1ee0;
-/*0x1f00*/ int*              unk1ee8; // these two pointers are substracted and divided by 4 to get a count.
-/*0x1f08*/ uint64_t          unk1ef0;
-/*0x1f10*/ BardQueueUnknown  BardQueueData[14];
-/*0x2028*/ HashList<uint64_t, 5> BardMelodyQueue; // /queuemelody related - definitely not a HashList // 2010
-/*0x2070*/ PlayerPhysicsClient mPlayerPhysicsClient;
-/*0x20a8*/ int               SpawnStatus[6];
-/*0x20c0*/ int               BannerIndex0;                 // guild banners
-/*0x20c4*/ int               BannerIndex1;
-/*0x20c8*/ ARGBCOLOR         BannerTint0;
-/*0x20cc*/ ARGBCOLOR         BannerTint1;
-/*0x20d0*/ int               MountAnimationRelated;
-/*0x20d4*/ bool              bGuildShowAnim;               // or sprite? need to check
-/*0x20d5*/ bool              bWaitingForPort;
-/*0x20d8*/
+/*0x1274*/ int               Loop3d_SoundID;
+/*0x1278*/ int               Step_SoundID;
+/*0x127c*/ int               CurLoop_SoundID;
+/*0x1280*/ int               Idle3d1_SoundID;
+/*0x1284*/ int               Idle3d2_SoundID;
+/*0x1288*/ int               Jump_SoundID;
+/*0x128c*/ int               Hit1_SoundID;
+/*0x1290*/ int               Hit2_SoundID;
+/*0x1294*/ int               Hit3_SoundID;
+/*0x1298*/ int               Hit4_SoundID;
+/*0x129c*/ int               Gasp1_SoundID;
+/*0x12a0*/ int               Gasp2_SoundID;
+/*0x12a4*/ int               Drown_SoundID;
+/*0x12a8*/ int               Death_SoundID;
+/*0x12ac*/ int               Attk1_SoundID;
+/*0x12b0*/ int               Attk2_SoundID;
+/*0x12b4*/ int               Attk3_SoundID;
+/*0x12b8*/ int               Walk_SoundID;
+/*0x12bc*/ int               Run_SoundID;
+/*0x12c0*/ int               Crouch_SoundID;
+/*0x12c4*/ int               Swim_SoundID;
+/*0x12c8*/ int               TreadWater_SoundID;
+/*0x12cc*/ int               Climb_SoundID;
+/*0x12d0*/ int               Sit_SoundID;
+/*0x12d4*/ int               Kick_SoundID;
+/*0x12d8*/ int               Bash_SoundID;
+/*0x12dc*/ int               FireBow_SoundID;
+/*0x12e0*/ int               MonkAttack1_SoundID;
+/*0x12e4*/ int               MonkAttack2_SoundID;
+/*0x12e8*/ int               MonkSpecial_SoundID;
+/*0x12ec*/ int               PrimaryBlunt_SoundID;
+/*0x12f0*/ int               PrimarySlash_SoundID;
+/*0x12f4*/ int               PrimaryStab_SoundID;
+/*0x12f8*/ int               Punch_SoundID;
+/*0x12fc*/ int               Roundhouse_SoundID;
+/*0x1300*/ int               SecondaryBlunt_SoundID;
+/*0x1304*/ int               SecondarySlash_SoundID;
+/*0x1308*/ int               SecondaryStab_SoundID;
+/*0x130c*/ int               SwimAttack_SoundID;
+/*0x1310*/ int               TwoHandedBlunt_SoundID;
+/*0x1314*/ int               TwoHandedSlash_SoundID;
+/*0x1318*/ int               TwoHandedStab_SoundID;
+/*0x131c*/ int               SecondaryPunch_SoundID;
+/*0x1320*/ int               JumpAcross_SoundID;
+/*0x1324*/ int               WalkBackwards_SoundID;
+/*0x1328*/ int               CrouchWalk_SoundID;
+/*0x132c*/ unsigned int      LastHurtSound;
+/*0x1330*/ unsigned int      LastWalkTime;                 // used for animations
+/*0x1334*/ int               ShipRelated;                  // ID? look into.
+/*0x1338*/ int               RightHolding;                 // Nothing=0 Other/Weapon=1 shield=2
+/*0x133c*/ int               LeftHolding;                  // old Holding
+/*0x1340*/ unsigned int      DeathAnimationFinishTime;
+/*0x1344*/ bool              bRemoveCorpseAfterDeathAnim;  // used by /hidecorpse
+/*0x1348*/ unsigned int      LastBubblesTime;
+/*0x134c*/ unsigned int      LastBubblesTime1;
+/*0x1350*/ unsigned int      LastColdBreathTime;
+/*0x1354*/ unsigned int      LastParticleUpdateTime;
+/*0x1358*/ unsigned int      MercID;                       // if the spawn is player and has a merc up this is it's spawn ID
+/*0x135c*/ unsigned int      ContractorID;                 // if the spawn is a merc this is its contractor's spawn ID
+/*0x1360*/ float             CeilingHeightAtCurrLocation;
+/*0x1368*/ EqMobileEmitter*  MobileEmitter;
+/*0x1370*/ bool              bInstantHPGaugeChange;
+/*0x1374*/ unsigned int      LastUpdateReceivedTime;
+/*0x1378*/ float             MaxSpeakDistance;
+/*0x137c*/ float             WalkSpeed;                    // how much we will slow down while sneaking
+/*0x1380*/ bool              bHideCorpse;
+/*0x1381*/ char              AssistName[0x40];
+/*0x13c1*/ bool              InvitedToGroup;
+/*0x13c4*/ int               GroupMemberTargeted;          // -1 if no target, else 1 through 5
+/*0x13c8*/ bool              bRemovalPending;
+/*0x13d0*/ void*             pCorpse;
+/*0x13d8*/ float             EmitterScalingRadius;
+/*0x13dc*/ int               DefaultEmitterID;
+/*0x13e0*/ bool              bDisplayNameSprite;
+/*0x13e1*/ bool              bIdleAnimationOff;
+/*0x13e2*/ bool              bIsInteractiveObject;
+/*0x13e3*/ uint8_t           InteractiveObjectModelName[0x80];
+/*0x1463*/ uint8_t           InteractiveObjectOtherName[0x80];
+/*0x14e3*/ uint8_t           InteractiveObjectName[0x40];
+/*0x1524*/ CPhysicsInfo      PhysicsBeforeLastPort;
+/*0x1554*/ unsigned int      notsure;                      // could be part of CPhysicsInfo?
+/*0x1558*/ SFellowship       Fellowship;
+/*0x1db8*/ float             CampfireY;
+/*0x1dbc*/ float             CampfireX;
+/*0x1dc0*/ float             CampfireZ;
+/*0x1dc4*/ int               CampfireZoneID;               // zone ID where campfire is
+/*0x1dc8*/ int               CampfireTimestamp;            // CampfireTimestamp-FastTime()=time left on campfire
+/*0x1dcc*/ int               CampfireTimestamp2;
+/*0x1dd0*/ int               FellowShipID;
+/*0x1dd4*/ int               FellowShipID2;
+/*0x1dd8*/ int               CampType;
+/*0x1ddc*/ bool              Campfire;
+/*0x1de0*/ TSafeArrayStatic<int, 3> SeeInvis;
+/*0x1dec*/ EQUIPMENT         Equipment;
+/*0x1ea0*/ bool              bIsPlacingItem;
+/*0x1ea1*/ bool              bGMCreatedNPC;
+/*0x1ea4*/ int               ObjectAnimationID;
+/*0x1ea8*/ bool              bInteractiveObjectCollidable;
+/*0x1ea9*/ uint8_t           InteractiveObjectType;
+/*0x1eac*/ int               SoundIDs[10];
+/*0x1ed4*/ int               unk1edc;
+/*0x1ed8*/ int*              unk1ee0;
+/*0x1ee0*/ int*              unk1ee8; // these two pointers are substracted and divided by 4 to get a count.
+/*0x1ee8*/ uint64_t          unk1ef0;
+/*0x1ef0*/ BardQueueUnknown  BardQueueData[14];
+/*0x2008*/ HashList<uint64_t, 5> BardMelodyQueue; // /queuemelody related - definitely not a HashList // 2010
+/*0x2050*/ PlayerPhysicsClient mPlayerPhysicsClient;
+/*0x2088*/ int               SpawnStatus[6];
+/*0x20a0*/ int               BannerIndex0;                 // guild banners
+/*0x20a4*/ int               BannerIndex1;
+/*0x20a8*/ ARGBCOLOR         BannerTint0;
+/*0x20ac*/ ARGBCOLOR         BannerTint1;
+/*0x20b0*/ int               MountAnimationRelated;
+/*0x20b4*/ bool              bGuildShowAnim;               // or sprite? need to check
+/*0x20b5*/ bool              bWaitingForPort;
+/*0x20b8*/
 
 	void Initialize(PlayerClient*, unsigned char, unsigned int, unsigned char, char*);
 	~PlayerClient();
@@ -1011,10 +974,4 @@ inline namespace deprecated {
 
 SIZE_CHECK(PlayerClient, PlayerClient_size);
 
-
-
-
 } // namespace eqlib
-
-
-

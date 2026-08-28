@@ -73,7 +73,6 @@ public:
 	virtual EStatus DestroyActor(CActorInterfaceBase* pActor) = 0;
 	virtual CActorInterfaceBase* GetActorBaseInstance(const char* name) = 0;
 	virtual CActorInterfaceBase* GetActorBaseInstanceByName(const char* name) = 0;
-	virtual CActorInterfaceBase* GetActorBaseInstanceByDefinitionTag(const char* name) = 0;
 	virtual CActorInterfaceBase* GetFirstActor() = 0;
 	virtual CActorInterfaceBase* GetNextActor(CActorInterfaceBase* pActor) = 0;
 	virtual uint32_t GetEnvironment(float x, float y, float z, uint32_t) = 0;
@@ -100,7 +99,7 @@ class CSceneGraphInterface : public CSceneGraphInterfaceBase
 {
 public:
 	virtual EStatus CreateActorInstance(CActorDefinitionInterface*, CVector3*, CVector3*, ECollisionVolumeType,
-		float, float, float, bool, bool, bool, bool, CActorInterface**, const CCollisionGroup&,	int, bool) = 0;
+		float, float, float, bool, bool, bool, bool, CActorInterface**, const CCollisionGroup&) = 0;
 	virtual EStatus CreateDuplicateActorInstance(CActorInterface*, CActorInterface**, bool) = 0;
 	virtual EStatus DestroyActor(CActorInterface*) = 0;
 	virtual CActorInterface* GetACtorInstance(const char*) = 0;
@@ -151,12 +150,6 @@ public:
 	virtual int ClearandFlagAreasAt(CVector3*) = 0;
 	virtual bool AreaAPVOptimizationsOn() const = 0;
 	virtual void SetAreaPortalOptimizations(bool) = 0;
-	virtual void SceneGraph_Reserved_Slot71() = 0;
-	virtual const RGB& GetGlobalAmbientFloat() = 0;
-	virtual const RGB& GetGlobalBounceFloat() = 0;
-	virtual const RGB& GetVisionAmbientFloat() = 0;
-	virtual const RGB& GetConstantAmbientFloat() = 0;
-	virtual bool IsDynamicLod() const = 0;
 };
 
 //============================================================================

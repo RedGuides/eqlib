@@ -1,10 +1,1 @@
 *.user
-
-# Python tooling cache
-__pycache__/
-*.pyc
-
-# generated offset/struct signature DBs + idac tooling (not committed)
-include/eqlib/offsets/*_sigs.json
-include/eqlib/offsets/eqgame_resolution.json
-tools/ida/

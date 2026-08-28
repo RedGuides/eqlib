@@ -200,9 +200,10 @@ public:
 /*0x18f0*/ int                                   ParentId;
 /*0x18f4*/ int                                   TattooIndex;
 /*0x18f8*/ int                                   FacialAttachmentIndex;
-/*0x18fc*/ ItemIndex                             StatKeyRingItemIndex[eKeyRingTypeCount];
-/*0x1926*/ uint8_t                               Unknown_0x1928[0x10];
-/*0x1938*/
+/*0x18fc*/ int                                   relevel;
+/*0x1900*/ int64_t                               relevel_exp;
+/*0x1908*/ ItemIndex                             StatKeyRingItemIndex[eKeyRingTypeCount];
+/*0x1934*/ //BaseProfile
 
 	// This expects parameter of type eInventorySlot
 	ItemPtr GetInventorySlot(int invSlot) const { return InventoryContainer.GetItem(invSlot); }
@@ -335,7 +336,7 @@ struct PetObjectData;
 
 constexpr int MAX_LINKED_SPELL_TIMERS = 25;
 
-constexpr size_t PcProfile_size = 0x6EA8; // @sizeof(PcProfile) :: 2026-07-07 (test) @ 0x140682860
+constexpr size_t PcProfile_size = 0x6EA8; // @sizeof(PcProfile) :: 2026-08-25 (test) @ 0x140681a84
 
 class [[offsetcomments]] PcProfile : public BaseProfile
 {
@@ -392,8 +393,7 @@ public:
 /*0x6e98*/ int                                   SoleEnabledZoneID;
 /*0x6e9c*/ int                                   NewBodyTint;
 /*0x6ea0*/ int                                   CurrentMercenaryIndex;
-/*0x6ea4*/ uint8_t                               Unknown_0x6e94[0x4];
-/*0x6ea8*/
+/*0x6ea4*/
 
 	AbilityInfo& GetAlternateAbility(int index) { return AAList[index]; }
 	const AbilityInfo& GetAlternateAbility(int index) const { return AAList[index]; }

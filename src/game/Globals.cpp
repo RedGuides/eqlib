@@ -93,6 +93,7 @@ ServerID ServerIDArray[static_cast<int>(ServerID::NumServers)] = {
 	ServerID::Fangbreaker,
 	ServerID::Firiona,
 	ServerID::Frostreaver,
+	ServerID::Lethar,
 	ServerID::Luclin,
 	ServerID::Mangler,
 	ServerID::Mayong,
@@ -128,6 +129,7 @@ const char* GetServerNameFromServerID(ServerID id)
 	case ServerID::Fangbreaker: return "fangbreaker";
 	case ServerID::Firiona: return "firiona";
 	case ServerID::Frostreaver: return "frostreaver";
+	case ServerID::Lethar: return "lethar";
 	case ServerID::Luclin: return "luclin";
 	case ServerID::Mangler: return "mangler";
 	case ServerID::Mayong: return "mayong";
@@ -167,6 +169,7 @@ ServerID GetServerIDFromServerName(const char* serverName)
 		{ "fangbreaker", ServerID::Fangbreaker },
 		{ "firiona", ServerID::Firiona },
 		{ "frostreaver", ServerID::Frostreaver },
+		{ "lethar", ServerID::Lethar },
 		{ "luclin", ServerID::Luclin },
 		{ "mangler", ServerID::Mangler },
 		{ "mayong", ServerID::Mayong },
@@ -667,7 +670,6 @@ INITIALIZE_EQGAME_OFFSET(CEverQuest__ReportSuccessfulHit);
 INITIALIZE_EQGAME_OFFSET(CEverQuest__RightClickedOnPlayer);
 INITIALIZE_EQGAME_OFFSET(CEverQuest__RMouseUp);
 INITIALIZE_EQGAME_OFFSET(CEverQuest__SetGameState);
-INITIALIZE_EQGAME_OFFSET(CEverQuest__PlayActionVisualEffect);
 INITIALIZE_EQGAME_OFFSET(CEverQuest__trimName);
 INITIALIZE_EQGAME_OFFSET(CEverQuest__UPCNotificationFlush);
 INITIALIZE_EQGAME_OFFSET(CFindItemWnd__PickupSelectedItem);

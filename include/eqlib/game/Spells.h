@@ -23,6 +23,7 @@
 #include "eqlib/game/Requirements.h"
 #include "eqlib/game/Types.h"
 #include "eqstd/map.h"
+#include "eqstd/vector.h"
 
 namespace eqlib {
 
@@ -907,7 +908,7 @@ struct [[offsetcomments]] SpellAffectData
 using SPELLCALCINFO = SpellAffectData;
 using PSPELLCALCINFO = SPELLCALCINFO*;
 
-constexpr size_t EQ_Spell_size = 0x218; // @sizeof(EQ_Spell) :: 2026-07-07 (test) @ 0x1401E8016
+constexpr size_t EQ_Spell_size = 0x218; // @sizeof(EQ_Spell) :: 2026-08-25 (test) @ 0x1401e84f7
 
 class [[offsetcomments]] EQ_Spell
 {
@@ -1320,7 +1321,7 @@ public:
 
 using SpellHashMap = SoeUtil::HashMap<int, EQ_Spell>;
 
-constexpr size_t ClientSpellManager_size = 0x22C0; // @sizeof(ClientSpellManager) :: 2026-07-07 (test) @ 0x14027E8C0
+constexpr size_t ClientSpellManager_size = 0x22C0; // @sizeof(ClientSpellManager) :: 2026-08-25 (test) @ 0x14027ef20
 
 class [[offsetcomments]] ClientSpellManager : public SpellManager
 {

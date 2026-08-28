@@ -1689,8 +1689,8 @@ FUNCTION_AT_ADDRESS(void, CEverQuest::PrepareLocalPCForRepop(), CEverQuest__Prep
 #ifdef CEverQuest__SavePCForce_x
 FUNCTION_AT_ADDRESS(void, CEverQuest::SavePCForce(int), CEverQuest__SavePCForce);
 #endif
-#ifdef CEverQuest__PlayActionVisualEffect_x
-FUNCTION_AT_ADDRESS(void, CEverQuest::PlayActionVisualEffect(void*), CEverQuest__PlayActionVisualEffect);
+#ifdef CEverQuest__StartCasting_x
+FUNCTION_AT_ADDRESS(void, CEverQuest::StartCasting(void*), CEverQuest__StartCasting);
 #endif
 #ifdef CEverQuest__Consider_x
 FUNCTION_AT_ADDRESS(void, CEverQuest::Consider(EQPlayer*, void*), CEverQuest__Consider);
@@ -5434,7 +5434,8 @@ FUNCTION_AT_ADDRESS(CXStr, CItemDisplayWnd::CreateEquipmentStatusString(const It
 
 FUNCTION_AT_ADDRESS(void, CSpellDisplayWnd::SetSpell(int SpellID, int), CSpellDisplayWnd__SetSpell);
 FUNCTION_AT_ADDRESS(void, CSpellDisplayWnd::UpdateStrings(), CSpellDisplayWnd__UpdateStrings);
-FUNCTION_AT_ADDRESS(void, CSpellDisplayManager::ShowSpell(int SpellID, bool NewWindow, bool FullDisplay, ESpellDisplayType SpellDisplayType, uint32_t castAsLevel, const char* casterName), CSpellDisplayManager__ShowSpell);
+FUNCTION_AT_ADDRESS(void, CSpellDisplayManager::ShowSpell(int SpellID, bool NewWindow, bool FullDisplay, ESpellDisplayType SpellDisplayType,
+	uint32_t castAsLevel, const char* casterName), CSpellDisplayManager__ShowSpell);
 
 //----------------------------------------------------------------------------
 // CKeyRingWnd

@@ -50,7 +50,7 @@ enum EPlace
 	CanPlaceAndGoto,
 };
 
-constexpr size_t zoneHeader_size = 0x2A4; // @sizeof(zoneHeader) :: 2026-07-08 (test) @ 0x140EB77B4
+constexpr size_t zoneHeader_size = 0x2A4; // @sizeof(zoneHeader) :: 2026-08-25 (test) @ 0x140274471
 
 struct [[offsetcomments]] zoneHeader
 {
@@ -200,23 +200,22 @@ public:
 
 using CTargetRing DEPRECATE("Use FreeTargetTracker instead of CTargetRing") = CTargetRing;
 
+
 #pragma pack(push, 1)
+// fixme x64
 struct [[offsetcomments]] EQSuccessfulHit
 {
 /*0x00*/ uint16_t      DamagedID;                // Spawn that was hit
 /*0x02*/ uint16_t      AttackerID;               // Spawn who did the hit
-/*0x04*/ uint8_t       Unknown0x04[4];
-/*0x08*/ int64_t       DamageCaused;
-/*0x10*/ uint32_t      Flags;
-/*0x14*/ int           SpellID;
-/*0x18*/ int           SpellLevel;
-/*0x1c*/ float         Force;
-/*0x20*/ float         HitHeading;
-/*0x24*/ float         HitPitch;
-/*0x28*/ uint8_t       Skill;                    // 1 HS etc...
-/*0x29*/ bool          bSecondary;
-/*0x2a*/ uint8_t       Unknown0x2A[6];
-/*0x30*/
+/*0x04*/ uint8_t       Skill;                    // 1 HS etc...
+/*0x05*/ int           SpellID;
+/*0x09*/ int           DamageCaused;
+/*0x0d*/ float         Force;
+/*0x11*/ float         HitHeading;
+/*0x15*/ float         HitPitch;
+/*0x19*/ bool          bSecondary;
+/*0x1a*/ uint8_t       Unknown0x1A[6];
+/*0x20*/
 };
 #pragma pack(pop)
 using pEQSuccessfulHit DEPRECATE("Use EQSuccessfulHit* instead of pEQSuccessfulHit") = EQSuccessfulHit*;
@@ -226,10 +225,10 @@ struct [[offsetcomments]] EQSuccessfulHeal
 /*0x00*/ uint16_t      HealedID; // Spawn that was healed
 /*0x02*/ uint16_t      HealerID; // Spawn who did the healing
 /*0x04*/ int           SpellID;
-/*0x08*/ int64_t       ActualHeal; // Amount that was actually healed
-/*0x10*/ int64_t       TotalHeal; // Amount that would have been healed if it didn't go over max HP
-/*0x18*/ uint32_t      EffectBitmask;
-/*0x1c*/
+/*0x08*/ int           ActualHeal; // Amount that was actually healed
+/*0x0c*/ int           TotalHeal; // Amount that would have been healed if it didn't go over max HP
+/*0x10*/ uint32_t      EffectBitmask;
+/*0x14*/
 };
 using pEQSuccessfulHeal DEPRECATE("Use EQSuccessfulHeal* instead of pEQSuccessfulHeal") = EQSuccessfulHeal*;
 
@@ -315,7 +314,7 @@ struct [[offsetcomments]] EQGameOptions
 
 
 // size of EverQuestinfo is the distance from this byte to the end of the struct
-constexpr size_t EverQuestinfo_size = 0x75278; // @sizeof(EverQuestinfo) :: 2026-07-08 (test) @ 0x140EB75C0
+constexpr size_t EverQuestinfo_size = 0x75278; // @sizeof(EverQuestinfo) :: 2026-08-25 (test) @ 0x140eb85c0
 
 struct [[offsetcomments]] EverQuestinfo
 {
@@ -717,7 +716,7 @@ public:
 };
 
 
-constexpr size_t CEverQuest_size = 0x19710; // @sizeof(CEverQuest) :: 2026-07-07 (test) @ 0x140356C73
+constexpr size_t CEverQuest_size = 0x19710; // @sizeof(CEverQuest) :: 2026-08-25 (test) @ 0x1403574a3
 
 class [[offsetcomments]] CEverQuest : public CEverQuestBase, public UniversalChatProxyHandler, public PopDialogHandler
 {
@@ -891,7 +890,7 @@ public:
 	EQLIB_OBJECT void SetupCharSelectCamera();
 	EQLIB_OBJECT void Sit();
 	EQLIB_OBJECT void SortSpellLoadouts();
-	EQLIB_OBJECT void PlayActionVisualEffect(void*);
+	EQLIB_OBJECT void StartCasting(void*);
 	EQLIB_OBJECT void StartNetworkGame(HWND, HINSTANCE, char*);
 	EQLIB_OBJECT void Surname(char*);
 	EQLIB_OBJECT void ToggleAutoSplit();
@@ -962,8 +961,7 @@ public:
 /*0x18eb4*/ int                   Green;
 /*0x18eb8*/ int                   Blue;
 /*0x18ec0*/ ArrayClass<CharSelectInfo> charSelectPlayerArray;
-/*0x18ed8*/ char                  Filler[0x830]; // more data
-/*0x19708*/ uint8_t               Unknown0x19708[8];
+/*0x18ed8*/ char                  Filler[0x838]; // more data
 /*0x19710*/
 
 	ALT_MEMBER_GETTER(UniversalChatProxy*, chatService, ChatService);
