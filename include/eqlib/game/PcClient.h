@@ -182,7 +182,7 @@ private:
 	void ClearRoles();
 };
 
-constexpr size_t CGroupMember_size = 0x68; // @sizeof(CGroupMember) :: 2026-08-13 (live) @ 0x1402ED635
+constexpr size_t CGroupMember_size = 0x68; // @sizeof(CGroupMember) :: 2026-09-11 (live) @ 0x1402EF27E
 
 class [[offsetcomments]] CGroupMember : public CGroupMemberBase
 {
@@ -929,7 +929,7 @@ public:
 /*0x3004*/ EQZoneIndex                           currentZoneId;
 /*0x3008*/ uint8_t                               standstate;
 /*0x300c*/ RaidData                              raidData;
-/*0x30e8*/ int64_t                              ExpansionFlags;
+/*0x30e8*/ int64_t                               ExpansionFlags;
 /*0x30f0*/ bool                                  bSuperPKILL;
 /*0x30f1*/ bool                                  bUnclone;
 /*0x30f2*/ bool                                  bDead;
@@ -943,59 +943,59 @@ public:
 /*0x3105*/ bool                                  NoRent;
 /*0x3106*/ bool                                  Corpse;
 /*0x3107*/ bool                                  ClientGmFlagSet;
-/*0x3108*/ int                                   BankSharedPlat;
-/*0x310c*/ int                                   BankPlat;
-/*0x3110*/ int                                   BankGold;
-/*0x3114*/ int                                   BankSilver;
-/*0x3118*/ int                                   BankCopper;
-/*0x311c*/ int                                   Platinum;
-/*0x3120*/ int                                   Gold;
-/*0x3124*/ int                                   Silver;
-/*0x3128*/ int                                   Copper;
-/*0x312c*/ int                                   STR;
-/*0x3130*/ int                                   STA;
-/*0x3134*/ int                                   CHA;
-/*0x3138*/ int                                   DEX;
-/*0x313c*/ int                                   INT;
-/*0x3140*/ int                                   AGI;
-/*0x3144*/ int                                   WIS;
-/*0x3148*/ int                                   LCK;
-/*0x314c*/ int                                   SavePoison;
-/*0x3150*/ int                                   SaveMagic;
-/*0x3154*/ int                                   SaveDisease;
-/*0x3158*/ int                                   SaveCorruption;
-/*0x315c*/ int                                   SaveFire;
-/*0x3160*/ int                                   SaveCold;
-/*0x3164*/ int                                   SavePhysical;
-/*0x3168*/ int                                   UncappedStr;
-/*0x316c*/ int                                   UncappedSta;
-/*0x3170*/ int                                   UncappedCha;
-/*0x3174*/ int                                   UncappedDex;
-/*0x3178*/ int                                   UncappedInt;
-/*0x317c*/ int                                   UncappedAgi;
-/*0x3180*/ int                                   UncappedWis;
-/*0x3184*/ int                                   UncappedResistPoison;
-/*0x3188*/ int                                   UncappedResistMagic;
-/*0x318c*/ int                                   UncappedResistDisease;
-/*0x3190*/ int                                   UncappedResistCorruption;
-/*0x3194*/ int                                   UncappedResistFire;
-/*0x3198*/ int                                   UncappedResistCold;
-/*0x319c*/ int                                   UncappedResistPhysical;
-/*0x31a0*/ int                                   NoBuffStr;
-/*0x31a4*/ int                                   NoBuffSta;
-/*0x31a8*/ int                                   NoBuffCha;
-/*0x31ac*/ int                                   NoBuffDex;
-/*0x31b0*/ int                                   NoBuffInt;
-/*0x31b4*/ int                                   NoBuffAgi;
-/*0x31b8*/ int                                   NoBuffWis;
-/*0x31bc*/ int                                   NoBuffResistPoison;
-/*0x31c0*/ int                                   NoBuffResistMagic;
-/*0x31c4*/ int                                   NoBuffResistDisease;
-/*0x31c8*/ int                                   NoBuffResistCorruption;
-/*0x31cc*/ int                                   NoBuffResistFire;
-/*0x31d0*/ int                                   NoBuffResistCold;
-/*0x31d4*/ int                                   NoBuffResistPhysical;
-/*0x31d8*/
+/*0x3108*/ int64_t                               BankSharedPlat;
+/*0x3110*/ int64_t                               BankPlat;
+/*0x3118*/ int64_t                               BankGold;
+/*0x3120*/ int64_t                               BankSilver;
+/*0x3128*/ int64_t                               BankCopper;
+/*0x3130*/ int64_t                               Platinum;
+/*0x3138*/ int64_t                               Gold;
+/*0x3140*/ int64_t                               Silver;
+/*0x3148*/ int64_t                               Copper;
+/*0x3150*/ int                                   STR;
+/*0x3154*/ int                                   STA;
+/*0x3158*/ int                                   CHA;
+/*0x315c*/ int                                   DEX;
+/*0x3160*/ int                                   INT;
+/*0x3164*/ int                                   AGI;
+/*0x3168*/ int                                   WIS;
+/*0x316c*/ int                                   LCK;
+/*0x3170*/ int                                   SavePoison;
+/*0x3174*/ int                                   SaveMagic;
+/*0x3178*/ int                                   SaveDisease;
+/*0x317c*/ int                                   SaveCorruption;
+/*0x3180*/ int                                   SaveFire;
+/*0x3184*/ int                                   SaveCold;
+/*0x3188*/ int                                   SavePhysical;
+/*0x318c*/ int                                   UncappedStr;
+/*0x3190*/ int                                   UncappedSta;
+/*0x3194*/ int                                   UncappedCha;
+/*0x3198*/ int                                   UncappedDex;
+/*0x319c*/ int                                   UncappedInt;
+/*0x31a0*/ int                                   UncappedAgi;
+/*0x31a4*/ int                                   UncappedWis;
+/*0x31a8*/ int                                   UncappedResistPoison;
+/*0x31ac*/ int                                   UncappedResistMagic;
+/*0x31b0*/ int                                   UncappedResistDisease;
+/*0x31b4*/ int                                   UncappedResistCorruption;
+/*0x31b8*/ int                                   UncappedResistFire;
+/*0x31bc*/ int                                   UncappedResistCold;
+/*0x31c0*/ int                                   UncappedResistPhysical;
+/*0x31c4*/ int                                   NoBuffStr;
+/*0x31c8*/ int                                   NoBuffSta;
+/*0x31cc*/ int                                   NoBuffCha;
+/*0x31d0*/ int                                   NoBuffDex;
+/*0x31d4*/ int                                   NoBuffInt;
+/*0x31d8*/ int                                   NoBuffAgi;
+/*0x31dc*/ int                                   NoBuffWis;
+/*0x31e0*/ int                                   NoBuffResistPoison;
+/*0x31e4*/ int                                   NoBuffResistMagic;
+/*0x31e8*/ int                                   NoBuffResistDisease;
+/*0x31ec*/ int                                   NoBuffResistCorruption;
+/*0x31f0*/ int                                   NoBuffResistFire;
+/*0x31f4*/ int                                   NoBuffResistCold;
+/*0x31f8*/ int                                   NoBuffResistPhysical;
+/*0x31fc*/
 
 	virtual void Copy(const CharacterBase& other) {}
 	virtual ~CharacterBase() {}
@@ -1053,15 +1053,27 @@ public:
 	int GetWisdom() const { return WIS; }
 	int GetLuck() const { return LCK; }
 
-	int GetPlatinum() const { return Platinum; }
-	int GetGold() const { return Gold; }
-	int GetSilver() const { return Silver; }
-	int GetCopper() const { return Copper; }
-	uint64_t GetTotalCash() const
+	int64_t GetSharedBankPlatinum() const { return BankSharedPlat; }
+	int64_t GetBankPlatinum() const { return BankPlat; }
+	int64_t GetBankGold() const { return BankGold; }
+	int64_t GetBankSilver() const { return BankSilver; }
+	int64_t GetBankCopper() const { return BankCopper; }
+	int64_t GetBankTotalCash() const
 	{
-		return static_cast<uint64_t>(Platinum) * 1000
-			+ static_cast<uint64_t>(Gold) * 100
-			+ static_cast<uint64_t>(Silver) * 10
+		return BankPlat * 1000
+			+ BankGold * 100
+			+ BankSilver * 10
+			+ BankCopper;
+	}
+	int64_t GetPlatinum() const { return Platinum; }
+	int64_t GetGold() const { return Gold; }
+	int64_t GetSilver() const { return Silver; }
+	int64_t GetCopper() const { return Copper; }
+	int64_t GetTotalCash() const
+	{
+		return Platinum * 1000
+			+ Gold * 100
+			+ Silver * 10
 			+ Copper;
 	}
 
@@ -1680,7 +1692,7 @@ public:
 	int GetDeityBitmask() const { return 1 << (GetDeityReal() - 1); }
 };
 
-constexpr size_t PcClient_size = 0x3298; // @sizeof(PcClient) :: 2026-08-13 (live) @ 0x1402935EB
+constexpr size_t PcClient_size = 0x32C0; // @sizeof(PcClient) :: 2026-09-11 (live) @ 0x1402951AB
 
 class [[offsetcomments]] PcClient : public PcZoneClient
 {

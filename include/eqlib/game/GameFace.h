@@ -136,9 +136,9 @@ public:
 	virtual void Unknown0x388();
 	virtual void Unknown0x390(const CXRect& rect);
 
-/*0x2c8*/ UIScreenComponent                                 WindowComponent;
-/*0x370*/ eqstd::unordered_map<eqstd::string, UIComponent*> ChildComponents;
-/*0x3b0*/
+/*0x2d8*/ UIScreenComponent                                 WindowComponent;
+/*0x380*/ eqstd::unordered_map<eqstd::string, UIComponent*> ChildComponents;
+/*0x3c0*/
 
 	struct [[offsetcomments]] VirtualFunctionTable : public CSidlScreenWnd::VirtualFunctionTable
 	{
