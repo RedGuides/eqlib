@@ -736,7 +736,7 @@ struct BardQueueUnknown
 // PlayerClient
 //============================================================================
 
-constexpr size_t PlayerClient_size = 0x20C0; // @sizeof(PlayerClient) :: 2026-09-11 (live) @ 0x14030EF2E
+constexpr size_t PlayerClient_size = 0x20C0; // @sizeof(PlayerClient) :: 2026-09-17 (live) @ 0x14030EF1E
 
 class [[offsetcomments]] PlayerClient : public PlayerZoneClient
 {

@@ -803,7 +803,7 @@ public:
 	}
 };
 
-constexpr size_t ItemDefinition_size = 0x688; // @sizeof(ItemDefinition) :: 2026-09-11 (live) @ 0x140229904
+constexpr size_t ItemDefinition_size = 0x688; // @sizeof(ItemDefinition) :: 2026-09-17 (live) @ 0x140229904
 
 class [[offsetcomments]] ItemDefinition
 {
@@ -1254,7 +1254,7 @@ public:
 	__declspec(property(get = get_Item2)) ItemDefinition* Item2;
 };
 
-constexpr size_t ItemClient_size = 0x138; // @sizeof(ItemClient) :: 2026-09-11 (live) @ 0x1401F12A9
+constexpr size_t ItemClient_size = 0x138; // @sizeof(ItemClient) :: 2026-09-17 (live) @ 0x1401F12A9
 
 class [[offsetcomments]] ItemClient : public ItemBase
 {
