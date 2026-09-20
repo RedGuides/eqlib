@@ -738,7 +738,7 @@ public:
 /*0x050*/ uint32_t           TransitionStartTick;
 /*0x058*/ CXStr              Tooltip;
 /*0x060*/ bool               bClientRectChanged;
-/*0x064*/ int                VScrollPos;
+/*0x064*/ int                HScrollPos;
 /*0x068*/ bool               bShowClickThroughMenuItem;
 /*0x06c*/ int                VScrollMax;
 /*0x070*/ bool               bFullyScreenClipped;
@@ -800,7 +800,7 @@ public:
 /*0x190*/ bool               bShowBorder;
 /*0x194*/ int                HScrollMax;
 /*0x198*/ bool               Locked;
-/*0x19c*/ int                HScrollPos;
+/*0x19c*/ int                VScrollPos;
 /*0x1a0*/ CStaticTintedBlendAnimationTemplate* TitlePiece;
 /*0x1a8*/ bool               bMaximized;
 /*0x1a9*/ bool               bEnableShowBorder;

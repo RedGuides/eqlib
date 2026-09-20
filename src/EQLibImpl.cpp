@@ -694,24 +694,21 @@ void EQLibImpl::InitializeHooks()
 {
 	LOG_DEBUG("Initializing hooks");
 
-	if (m_enableMainHooks)
+	// Check if the process is named eqgame.exe. If it is, initialize the EQGame hooks.
+	char szFileName[MAX_PATH] = {};
+	if (GetModuleFileNameA(nullptr, szFileName, MAX_PATH))
 	{
-		// Check if the process is named eqgame.exe. If it is, initialize the EQGame hooks.
-		char szFileName[MAX_PATH] = {};
-		if (GetModuleFileNameA(nullptr, szFileName, MAX_PATH))
+		std::string_view fullPath = szFileName;
+
+		// Extract just the filename from the full path
+		size_t pos = fullPath.find_last_of("\\/");
+		if (pos != std::string::npos)
 		{
-			std::string_view fullPath = szFileName;
+			std::string_view fileName = fullPath.substr(pos + 1);
 
-			// Extract just the filename from the full path
-			size_t pos = fullPath.find_last_of("\\/");
-			if (pos != std::string::npos)
+			if (mq::ci_equals(fileName, "eqgame.exe"))
 			{
-				std::string_view fileName = fullPath.substr(pos + 1);
-
-				if (mq::ci_equals(fileName, "eqgame.exe"))
-				{
-					InitializeEQGame();
-				}
+				InitializeEQGame();
 			}
 		}
 	}
@@ -755,6 +752,42 @@ void EQLibImpl::ShutdownHooks()
 	m_memoryPatcher->RemoveAllPatches();
 }
 
+
+////////////////////////////////////////////////////////////////
+
+static constexpr uintptr_t PatchAddrs[] = {
+	0x1402820D1,
+	0x1402823B9,
+	0x14028254F,
+	0x1402826E5,
+	0x14028287B,
+	0x140282A11,
+	0x140282D5C,
+	0x140282F04,
+	0x1402830AC,
+	0x140283254,
+	0x1402833FC,
+	0x1402835A4,
+	0x14028374C,
+	0x1402838F4,
+	0x140283A9C,
+	0x140283C44,
+	0x140284806,
+	0x1402849AE,
+	0x14028220C,
+	0x140282BB2,
+	0x140283DF1,
+	0x140283FA0,
+	0x14028414F,
+	0x1402842FE,
+	0x1402844AD,
+	0x14028465C,
+};
+
+static std::vector<uintptr_t> s_installedPatches;
+
+////////////////////////////////////////////////////////////////
+
 void EQLibImpl::InitializeEQGame()
 {
 	if (m_eqGameHooked)
@@ -762,59 +795,93 @@ void EQLibImpl::InitializeEQGame()
 
 	LOG_DEBUG("Initializing EQGame");
 
-	m_memoryPatcher->EzDetour(__ProcessGameEvents, ProcessGameEvents_Detour, ProcessGameEvents_Trampoline);
-	m_memoryPatcher->EzDetour(CEverQuest__SetGameState, &CEverQuest_Detours::SetGameState_Detour, &CEverQuest_Detours::SetGameState_Trampoline);
+	if (m_enableMainHooks)
+	{
+		m_memoryPatcher->EzDetour(__ProcessGameEvents, ProcessGameEvents_Detour, ProcessGameEvents_Trampoline);
+		m_memoryPatcher->EzDetour(CEverQuest__SetGameState, &CEverQuest_Detours::SetGameState_Detour, &CEverQuest_Detours::SetGameState_Trampoline);
 
-	// TODO: Need to check some of these for overlaps
-	m_memoryPatcher->EzDetour(CDisplay__CleanGameUI, &CDisplay_Detours::CleanGameUI_Detour, &CDisplay_Detours::CleanGameUI_Trampoline);
-	m_memoryPatcher->EzDetour(CDisplay__ReloadUI, &CDisplay_Detours::ReloadUI_Detour, &CDisplay_Detours::ReloadUI_Trampoline);
-	m_memoryPatcher->EzDetour(CDisplay__InitCharSelectUI, &CDisplay_Detours::InitCharSelectUI_Detour, &CDisplay_Detours::InitCharSelectUI_Trampoline);
-	m_memoryPatcher->EzDetour(CDisplay__ZoneMainUI, &CDisplay_Detours::ZoneMainUI_Detour, &CDisplay_Detours::ZoneMainUI_Trampoline);
-	m_memoryPatcher->EzDetour(CDisplay__PreZoneMainUI, &CDisplay_Detours::PreZoneMainUI_Detour, &CDisplay_Detours::PreZoneMainUI_Trampoline);
+		// TODO: Need to check some of these for overlaps
+		m_memoryPatcher->EzDetour(CDisplay__CleanGameUI, &CDisplay_Detours::CleanGameUI_Detour, &CDisplay_Detours::CleanGameUI_Trampoline);
+		m_memoryPatcher->EzDetour(CDisplay__ReloadUI, &CDisplay_Detours::ReloadUI_Detour, &CDisplay_Detours::ReloadUI_Trampoline);
+		m_memoryPatcher->EzDetour(CDisplay__InitCharSelectUI, &CDisplay_Detours::InitCharSelectUI_Detour, &CDisplay_Detours::InitCharSelectUI_Trampoline);
+		m_memoryPatcher->EzDetour(CDisplay__ZoneMainUI, &CDisplay_Detours::ZoneMainUI_Detour, &CDisplay_Detours::ZoneMainUI_Trampoline);
+		m_memoryPatcher->EzDetour(CDisplay__PreZoneMainUI, &CDisplay_Detours::PreZoneMainUI_Detour, &CDisplay_Detours::PreZoneMainUI_Trampoline);
 #ifdef CDisplay__RestartUI_x
-	m_memoryPatcher->EzDetour(CDisplay__RestartUI, &CDisplay_Detours::FastReloadUI_Detour, &CDisplay_Detours::FastReloadUI_Trampoline);
+		m_memoryPatcher->EzDetour(CDisplay__RestartUI, &CDisplay_Detours::FastReloadUI_Detour, &CDisplay_Detours::FastReloadUI_Trampoline);
 #endif
 
-	if (m_enableChatFilter && m_eventReceiver != nullptr)
-	{
-		m_memoryPatcher->EzDetour(CEverQuest__dsp_chat, &CEverQuest_Detours::dsp_chat_Detour, &CEverQuest_Detours::dsp_chat_Trampoline);
-		m_memoryPatcher->EzDetour(CEverQuest__DoTellWindow, &CEverQuest_Detours::DoTellWindow_Detour, &CEverQuest_Detours::DoTellWindow_Trampoline);
-		m_memoryPatcher->EzDetour(CEverQuest__UPCNotificationFlush, &CEverQuest_Detours::UniversalChatProxyNotificationFlush_Detour, &CEverQuest_Detours::UniversalChatProxyNotificationFlush_Trampoline);
-	}
+		if (m_enableChatFilter && m_eventReceiver != nullptr)
+		{
+			m_memoryPatcher->EzDetour(CEverQuest__dsp_chat, &CEverQuest_Detours::dsp_chat_Detour, &CEverQuest_Detours::dsp_chat_Trampoline);
+			m_memoryPatcher->EzDetour(CEverQuest__DoTellWindow, &CEverQuest_Detours::DoTellWindow_Detour, &CEverQuest_Detours::DoTellWindow_Trampoline);
+			m_memoryPatcher->EzDetour(CEverQuest__UPCNotificationFlush, &CEverQuest_Detours::UniversalChatProxyNotificationFlush_Detour, &CEverQuest_Detours::UniversalChatProxyNotificationFlush_Trampoline);
+		}
 
-	if (m_enableSpawnEvents && m_eventReceiver != nullptr)
-	{
+		if (m_enableSpawnEvents && m_eventReceiver != nullptr)
+		{
 #ifdef EQGroundItemListManager__Add_x
-		m_memoryPatcher->EzDetour(EQGroundItemListManager__Add, &EQGroundItemListManager_Detours::Add_Detour, &EQGroundItemListManager_Detours::Add_Trampoline);
+			m_memoryPatcher->EzDetour(EQGroundItemListManager__Add, &EQGroundItemListManager_Detours::Add_Detour, &EQGroundItemListManager_Detours::Add_Trampoline);
 #endif
 #ifdef EQGroundItemListManager__Clear_x
-		m_memoryPatcher->EzDetour(EQGroundItemListManager__Clear, &EQGroundItemListManager_Detours::Clear_Detour, &EQGroundItemListManager_Detours::Clear_Trampoline);
+			m_memoryPatcher->EzDetour(EQGroundItemListManager__Clear, &EQGroundItemListManager_Detours::Clear_Detour, &EQGroundItemListManager_Detours::Clear_Trampoline);
 #endif
 #ifdef EQGroundItemListManager__Delete_x
-		m_memoryPatcher->EzDetour(EQGroundItemListManager__Delete, &EQGroundItemListManager_Detours::Delete_Detour, &EQGroundItemListManager_Detours::Delete_Trampoline);
+			m_memoryPatcher->EzDetour(EQGroundItemListManager__Delete, &EQGroundItemListManager_Detours::Delete_Detour, &EQGroundItemListManager_Detours::Delete_Trampoline);
 #endif
 #ifdef PlayerManagerClient__CreatePlayer_x
-		m_memoryPatcher->EzDetour(PlayerManagerClient__CreatePlayer, &PlayerManagerClient_Detours::CreatePlayer_Detour, &PlayerManagerClient_Detours::CreatePlayer_Trampoline);
+			m_memoryPatcher->EzDetour(PlayerManagerClient__CreatePlayer, &PlayerManagerClient_Detours::CreatePlayer_Detour, &PlayerManagerClient_Detours::CreatePlayer_Trampoline);
 #endif
 #ifdef PlayerManagerBase__PrepForDestroyPlayer_x
-		m_memoryPatcher->EzDetour(PlayerManagerBase__PrepForDestroyPlayer, &PlayerManagerClient_Detours::PrepForDestroyPlayer_Detour, &PlayerManagerClient_Detours::PrepForDestroyPlayer_Trampoline);
+			m_memoryPatcher->EzDetour(PlayerManagerBase__PrepForDestroyPlayer, &PlayerManagerClient_Detours::PrepForDestroyPlayer_Detour, &PlayerManagerClient_Detours::PrepForDestroyPlayer_Trampoline);
 #endif
 #ifdef PlayerManagerBase__DestroyAllPlayers_x
-		m_memoryPatcher->EzDetour(PlayerManagerBase__DestroyAllPlayers, &PlayerManagerClient_Detours::DestroyAllPlayers_Detour, &PlayerManagerClient_Detours::DestroyAllPlayers_Trampoline);
+			m_memoryPatcher->EzDetour(PlayerManagerBase__DestroyAllPlayers, &PlayerManagerClient_Detours::DestroyAllPlayers_Detour, &PlayerManagerClient_Detours::DestroyAllPlayers_Trampoline);
 #endif
-	}
+		}
 
-	if (m_enableNetworkEvents && m_eventReceiver != nullptr)
-	{
+		if (m_enableNetworkEvents && m_eventReceiver != nullptr)
+		{
 #ifdef UdpConnection__Send_x
-		m_memoryPatcher->EzDetour(UdpConnection__Send, &UdpConnection_Detours::Send_Detour, &UdpConnection_Detours::Send_Trampoline);
+			m_memoryPatcher->EzDetour(UdpConnection__Send, &UdpConnection_Detours::Send_Detour, &UdpConnection_Detours::Send_Trampoline);
 #endif
 #ifdef UdpConnection__OnRoutePacket_x
-		m_memoryPatcher->EzDetour(UdpConnection__OnRoutePacket, &UdpConnection_Detours::OnRoutePacket_Detour, &UdpConnection_Detours::OnRoutePacket_Trampoline);
+			m_memoryPatcher->EzDetour(UdpConnection__OnRoutePacket, &UdpConnection_Detours::OnRoutePacket_Detour, &UdpConnection_Detours::OnRoutePacket_Trampoline);
 #endif
 #ifdef WorldAuthenticationHandler__OnRoutePacket_x
-		m_memoryPatcher->EzDetour(WorldAuthenticationHandler__OnRoutePacket, &WorldAuthenticationHandler_Detours::OnRoutePacket_Detour, &WorldAuthenticationHandler_Detours::OnRoutePacket_Trampoline);
+			m_memoryPatcher->EzDetour(WorldAuthenticationHandler__OnRoutePacket, &WorldAuthenticationHandler_Detours::OnRoutePacket_Detour, &WorldAuthenticationHandler_Detours::OnRoutePacket_Trampoline);
 #endif
+		}
+	}
+
+	// Install patches
+	constexpr uint8_t payload[] = {
+		0x90, 0xE9,
+	};
+
+	for (uintptr_t patch_ea : PatchAddrs)
+	{
+		bool success = false;
+
+		uintptr_t orig_addr = FixEQGameOffset(patch_ea);
+		uint8_t* orig_bytes = reinterpret_cast<uint8_t*>(orig_addr);
+		if (orig_bytes[0] == 0x3A && orig_bytes[1] == 0x05 && orig_bytes[6] == 0x0F && orig_bytes[7] == 0x84)
+		{
+			auto* patch = m_memoryPatcher->CreatePatch(orig_addr + 0x6, payload, sizeof(payload));
+			if (patch != nullptr)
+			{
+				s_installedPatches.push_back(orig_addr + 0x6);
+				success = true;
+			}
+		}
+
+		if (!success)
+		{
+			char szMessage[256];
+			sprintf_s(szMessage, "Patch failed at 0x%p, we cannot continue", reinterpret_cast<void*>(patch_ea));
+			MessageBoxA(nullptr, szMessage, "Error", MB_OK);
+
+			TerminateProcess(GetCurrentProcess(), 1);
+		}
 	}
 
 	m_eqGameHooked = true;
@@ -827,60 +894,69 @@ void EQLibImpl::ShutdownEQGame()
 
 	LOG_DEBUG("Shutting down EQGame");
 
-	m_memoryPatcher->RemoveDetour(__ProcessGameEvents);
-	m_memoryPatcher->RemoveDetour(CEverQuest__SetGameState);
+	if (m_enableMainHooks)
+	{
+		m_memoryPatcher->RemoveDetour(__ProcessGameEvents);
+		m_memoryPatcher->RemoveDetour(CEverQuest__SetGameState);
 
-	// TODO: Need to check some of these for overlaps
-	m_memoryPatcher->RemoveDetour(CDisplay__CleanGameUI);
-	m_memoryPatcher->RemoveDetour(CDisplay__ReloadUI);
-	m_memoryPatcher->RemoveDetour(CDisplay__InitCharSelectUI);
-	m_memoryPatcher->RemoveDetour(CDisplay__ZoneMainUI);
-	m_memoryPatcher->RemoveDetour(CDisplay__PreZoneMainUI);
+		// TODO: Need to check some of these for overlaps
+		m_memoryPatcher->RemoveDetour(CDisplay__CleanGameUI);
+		m_memoryPatcher->RemoveDetour(CDisplay__ReloadUI);
+		m_memoryPatcher->RemoveDetour(CDisplay__InitCharSelectUI);
+		m_memoryPatcher->RemoveDetour(CDisplay__ZoneMainUI);
+		m_memoryPatcher->RemoveDetour(CDisplay__PreZoneMainUI);
 #ifdef CDisplay__RestartUI_x
-	m_memoryPatcher->RemoveDetour(CDisplay__RestartUI);
+		m_memoryPatcher->RemoveDetour(CDisplay__RestartUI);
 #endif
 
-	if (m_enableChatFilter && m_eventReceiver != nullptr)
-	{
-		m_memoryPatcher->RemoveDetour(CEverQuest__dsp_chat);
-		m_memoryPatcher->RemoveDetour(CEverQuest__DoTellWindow);
-		m_memoryPatcher->RemoveDetour(CEverQuest__UPCNotificationFlush);
-	}
+		if (m_enableChatFilter && m_eventReceiver != nullptr)
+		{
+			m_memoryPatcher->RemoveDetour(CEverQuest__dsp_chat);
+			m_memoryPatcher->RemoveDetour(CEverQuest__DoTellWindow);
+			m_memoryPatcher->RemoveDetour(CEverQuest__UPCNotificationFlush);
+		}
 
-	if (m_enableSpawnEvents && m_eventReceiver != nullptr)
-	{
+		if (m_enableSpawnEvents && m_eventReceiver != nullptr)
+		{
 #ifdef EQGroundItemListManager__Add_x
-		m_memoryPatcher->RemoveDetour(EQGroundItemListManager__Add);
+			m_memoryPatcher->RemoveDetour(EQGroundItemListManager__Add);
 #endif
 #ifdef EQGroundItemListManager__Clear_x
-		m_memoryPatcher->RemoveDetour(EQGroundItemListManager__Clear);
+			m_memoryPatcher->RemoveDetour(EQGroundItemListManager__Clear);
 #endif
 #ifdef EQGroundItemListManager__Delete_x
-		m_memoryPatcher->RemoveDetour(EQGroundItemListManager__Delete);
+			m_memoryPatcher->RemoveDetour(EQGroundItemListManager__Delete);
 #endif
 #ifdef PlayerManagerClient__CreatePlayer_x
-		m_memoryPatcher->RemoveDetour(PlayerManagerClient__CreatePlayer);
+			m_memoryPatcher->RemoveDetour(PlayerManagerClient__CreatePlayer);
 #endif
 #ifdef PlayerManagerBase__PrepForDestroyPlayer_x
-		m_memoryPatcher->RemoveDetour(PlayerManagerBase__PrepForDestroyPlayer);
+			m_memoryPatcher->RemoveDetour(PlayerManagerBase__PrepForDestroyPlayer);
 #endif
 #ifdef PlayerManagerBase__DestroyAllPlayers_x
-		m_memoryPatcher->RemoveDetour(PlayerManagerBase__DestroyAllPlayers);
+			m_memoryPatcher->RemoveDetour(PlayerManagerBase__DestroyAllPlayers);
 #endif
-	}
+		}
 
-	if (m_enableNetworkEvents && m_eventReceiver != nullptr)
-	{
+		if (m_enableNetworkEvents && m_eventReceiver != nullptr)
+		{
 #ifdef UdpConnection__Send_x
-		m_memoryPatcher->RemoveDetour(UdpConnection__Send);
+			m_memoryPatcher->RemoveDetour(UdpConnection__Send);
 #endif
 #ifdef UdpConnection__OnRoutePacket_x
-		m_memoryPatcher->RemoveDetour(UdpConnection__OnRoutePacket);
+			m_memoryPatcher->RemoveDetour(UdpConnection__OnRoutePacket);
 #endif
 #ifdef WorldAuthenticationHandler__OnRoutePacket_x
-		m_memoryPatcher->RemoveDetour(WorldAuthenticationHandler__OnRoutePacket);
+			m_memoryPatcher->RemoveDetour(WorldAuthenticationHandler__OnRoutePacket);
 #endif
+		}
 	}
+
+	for (uintptr_t patch_ea : s_installedPatches)
+	{
+		m_memoryPatcher->RemovePatch(patch_ea);
+	}
+	s_installedPatches.clear();
 
 	m_eqGameHooked = false;
 }
