@@ -313,8 +313,8 @@ struct [[offsetcomments]] PZCPhysicsInfo
 /*0x08*/ int Heading : 12;
 /*0x0c*/ float X;
 /*0x10*/ float Z;
-/*0x14*/ int Acceleration : 10;
 /*0x14*/ int DeltaHeading : 10;
+/*0x14*/ int Acceleration : 10;
 /*0x18*/ float DeltaY;
 /*0x1c*/ float DeltaX;
 /*0x20*/ int ZHeading : 12;
