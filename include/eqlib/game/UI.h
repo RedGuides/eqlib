@@ -200,7 +200,7 @@ public:
 			}
 			return *this;
 		}
-		
+
 		// Postfix increment
 		Iterator operator++(int) { Iterator tmp = *this; ++(*this); return tmp; }
 
@@ -2231,7 +2231,7 @@ struct [[offsetcomments]] BazaarSearchResults
 /*0xbc*/
 };
 
-// CBazaarSearchWnd_size: 0x9720
+// CBazaarSearchWnd_size: 0x9748
 class [[offsetcomments]] CBazaarSearchWnd : public CSidlScreenWnd, public WndEventHandler
 {
 	FORCE_SYMBOLS
@@ -2292,14 +2292,17 @@ public:
 /*0x96e0*/ CComboWnd*                  pPlayersCombobox;
 /*0x96e8*/ CComboWnd*                  pItemPrestigeCombobox;
 /*0x96f0*/ CComboWnd*                  pItemAugmentCombobox;
-/*0x96f8*/ CEditWnd*                   pItemNameInput;
-/*0x9700*/ CEditWnd*                   pMaxPriceInput;
-/*0x9708*/ CEditWnd*                   pMinPriceInput;
-/*0x9710*/ CEditWnd*                   pMaxLevelInput;
-/*0x9718*/ CEditWnd*                   pMinLevelInput;
-/*0x9720*/ CEditWnd*                   pMaxResultsPerTraderInput;
-/*0x9728*/ BYTE                        Unknown0x92C8[0x8];
-/*0x9730*/
+/*0x96f8*/ CComboWnd*                  pItemExpansionCombobox;
+/*0x9700*/ CEditWnd*                   pItemNameInput;
+/*0x9708*/ CEditWnd*                   pMaxPriceInput;
+/*0x9710*/ CEditWnd*                   pMinPriceInput;
+/*0x9718*/ CEditWnd*                   pMaxLevelInput;
+/*0x9720*/ CEditWnd*                   pMinLevelInput;
+/*0x9728*/ CEditWnd*                   pMaxStatInput;
+/*0x9730*/ CEditWnd*                   pMinStatInput;
+/*0x9738*/ CEditWnd*                   pMaxResultsPerTraderInput;
+/*0x9740*/ BYTE                        Unknown0x9740[0x8];
+/*0x9748*/
 };
 
 inline namespace deprecated {
@@ -5747,7 +5750,7 @@ public:
 			if (pbi.SpellID > 0)
 				++count;
 		}
-		
+
 		return count;
 	}
 
@@ -5859,7 +5862,7 @@ public:
 	//----------------------------------------------------------------------------
 	// data members
 
-/*0x2cc*/ 
+/*0x2cc*/
 /*0x2e0*/ CGaugeWnd*         pPlayerHP;                         // PlayerHP
 /*0x2e8*/ CGaugeWnd*         pPetHP;                            // PetHP
 /*0x2f0*/ CGaugeWnd*         pPlayerMana;                       // PlayerMana
