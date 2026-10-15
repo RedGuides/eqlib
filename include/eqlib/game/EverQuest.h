@@ -413,8 +413,7 @@ struct [[offsetcomments]] EverQuestinfo
 /*0x004ac*/ int               iTrackFilterType;
 /*0x004b0*/ int               UsingSkill;
 /*0x004b8*/ void*             UsingSkillTarget;
-/*0x004c0*/ int               LimboMoney[4];
-/*0x004d0*/ uint8_t           Unknown0x4d0[0x10];
+/*0x004c0*/ int64_t           LimboMoney[4];
 /*0x004e0*/ uint32_t          LimboMoneyBonus;
 /*0x004e4*/ uint8_t           ClickThroughMask;
 /*0x004e5*/ bool              ReceivedWorldObjects;
