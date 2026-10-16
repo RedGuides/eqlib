@@ -725,7 +725,7 @@ public:
 /*0x1d8*/
 };
 
-constexpr size_t EQWorldData_size = 0x1F88; // @sizeof(EQWorldData) :: 2026-09-24 (test) @ 0x140274771
+constexpr size_t EQWorldData_size = 0x1F88; // @sizeof(EQWorldData) :: 2026-09-17 (live) @ 0x140274861
 
 class [[offsetcomments]] EQWorldData
 {

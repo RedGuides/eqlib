@@ -315,7 +315,7 @@ struct [[offsetcomments]] EQGameOptions
 
 
 // size of EverQuestinfo is the distance from this byte to the end of the struct
-constexpr size_t EverQuestinfo_size = 0x752A0; // @sizeof(EverQuestinfo) :: 2026-09-17 (live) @ 0x140276614
+constexpr size_t EverQuestinfo_size = 0x75280; // @sizeof(EverQuestinfo) :: 2026-09-17 (live) @ 0x140EBBAF0
 
 struct [[offsetcomments]] EverQuestinfo
 {
@@ -610,8 +610,7 @@ struct [[offsetcomments]] EverQuestinfo
 /*0x75270*/ int               RequestPending;
 /*0x75274*/ uint32_t          ItemPendingTime;
 /*0x75278*/ uint32_t          RequestPendingTime;
-/*0x75280*/ eqstd::string     UISkin;
-/*0x752a0*/
+/*0x7527c*/
 };
 
 SIZE_CHECK(EverQuestinfo, EverQuestinfo_size);
@@ -627,9 +626,6 @@ struct MQMouseInfo
 {
 	int X = 0;
 	int Y = 0;
-	int SpeedX = 0;
-	int SpeedY = 0;
-	int Scroll = 0;
 };
 
 class [[offsetcomments]] PickZoneTimerHandler
@@ -721,7 +717,7 @@ public:
 };
 
 
-constexpr size_t CEverQuest_size = 0x19710; // @sizeof(CEverQuest) :: 2026-09-24 (test) @ 0x140359203
+constexpr size_t CEverQuest_size = 0x19710; // @sizeof(CEverQuest) :: 2026-09-17 (live) @ 0x140359393
 
 class [[offsetcomments]] CEverQuest : public CEverQuestBase, public UniversalChatProxyHandler, public PopDialogHandler
 {
