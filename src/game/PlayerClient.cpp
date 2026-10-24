@@ -39,7 +39,7 @@ const char* PlayerClient::GetRaceString() const
 	return pEverQuest->GetRaceDesc(GetRace());
 }
 
-PlayerClient* PlayerZoneClient::GetEncounterLockOwner() const
+PlayerClient* PlayerClient::GetEncounterLockOwner() const
 {
 	if (LockID == 0 || !pSpawnManager)
 	{
