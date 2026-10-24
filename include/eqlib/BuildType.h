@@ -141,6 +141,9 @@
 // Emu client technically supports this, but the server does not. Just gate it on a live expansion.
 #define HAS_MULTIPLE_ITEM_MOVE_MANAGER IS_EXPANSION_LEVEL(EXPANSION_LEVEL_TOL)
 
+// Multi-select parcel slots first appeared live in Oct 19 2026
+#define HAS_PARCEL_MULTI_SELECT IS_CLIENT_DATE(20261019)
+
 // Tabbed chat was added on March 13, 2019
 #define HAS_TABBED_CHAT IS_CLIENT_DATE(20190313)
 

@@ -277,18 +277,18 @@ struct [[offsetcomments]] SDeviceInputProxy
 
 	struct [[offsetcomments]] EventData
 	{
-	/*0x0000*/ char              Unknown2[0x3f2];
-	/*0x03f2*/ uint8_t           CurrentEventID;
-	/*0x03f3*/ uint8_t           CurrentEventStatus;
-	/*0x03f4*/ int               Unknown3[0x5c6];
-	/*0x1b0c*/ uint8_t           LastEventID;
-	/*0x1b0d*/ uint8_t           LastEventStatus;
-	/*0x1b10*/
+	/*0x0000*/ char              Unknown2[0x402];
+	/*0x0402*/ uint8_t           CurrentEventID;
+	/*0x0403*/ uint8_t           CurrentEventStatus;
+	/*0x0404*/ int               Unknown3[0x5c6];
+	/*0x1b1c*/ uint8_t           LastEventID;
+	/*0x1b1d*/ uint8_t           LastEventStatus;
+	/*0x1b20*/
 	};
 
 /*0x0000*/ MouseData mouse;
 /*0x00fc*/ EventData events;
-/*0x1c0c*/
+/*0x1c1c*/
 };
 
 enum SDeviceInputState

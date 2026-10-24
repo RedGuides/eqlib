@@ -1563,22 +1563,182 @@ template <typename T>
 class List
 {
 public:
-	class Node
-	{
-		T     m_value;
-		Node* m_next;
-		Node* m_prev;
-	};
+	using value_type = T;
 
-	virtual ~List();
+	List() = default;
+	virtual ~List() = default;
+
+	T* GetFirst() const;
+	T* GetLast() const;
+	T* GetNext(const T* value) const;
+	T* GetPrev(const T* value) const;
+	T* Get(int index) const;
+
+	int GetCount() const { return m_size; }
+	bool IsEmpty() const { return m_size == 0; }
+
+private:
 	virtual bool IsSwapAllowed() { return true; }
 	virtual uint8_t* Allocate();
 	virtual void Free(uint8_t* data);
 
+	struct Node
+	{
+		T value;
+		Node* next;
+		Node* prev;
+	};
+
+	static Node* GetNode(const T* pValue);
+
+public:
+#pragma region SoeUtil::List::ConstIterator
+	template <int direction = 0>
+	class ConstIterator
+	{
+	public:
+		using iterator_category = std::bidirectional_iterator_tag;
+
+		using value_type = List::value_type;
+		using difference_type = std::ptrdiff_t;
+		using pointer = const value_type*;
+		using reference = const value_type&;
+
+		ConstIterator() = default;
+		ConstIterator(const Node* value) : m_node(value) {}
+
+		[[nodiscard]] reference operator*() const
+		{
+			return m_node->value;
+		}
+
+		[[nodiscard]] pointer operator->() const
+		{
+			return &m_node->value;
+		}
+
+		ConstIterator& operator++();
+		ConstIterator& operator--();
+
+		bool operator==(const ConstIterator& other) const { return m_node == other.m_node; }
+		bool operator!=(const ConstIterator& other) const { return m_node != other.m_node; }
+
+	protected:
+		const Node* m_node = nullptr;
+	};
+#pragma endregion
+
+	using iterator = ConstIterator<0>;
+	using const_iterator = ConstIterator<0>;
+	using reverse_iterator = ConstIterator<1>;
+	using const_reverse_iterator = ConstIterator<1>;
+
+	iterator begin() { return iterator(GetNode(GetFirst())); }
+	const_iterator begin() const { return const_iterator(GetNode(GetFirst())); }
+	const_iterator cbegin() const { return const_iterator(GetNode(GetFirst())); }
+
+	iterator end() { return iterator(nullptr); }
+	const_iterator end() const { return const_iterator(nullptr); }
+	const_iterator cend() const { return const_iterator(nullptr); }
+
+	reverse_iterator rbegin() { return reverse_iterator(GetNode(GetLast())); }
+	const_reverse_iterator rbegin() const { return const_reverse_iterator(GetNode(GetLast())); }
+	const_reverse_iterator crbegin() const { return const_reverse_iterator(GetNode(GetLast())); }
+
+	reverse_iterator rend() { return reverse_iterator(nullptr); }
+	const_reverse_iterator rend() const { return const_reverse_iterator(nullptr); }
+	const_reverse_iterator crend() const { return const_reverse_iterator(nullptr); }
+
+	template <typename IteratorType>
+	struct IterRange
+	{
+		IteratorType first;
+		IteratorType second;
+
+		IterRange(IteratorType first_, IteratorType second_) : first(first_), second(second_) {}
+
+		auto begin() { return first; }
+		auto end() { return second; }
+	};
+
+	using ValueRange = IterRange<const_iterator>;
+
+	auto items() const { return IterRange(cbegin(), cend()); }
+
+private:
 	Node*    m_head;
 	Node*    m_tail;
 	int      m_size;
 };
+
+template <typename T>
+T* List<T>::GetFirst() const
+{
+	return m_head ? &m_head->value : nullptr;
+}
+
+template <typename T>
+T* List<T>::GetLast() const
+{
+	return m_tail ? &m_tail->value : nullptr;
+}
+
+template <typename T>
+T* List<T>::GetNext(const T* value) const
+{
+	Node* node = GetNode(value);
+	return node && node->next ? &node->next->value : nullptr;
+}
+
+template <typename T>
+T* List<T>::GetPrev(const T* value) const
+{
+	Node* node = GetNode(value);
+	return node && node->prev ? &node->prev->value : nullptr;
+}
+
+template <typename T>
+T* List<T>::Get(int index) const
+{
+	Node* node = m_head;
+	while (node != nullptr && index > 0)
+	{
+		node = node->next;
+		--index;
+	}
+
+	return node ? &node->value : nullptr;
+}
+
+template <typename T>
+List<T>::Node* List<T>::GetNode(const T* pValue)
+{
+	return pValue ? (Node*)((uint8_t*)pValue - offsetof(Node, value)) : nullptr;
+}
+
+template <typename T>
+template <int direction>
+typename List<T>::template ConstIterator<direction>& List<T>::ConstIterator<direction>::operator++()
+{
+	if constexpr (direction == 0)
+		m_node = m_node->next;
+	else
+		m_node = m_node->prev;
+
+	return *this;
+}
+
+template <typename T>
+template <int direction>
+typename List<T>::template ConstIterator<direction>& List<T>::ConstIterator<direction>::operator--()
+{
+	if constexpr (direction == 0)
+		m_node = m_node->prev;
+	else
+		m_node = m_node->next;
+
+	return *this;
+}
 
 //----------------------------------------------------------------------------
 
