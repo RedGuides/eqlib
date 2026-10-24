@@ -639,8 +639,6 @@ public:
 /*0x1240*/ eqstd::vector<bool> PhysicsEffectsUpdated;
 /*0x1260*/
 
-	EQLIB_OBJECT PlayerClient* GetEncounterLockOwner() const;
-
 	EQLIB_OBJECT bool LegalPlayerRace();
 
 	EQLIB_OBJECT bool LegalPlayerRace(int race)
@@ -958,6 +956,7 @@ public:
 	EQLIB_OBJECT int SetNameSpriteState(bool);
 	EQLIB_OBJECT bool SetNameSpriteTint();
 
+	EQLIB_OBJECT PlayerClient* GetEncounterLockOwner() const;
 	EQLIB_OBJECT static PlayerClient* IsPlayerActor(CActorInterface*);
 
 	int GetSeeInvisLevel(int invisType) const { return SeeInvis[invisType]; }
