@@ -956,6 +956,7 @@ public:
 	EQLIB_OBJECT int SetNameSpriteState(bool);
 	EQLIB_OBJECT bool SetNameSpriteTint();
 
+	EQLIB_OBJECT PlayerClient* GetEncounterLockOwner() const;
 	EQLIB_OBJECT static PlayerClient* IsPlayerActor(CActorInterface*);
 
 	int GetSeeInvisLevel(int invisType) const { return SeeInvis[invisType]; }

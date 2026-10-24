@@ -39,4 +39,23 @@ const char* PlayerClient::GetRaceString() const
 	return pEverQuest->GetRaceDesc(GetRace());
 }
 
+PlayerClient* PlayerClient::GetEncounterLockOwner() const
+{
+	if (LockID == 0 || !pSpawnManager)
+	{
+		return nullptr;
+	}
+
+	PlayerHashTable& hashtable = pSpawnManager->m_hashTable;
+	for (PlayerHashTable::Node* node = hashtable.m_table[LockID % hashtable.TABLE_SIZE]; node; node = node->m_next)
+	{
+		if (node->m_hashKey == LockID)
+		{
+			return node->m_value;
+		}
+	}
+
+	return nullptr;
+}
+
 } // namespace eqlib
