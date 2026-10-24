@@ -86,6 +86,9 @@
 // Dragon Hoard was added with the Claws of Veeshan Expansion
 #define HAS_DRAGON_HOARD IS_EXPANSION_LEVEL(EXPANSION_LEVEL_COV)
 
+// Encounter Locking (First-To-Engage) was added with the 5/24/2023 client patch
+#define HAS_ENCOUNTER_LOCKING IS_CLIENT_DATE(20230524)
+
 // Equipment KeyRing was added test patch 11/3/2025 prior to the Shattering of Ro expansion
 #define HAS_EQUIPMENT_KEYRING IS_CLIENT_DATE(20251103)
 
