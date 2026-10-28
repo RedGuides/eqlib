@@ -86,6 +86,9 @@
 // Dragon Hoard was added with the Claws of Veeshan Expansion
 #define HAS_DRAGON_HOARD IS_EXPANSION_LEVEL(EXPANSION_LEVEL_COV)
 
+// Encounter Locking (First-To-Engage) was added with the 5/24/2023 client patch
+#define HAS_ENCOUNTER_LOCKING IS_CLIENT_DATE(20230524)
+
 // Equipment KeyRing was added test patch 11/3/2025 prior to the Shattering of Ro expansion
 #define HAS_EQUIPMENT_KEYRING IS_CLIENT_DATE(20251103)
 
@@ -140,6 +143,9 @@
 
 // Emu client technically supports this, but the server does not. Just gate it on a live expansion.
 #define HAS_MULTIPLE_ITEM_MOVE_MANAGER IS_EXPANSION_LEVEL(EXPANSION_LEVEL_TOL)
+
+// Multi-select parcel slots first appeared live in Oct 19 2026
+#define HAS_PARCEL_MULTI_SELECT IS_CLIENT_DATE(20261019)
 
 // Tabbed chat was added on March 13, 2019
 #define HAS_TABBED_CHAT IS_CLIENT_DATE(20190313)
