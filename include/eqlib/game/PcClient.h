@@ -1712,7 +1712,7 @@ public:
 /*0x2edc*/ int                                   SubscriptionDays;
 /*0x2ee0*/ short                                 BaseKeyRingSlots[eKeyRingTypeCount];
 /*0x2eee*/ bool                                  bPickZoneFewest;
-/*0x2ef0*/ int                                   Unknown0x28a4;                // used in CContainerWnd::HandleCombine
+/*0x2ef0*/ int                                   TradeskillLoreEquipWarningToken; // used in CContainerWnd::HandleCombine
 /*0x2ef4*/
 
 	ALT_MEMBER_GETTER(ExtendedTargetList*, pExtendedTargetList, pXTargetMgr);  // cannot be null

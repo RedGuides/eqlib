@@ -83,8 +83,9 @@ public:
 /*0xae*/ bool                bResetOnDeath;                      // true for lay on hands for example.
 /*0xaf*/ bool                bAutogrant;                         // true if its an autogrant ability? or if auto grant is enabled? need to check cause this could be useful
 /*0xb0*/ int                 AutoGrantAssociationId;             // Usually the same as normal expansion if enabled
-/*0xb4*/ int                 Unknown0x98;
-/*0xb8*/ int                 Unknown0x9C;
+/*0xb4*/ int                 HideAtLevel;                        // Hide AA at this leve or higher if it is owned. <= 0 disables
+/*0xb8*/ bool                bHideUntilTrainable;                // Hide unowned AA until requirements are met
+/*0xb9*/ bool                Unknown0xB9;
 /*0xc0*/ EQList<AltAbilityEffectData> PersistentEffects;
 /*0xe0*/
 
