@@ -5564,32 +5564,33 @@ public:
 /*0x828*/ CLabel*            NoteLabel;                    // MW_Note_Label
 /*0x830*/ CEditWnd*          NoteEdit;                     // MW_Note_Edit
 /*0x838*/ CButtonWnd*        ClearNoteButton;              // MW_Clear_Note_Button
-/*0x840*/ CListWnd*          ItemsList;                    // ItemList
-/*0x848*/ CListWnd*          ItemsRecoveryList;            // MW_ItemListRecovery
-/*0x850*/ CListWnd*          ItemsMailList;                // MW_ItemListMail
-/*0x858*/ CButtonWnd*        DoneButton;                   // MW_Done_Button
-/*0x860*/ CPageWnd*          PurchasePage;                 // MW_PurchasePage
-/*0x868*/ CPageWnd*          RecoveryPage;                 // MW_RecoveryPage
-/*0x870*/ CPageWnd*          MailPage;                     // MW_MailPage
-/*0x878*/ CTabWnd*           TabWindow;                    // MW_MerchantSubwindows
-/*0x880*/ CButtonWnd*        UsableButton;                 // MW_UsableButton
-/*0x888*/ CButtonWnd*        CashLootButton;               // MW_CashButton
-/*0x890*/ CLabel*            CurrentCurrencyLabel;         // MW_Current_Currency_Label
-/*0x898*/ int64_t            CachedCopper;
-/*0x8a0*/ int                CachedWalletBalance;
-/*0x8a4*/ int                CachedAltCurrencyPoints;
-/*0x8a8*/ int                CachedAdventurePoints;
-/*0x8ac*/ int                CachedPvPPoints;
-/*0x8b0*/ int                CachedRadiantCrystals;
-/*0x8b4*/ int                CachedEbonCrystals;
-/*0x8b8*/ int                CachedLoyaltyPoints;
-/*0x8bc*/ int                LastCurrencyColumnWidth;
-/*0x8c0*/ int                CurrencyColumnWidth;
-/*0x8c4*/ bool               bSearchFilterActive;
-/*0x8c5*/ bool               bWatchCurrencyColumnWidth;
-/*0x8c8*/ CButtonWnd*        pButtonTemplate;
-/*0x8d0*/ SoeUtil::EmbeddedArray<SoeUtil::String, 9> UnknownStrings;
-/*0x9c8*/ SoeUtil::EmbeddedArray<int, 10> UnknownInts;
+/*0x840*/ CButtonWnd*        ClearSendButton;              // MW_Clear_Send_Button
+/*0x848*/ CListWnd*          ItemsList;                    // ItemList
+/*0x850*/ CListWnd*          ItemsRecoveryList;            // MW_ItemListRecovery
+/*0x858*/ CListWnd*          ItemsMailList;                // MW_ItemListMail
+/*0x860*/ CButtonWnd*        DoneButton;                   // MW_Done_Button
+/*0x868*/ CPageWnd*          PurchasePage;                 // MW_PurchasePage
+/*0x870*/ CPageWnd*          RecoveryPage;                 // MW_RecoveryPage
+/*0x878*/ CPageWnd*          MailPage;                     // MW_MailPage
+/*0x880*/ CTabWnd*           TabWindow;                    // MW_MerchantSubwindows
+/*0x888*/ CButtonWnd*        UsableButton;                 // MW_UsableButton
+/*0x890*/ CButtonWnd*        CashLootButton;               // MW_CashButton
+/*0x898*/ CLabel*            CurrentCurrencyLabel;         // MW_Current_Currency_Label
+/*0x8a0*/ int64_t            CachedCopper;
+/*0x8a8*/ int                CachedWalletBalance;
+/*0x8ac*/ int                CachedAltCurrencyPoints;
+/*0x8b0*/ int                CachedAdventurePoints;
+/*0x8b4*/ int                CachedPvPPoints;
+/*0x8b8*/ int                CachedRadiantCrystals;
+/*0x8bc*/ int                CachedEbonCrystals;
+/*0x8c0*/ int                CachedLoyaltyPoints;
+/*0x8c4*/ int                LastCurrencyColumnWidth;
+/*0x8c8*/ int                CurrencyColumnWidth;
+/*0x8cc*/ bool               bSearchFilterActive;
+/*0x8cd*/ bool               bWatchCurrencyColumnWidth;
+/*0x8d0*/ CButtonWnd*        pButtonTemplate;
+/*0x8d8*/ SoeUtil::EmbeddedArray<SoeUtil::String, 9> UnknownStrings;
+/*0x9d0*/ SoeUtil::EmbeddedArray<int, 10> UnknownInts;
 /*0xa18*/
 	ALT_MEMBER_GETTER(ItemGlobalIndex, ActiveLocation, ItemLocation);
 

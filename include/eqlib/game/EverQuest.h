@@ -315,7 +315,7 @@ struct [[offsetcomments]] EQGameOptions
 
 
 // size of EverQuestinfo is the distance from this byte to the end of the struct
-constexpr size_t EverQuestinfo_size = 0x75294; // @sizeof(EverQuestinfo) :: 2026-11-10 (test) @ 0x140ECAB30
+constexpr size_t EverQuestinfo_size = 0x75290; // @sizeof(EverQuestinfo) :: 2026-11-10 (test) @ 0x140ECAB30
 
 struct [[offsetcomments]] EverQuestinfo
 {
@@ -604,15 +604,14 @@ struct [[offsetcomments]] EverQuestinfo
 /*0x75274*/ float             TributeMod4;
 /*0x75278*/ bool              bUseNewUIEngine;
 /*0x75279*/ bool              bSaveDefaultMapWarningDisplayed; // Flag to show warning only once.
-/*0x7527c*/ int               MultiItemSelectKey;
-/*0x75280*/ bool              bSendMultiItemWarning;
-/*0x75281*/ bool              bAutoAttack;
-/*0x75282*/ bool              bAutoRangeAttack;
-/*0x75284*/ int               ItemPending;
-/*0x75288*/ int               RequestPending;
-/*0x7528c*/ uint32_t          ItemPendingTime;
-/*0x75290*/ uint32_t          RequestPendingTime;
-/*0x75294*/
+/*0x7527a*/ bool              bSendMultiItemWarning;
+/*0x7527b*/ bool              bAutoAttack;
+/*0x7527c*/ bool              bAutoRangeAttack;
+/*0x75280*/ int               ItemPending;
+/*0x75284*/ int               RequestPending;
+/*0x75288*/ uint32_t          ItemPendingTime;
+/*0x7528c*/ uint32_t          RequestPendingTime;
+/*0x75290*/
 };
 
 SIZE_CHECK(EverQuestinfo, EverQuestinfo_size);
