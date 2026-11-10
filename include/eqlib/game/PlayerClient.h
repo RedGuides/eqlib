@@ -505,7 +505,7 @@ public:
 /*0x0228*/ bool                     bBuffTimersOnHold;
 /*0x0229*/ uint8_t                  IntimidateCount;
 /*0x022a*/ bool                     bTempPet;
-/*0x022b*/ bool                     bAnimationOnPop;
+/*0x022b*/ bool                     bShowHelm;
 /*0x022c*/ unsigned int             CombatSkillTicks[CONCURRENT_SKILLS];
 /*0x0234*/ bool                     bAttackRelated;
 /*0x0235*/ char                     LoginRelated[0x20];
@@ -514,7 +514,7 @@ public:
 /*0x025c*/ unsigned int             RespawnTimer;
 /*0x0260*/ unsigned int             LastTrapDamageTime;
 /*0x0264*/ bool                     bAlwaysShowAura;
-/*0x0265*/ bool                     bShowHelm;
+/*0x0265*/ bool                     bAnimationOnPop;
 /*0x0266*/ uint8_t                  FD;
 /*0x0267*/ uint8_t                  CharClass;
 /*0x0268*/ unsigned int             SitStartTime;
@@ -522,6 +522,7 @@ public:
 /*0x0270*/ int64_t                  HPCurrent;
 /*0x0278*/ int                      SecondaryTintIndex;
 /*0x027c*/ char                     DragNames[2][0x40];
+/*0x02fc*/ int                      Unknown3;
 /*0x0300*/ void*                    pTouchingSwitch;
 /*0x0308*/ EqItemGuid               realEstateItemGuid;
 /*0x031c*/ unsigned int             SpellGemETA[15];
@@ -538,12 +539,13 @@ public:
 /*0x03c4*/ uint8_t              Unknown_0x3c4[0x1];
 /*0x03c5*/ char                     GM;
 /*0x03c8*/ PlayerClient*            pViewPlayer;
-/*0x03d0*/ uint8_t              Unknown_0x3d0[0x4];
+/*0x03d0*/ int                      Unknown1;
 /*0x03d4*/ float                    MerchantGreed;
 /*0x03d8*/ bool                     bSwitchMoved;
 /*0x03d9*/ bool                     bOfflineMode;
 /*0x03dc*/ float                    RunSpeed;
 /*0x03e0*/ unsigned int             LastTimeStoodStill;
+/*0x03e4*/ int                      Unknown4;
 /*0x03e8*/ CharacterZoneClient*     pCharacter;
 /*0x03f0*/ char                     Suffix[0x80];
 /*0x0470*/ unsigned int             EnduranceMax;

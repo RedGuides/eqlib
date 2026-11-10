@@ -740,10 +740,10 @@ public:
 /*0x068*/ uint32_t           BlinkFadeDuration;
 /*0x06c*/ uint32_t           XMLIndex;
 /*0x070*/ CXStr              DataStr;
-/*0x078*/ CXStr              XMLToolTip;
+/*0x078*/ CXStr              Tooltip;
 /*0x080*/ bool               bKeepOnScreen;
 /*0x081*/ bool               bIsParentOrContextMenuWindow;
-/*0x088*/ CXStr              Tooltip;
+/*0x088*/ CXStr              XMLToolTip;
 /*0x090*/ bool               Minimized;
 /*0x094*/ int                VScrollPos;
 /*0x098*/ uint8_t                              Unknown_0x98[0x8];
@@ -757,14 +757,14 @@ public:
 /*0x0d8*/ CXStr              WindowText;
 /*0x0e0*/ bool               bClickThroughToBackground;
 /*0x0e4*/ int                BlinkDuration;
-/*0x0e8*/ bool               bMaximized;
+/*0x0e8*/ bool               bTiled;
 /*0x0ec*/ CXSize             MaxClientSize;
 /*0x0f8*/ CXWndDrawTemplate* DrawTemplate;
 /*0x100*/ uint8_t                              Unknown_0x100[0x8];
 /*0x108*/ uint32_t           BGType;
 /*0x10c*/ bool               bIsTransitioning;
 /*0x10d*/ bool               bAction;
-/*0x10e*/ bool               bClickThroughMenuItemStatus;
+/*0x10e*/ bool               bMaximized;
 /*0x110*/ int                VScrollMax;
 /*0x114*/ int                TopOffset;
 /*0x118*/ uint8_t            FadeToAlpha;
@@ -786,7 +786,7 @@ public:
 /*0x164*/ bool               bNeedsSaving;
 /*0x165*/ bool               bClientClipRectChanged;
 /*0x166*/ bool               bMaximizable;
-/*0x167*/ bool               bTiled;
+/*0x167*/ bool               bShowClickThroughMenuItem;
 /*0x168*/ CXRect             ClipRectClient;
 /*0x178*/ bool               bEnableShowBorder;
 /*0x179*/ bool               bEscapable;
@@ -815,7 +815,7 @@ public:
 /*0x214*/ bool               bCaptureTitle;
 /*0x215*/ bool               Unlockable;
 /*0x218*/ uint32_t           WindowStyle;
-/*0x21c*/ bool               bShowClickThroughMenuItem;
+/*0x21c*/ bool               bClickThroughMenuItemStatus;
 /*0x21d*/ bool               bShowBorder;
 /*0x220*/ uint32_t           FadeDelay;
 /*0x224*/ bool               Enabled;
