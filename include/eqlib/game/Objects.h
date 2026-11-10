@@ -134,7 +134,7 @@ public:
 	static EQObject* top;
 };
 
-constexpr size_t EQSwitch_size = 0x108; // @sizeof(EQSwitch) :: 2026-10-27 (test) @ 0x1401FD397
+constexpr size_t EQSwitch_size = 0x108; // @sizeof(EQSwitch) :: 2026-11-10 (test) @ 0x1401F93E5
 
 class [[offsetcomments]] EQSwitch : public CActorApplicationData
 {
