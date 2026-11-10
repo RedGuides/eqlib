@@ -241,6 +241,9 @@ const char* szExpansions[NUM_EXPANSIONS + 1] = {
 #if IS_EXPANSION_LEVEL(EXPANSION_LEVEL_SOR)
 	"The Shattering of Ro",
 #endif
+#if IS_EXPANSION_LEVEL(EXPANSION_LEVEL_FOF)
+	"The Favors of Fortune",
+#endif
 	nullptr
 };
 static_assert(lengthof(szExpansions) - 1 == NUM_EXPANSIONS,

@@ -51,6 +51,7 @@ namespace eqlib {
 #define EXPANSION_LEVEL_LS              30  // Laurion's Song
 #define EXPANSION_LEVEL_TOB             31  // The Outer Brood
 #define EXPANSION_LEVEL_SOR             32  // The Shattering of Ro
+#define EXPANSION_LEVEL_FOF             33  // The Favors of Fortune
 
 enum EQExpansion
 {
@@ -87,6 +88,7 @@ enum EQExpansion
 	EQExpansionLS                   = EXPANSION_LEVEL_LS,
 	EQExpansionTOB                  = EXPANSION_LEVEL_TOB,
 	EQExpansionSOR                  = EXPANSION_LEVEL_SOR,
+	EQExpansionFOF                  = EXPANSION_LEVEL_FOF,
 };
 
 #define EQ_EXPANSION(x)             (1ll << (x - 1))
@@ -125,6 +127,7 @@ enum EQExpansion
 #define EXPANSION_LS                EQ_EXPANSION(EXPANSION_LEVEL_LS)
 #define EXPANSION_TOB               EQ_EXPANSION(EXPANSION_LEVEL_TOB)
 #define EXPANSION_SOR               EQ_EXPANSION(EXPANSION_LEVEL_SOR)
+#define EXPANSION_FOF               EQ_EXPANSION(EXPANSION_LEVEL_FOF)
 
 // Enumeration defining expansion bit mask representing expansion flags. Often used to
 // determine expansion ownership or requirements.
@@ -163,6 +166,7 @@ enum EQExpansionOwned : uint64_t
 	EQExpansionLSOwned              = EXPANSION_LS,
 	EQExpansionTOBOwned             = EXPANSION_TOB,
 	EQExpansionSOROwned             = EXPANSION_SOR,
+	EQExpansionSOROwned             = EXPANSION_FOF,
 
 	// Mask representing all expansions
 	EQExpansionHighestOwnedPlusOne_,
