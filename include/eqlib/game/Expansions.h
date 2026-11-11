@@ -166,7 +166,7 @@ enum EQExpansionOwned : uint64_t
 	EQExpansionLSOwned              = EXPANSION_LS,
 	EQExpansionTOBOwned             = EXPANSION_TOB,
 	EQExpansionSOROwned             = EXPANSION_SOR,
-	EQExpansionSOROwned             = EXPANSION_FOF,
+	EQExpansionFOFOwned             = EXPANSION_FOF,
 
 	// Mask representing all expansions
 	EQExpansionHighestOwnedPlusOne_,
