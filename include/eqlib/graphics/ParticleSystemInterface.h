@@ -23,6 +23,7 @@ namespace eqlib {
 
 //----------------------------------------------------------------------------
 class CActorInterface;
+class CBoneInterface;
 
 //----------------------------------------------------------------------------
 class CParticleSystemInterface
@@ -91,7 +92,7 @@ public:
 /*0x48*/ CMatrix33                Orientation;
 /*0x6c*/ uint8_t                  Unknown0x006c[0x70 - 0x6c];
 /*0x70*/ CActorInterface*         pActor;
-/*0x78*/ void*                    Unknown0x0078;      // position source, used ahead of pActor
+/*0x78*/ CBoneInterface*          pBone;              // when set, the emitter follows it every frame (ahead of pActor)
 /*0x80*/ CParticlePointInterface* pAttachPoint;       // when set, the emitter follows it every frame
 /*0x88*/ void*                    pParticles;         // 0x80-byte particle records
 /*0x90*/ void*                    pParticlesEnd;      // pParticles + MaxParticles records
