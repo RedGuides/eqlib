@@ -1047,6 +1047,7 @@ EQLIB_VAR uintptr_t C2DPrimitiveManager__AddCachedText;
 EQLIB_VAR uintptr_t C2DPrimitiveManager__Render;
 EQLIB_VAR uintptr_t ObjectPreviewView__Render;
 EQLIB_VAR uintptr_t EQGraphics_DebugAPI_Ptr;
+EQLIB_VAR uintptr_t DX9Wrapper__DX11__Texture__GetShaderResourceView;
 
 //============================================================================
 // eqmain.dll Offsets
