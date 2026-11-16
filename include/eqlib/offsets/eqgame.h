@@ -127,6 +127,7 @@
 #define pinstItemIconCache_x                                       0x140F57F00
 #define pinstLootFiltersManager_x                                  0x140E11A78
 #define pinstGFViewListener_x                                      0x140F6C068
+#define pinstGF_x                                                  0x140DE7070
 
 
 ////

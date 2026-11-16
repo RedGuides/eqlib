@@ -900,7 +900,8 @@ public:
 
 	//----------------------------------------------------------------------------
 	// new virtuals
-	EQLIB_OBJECT virtual void Unknown0x330(const char* pUnkA, bool bUnkB);
+	// Registers (or unregisters) this screen with the GameFace UI, by SidlText.
+	EQLIB_OBJECT virtual void UpdateBindings(bool unregister);
 	EQLIB_OBJECT virtual int OnZone();
 	EQLIB_OBJECT virtual int OnPreZone();
 	EQLIB_OBJECT virtual void LoadIniInfo();
@@ -951,7 +952,7 @@ public:
 
 	struct [[offsetcomments]] VirtualFunctionTable : public CXWnd::VirtualFunctionTable
 	{
-	/*0x348*/ void* Unknown0x330;
+	/*0x348*/ void* UpdateBindings;
 	/*0x350*/ void* OnZone;
 	/*0x358*/ void* OnPreZone;
 	/*0x360*/ void* LoadIniInfo;

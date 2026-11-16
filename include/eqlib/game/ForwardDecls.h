@@ -439,6 +439,7 @@ namespace SoeUtil
 
 namespace GF
 {
+	class Manager;
 	class ViewListener;
 }
 

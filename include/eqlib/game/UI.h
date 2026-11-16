@@ -3344,12 +3344,9 @@ public:
 	//----------------------------------------------------------------------------
 	// data members
 
-	// Shares the beginning of the other component class - need to unify
-	struct CursorAttachmentComponent
+	struct CursorAttachmentComponent : UIComponentPath
 	{
-	/*0x00*/ eqstd::string name;
-	/*0x20*/ eqstd::string fullName;
-	/*0x40*/ eqstd::string modelPrefix;
+	/*0x00*/ // UIComponentPath: name, itemPath, modelPrefix
 	/*0x60*/ CCursorAttachment* target;
 	/*0x68*/
 	};
@@ -4693,25 +4690,7 @@ public:
 	//----------------------------------------------------------------------------
 	// data members
 
-	// size: 0xa8
-	struct [[offsetcomments]] InvSlotComponent
-	{
-	/*0x00*/ eqstd::string   name;
-	/*0x20*/ eqstd::string   itemPath;
-	/*0x40*/ eqstd::string   modelPrefix;
-	/*0x60*/ CInvSlotWnd*    pInvSlot;
-	/*0x68*/ uint32_t        u32_68;
-	/*0x6c*/ uint32_t        u32_6c;
-	/*0x70*/ uint32_t        u32_70;
-	/*0x74*/ uint32_t        u32_74;
-	/*0x78*/ uint32_t        u32_78;
-	/*0x7c*/ uint32_t        color;
-	/*0x80*/ uint32_t        u32_80;
-	/*0x88*/ eqstd::string   tooltip;
-	/*0xa8*/
-	};
-
-/*0x350*/ InvSlotComponent   component;
+/*0x350*/ UIInvSlotComponent component;
 /*0x3f8*/ CTextureAnimation* pBackground;
 /*0x400*/ ItemGlobalIndex    ItemLocation;            // WindowType = ItemLocation.Location, InvSlot = ItemLocation.GetTopSlot()
 /*0x410*/ ItemPtr            LinkedItem;              // If the slot is linked to a specific item

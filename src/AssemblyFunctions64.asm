@@ -758,10 +758,10 @@ export ?SetHasActivatedFirstTimeAlert@CSidlScreenWnd@eqlib@@UEAAX_N@Z
 	call_csidlscreenwnd_vtable 0x320
 
 
-; public: virtual void __cdecl eqlib::CSidlScreenWnd::Unknown0x338(char const *,bool)
-global ?Unknown0x330@CSidlScreenWnd@eqlib@@UEAAXPEBD_N@Z
-export ?Unknown0x330@CSidlScreenWnd@eqlib@@UEAAXPEBD_N@Z
-?Unknown0x330@CSidlScreenWnd@eqlib@@UEAAXPEBD_N@Z:
+; public: virtual void eqlib::CSidlScreenWnd::UpdateBindings(bool)
+global ?UpdateBindings@CSidlScreenWnd@eqlib@@UEAAX_N@Z
+export ?UpdateBindings@CSidlScreenWnd@eqlib@@UEAAX_N@Z
+?UpdateBindings@CSidlScreenWnd@eqlib@@UEAAX_N@Z:
 	call_csidlscreenwnd_vtable 0x348
 
 ; public: virtual int eqlib::CSidlScreenWnd::OnZone(void)
@@ -852,24 +852,24 @@ export ??1CGFScreenWnd@eqlib@@UEAA@XZ
 %endmacro
 
 
-; public: virtual void eqlib::CGFScreenWnd::HandleJsEvent(void *, void *)
-global ?HandleJsEvent@CGFScreenWnd@eqlib@@UEAAXPEAX0@Z
-export ?HandleJsEvent@CGFScreenWnd@eqlib@@UEAAXPEAX0@Z
-?HandleJsEvent@CGFScreenWnd@eqlib@@UEAAXPEAX0@Z:
+; public: virtual void eqlib::CGFScreenWnd::HandleJsEvent(struct eqlib::GFJsEvent const *)
+global ?HandleJsEvent@CGFScreenWnd@eqlib@@UEAAXPEBUGFJsEvent@2@@Z
+export ?HandleJsEvent@CGFScreenWnd@eqlib@@UEAAXPEBUGFJsEvent@2@@Z
+?HandleJsEvent@CGFScreenWnd@eqlib@@UEAAXPEBUGFJsEvent@2@@Z:
 	call_cgfscreenwnd_vtable 0x380
 
 
-; public: virtual void eqlib::CGFScreenWnd::Unknown0x388(void)
-global ?Unknown0x388@CGFScreenWnd@eqlib@@UEAAXXZ
-export ?Unknown0x388@CGFScreenWnd@eqlib@@UEAAXXZ
-?Unknown0x388@CGFScreenWnd@eqlib@@UEAAXXZ:
+; public: virtual void eqlib::CGFScreenWnd::OnJsLClick(eqstd::string const &, struct eqlib::GFEventModifiers const &, class eqlib::CXPoint const &)
+global ?OnJsLClick@CGFScreenWnd@eqlib@@UEAAXAEBV?$basic_string@DU?$char_traits@D@std@@U?$everquest_allocator@D@eqlib@@@eqstd@@AEBUGFEventModifiers@2@AEBVCXPoint@2@@Z
+export ?OnJsLClick@CGFScreenWnd@eqlib@@UEAAXAEBV?$basic_string@DU?$char_traits@D@std@@U?$everquest_allocator@D@eqlib@@@eqstd@@AEBUGFEventModifiers@2@AEBVCXPoint@2@@Z
+?OnJsLClick@CGFScreenWnd@eqlib@@UEAAXAEBV?$basic_string@DU?$char_traits@D@std@@U?$everquest_allocator@D@eqlib@@@eqstd@@AEBUGFEventModifiers@2@AEBVCXPoint@2@@Z:
 	call_cgfscreenwnd_vtable 0x388
 
 
-; public: virtual void eqlib::CGFScreenWnd::Unknown0x390(class eqlib::CXRect const &)
-global ?Unknown0x390@CGFScreenWnd@eqlib@@UEAAXAEBVCXRect@2@@Z
-export ?Unknown0x390@CGFScreenWnd@eqlib@@UEAAXAEBVCXRect@2@@Z
-?Unknown0x390@CGFScreenWnd@eqlib@@UEAAXAEBVCXRect@2@@Z:
+; public: virtual void eqlib::CGFScreenWnd::Center(class eqlib::CXRect const &)
+global ?Center@CGFScreenWnd@eqlib@@UEAAXAEBVCXRect@2@@Z
+export ?Center@CGFScreenWnd@eqlib@@UEAAXAEBVCXRect@2@@Z
+?Center@CGFScreenWnd@eqlib@@UEAAXAEBVCXRect@2@@Z:
 	call_cgfscreenwnd_vtable 0x390
 
 
