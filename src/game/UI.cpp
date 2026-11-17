@@ -1159,4 +1159,13 @@ const char* FindLocationTypeToString(FindLocationType type)
 	}
 }
 
+int CSpellBookWnd::GetMemTicksLeft() const
+{
+	if (MemSlotIndex == -1 || !pDisplay)
+		return 0;
+
+	uint32_t now = pDisplay->TimeStamp;
+	return now < MemTimeEnd ? static_cast<int>(MemTimeEnd - now) : 0;
+}
+
 } // namespace eqlib
