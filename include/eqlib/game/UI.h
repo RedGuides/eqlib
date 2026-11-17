@@ -6207,10 +6207,36 @@ public:
 /*0x2ec*/ int            SelectedBookIndex;
 /*0x2f0*/ int            MemSlotIndex;
 /*0x2f4*/ int            SpellId;
-/*0x2f8*/ int            MemTicksLeft;
-/*0x2fc*/ int            ScribeBookSlot;
-/*0x300*/ int            ScribeTicksLeft;
-/*0x304*/
+/*0x2f8*/ int            MemTimeStart;
+/*0x2fc*/ int            MemTimeEnd;
+/*0x300*/ int            ScribeBookSlot;
+/*0x304*/ int            ScribeTicksLeft;
+/*0x308*/ uint8_t        Unknown0x308[0x20];
+/*0x328*/ bool           bWasSitting;
+/*0x32c*/ int            lastRefresh;
+/*0x330*/ int            MemorizeNextTime;
+/*0x334*/ int            MemorizeState;
+/*0x338*/ bool           bWasVisible;
+/*0x33c*/ int            MemorizeSetIndex;
+/*0x340*/ int            MemorizeSetSpells[0xe];
+/*0x378*/ int            MemorizeSetCount;
+/*0x37c*/ int            MemorizeBookIndex;
+/*0x380*/ int            MemorizeGem;
+/*0x388*/ CTextureAnimation* SpellIcons[0x10];
+/*0x408*/ CTextureAnimation* pSlotBackground;
+/*0x410*/ CButtonWnd*    SpellSlots[0x10];
+/*0x490*/ CButtonWnd*    pPageDownButton;
+/*0x498*/ CButtonWnd*    pPageUpButton;
+/*0x4a0*/ CButtonWnd*    pMemPage0Button;
+/*0x4a8*/ CButtonWnd*    pMemPage1Button;
+/*0x4b0*/ CButtonWnd*    pDoneButton;
+/*0x4b8*/ CLabelWnd*     pLeftPageNum;
+/*0x4c0*/ CLabelWnd*     pRightPageNum;
+/*0x4c8*/ CLabelWnd*     SpellNames[0x10];
+/*0x548*/ bool           bIsCasterClass;
+/*0x54c*/
+
+	ALT_MEMBER_ALIAS_DEPRECATED(int, MemTimeStart, MemTicksLeft, "Use MemTimeStart/MemTimeEnd instead of MemTicksLeft");
 };
 
 //============================================================================
