@@ -344,12 +344,15 @@ public:
 	EQLIB_OBJECT virtual void SetRadioGroup(CRadioGroup* group);
 	EQLIB_OBJECT virtual int DrawWndText(const CXRect& rect, const CXRect& clip);
 	EQLIB_OBJECT virtual int DrawCooldown();
+	EQLIB_OBJECT virtual void DrawCooldownRect(double elapsedFraction, COLORREF color);
+	EQLIB_OBJECT virtual void DrawPowerBar(int currentPower, int maxPower);
+	EQLIB_OBJECT virtual void DrawPowerBarRect(float depletedFraction, COLORREF color, int currentPower, int maxPower);
 	EQLIB_OBJECT virtual void SetCheck(bool check, bool bNoSound = true);
 	EQLIB_OBJECT virtual void SetCoolDownCompletionTimeDelta(uint32_t delta, uint32_t total);
 	EQLIB_OBJECT virtual void SetCoolDownCompletionTime(uint32_t time, uint32_t total);
 	EQLIB_OBJECT virtual void SetCoolDownCompletionTime(eqtime_t time, uint32_t total);
 	EQLIB_OBJECT virtual void SetCoolDownBeginTime(uint32_t time, uint32_t total);
-	EQLIB_OBJECT virtual void SetCoolDownUpdatedBeginTime(uint32_t time, uint32_t total);
+	EQLIB_OBJECT virtual bool SetCoolDownUpdatedBeginTime(uint32_t time, uint32_t total);
 	EQLIB_OBJECT virtual uint32_t GetCoolDownBeginTime() const;
 	EQLIB_OBJECT virtual uint32_t GetCoolDownTotalDuration() const;
 	EQLIB_OBJECT virtual uint32_t GetCoolDownTimeRemaining() const;
@@ -414,17 +417,19 @@ public:
 	/*0x358*/ void* DrawWndText;
 	/*0x360*/ void* DrawCooldown;
 	/*0x368*/ void* DrawCooldownRect;
-	/*0x370*/ void* SetCheck;
-	/*0x378*/ void* SetCoolDownCompletionTimeDelta;
-	/*0x380*/ void* SetCoolDownCompletionTime;
-	/*0x388*/ void* SetCoolDownCompletionTime2;
-	/*0x390*/ void* SetCoolDownBeginTime;
-	/*0x398*/ void* SetCoolDownUpdatedBeginTime;
-	/*0x3a0*/ void* GetCoolDownBeginTime;
-	/*0x3a8*/ void* GetCoolDownTotalDuration;
-	/*0x3b0*/ void* GetCoolDownTimeRemaining;
-	/*0x3b8*/ void* ClearCoolDownCompletionTime;
-	/*0x3c0*/
+	/*0x370*/ void* DrawPowerBar;
+	/*0x378*/ void* DrawPowerBarRect;
+	/*0x380*/ void* SetCheck;
+	/*0x388*/ void* SetCoolDownCompletionTimeDelta;
+	/*0x390*/ void* SetCoolDownCompletionTime;
+	/*0x398*/ void* SetCoolDownCompletionTime2;
+	/*0x3a0*/ void* SetCoolDownBeginTime;
+	/*0x3a8*/ void* SetCoolDownUpdatedBeginTime;
+	/*0x3b0*/ void* GetCoolDownBeginTime;
+	/*0x3b8*/ void* GetCoolDownTotalDuration;
+	/*0x3c0*/ void* GetCoolDownTimeRemaining;
+	/*0x3c8*/ void* ClearCoolDownCompletionTime;
+	/*0x3d0*/
 	};
 
 	// points to the eq instance of the virtual function table for this class
