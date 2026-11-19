@@ -1099,7 +1099,7 @@ struct [[offsetcomments]] UIAnimationFrame
 /*0x28*/ int           width;
 /*0x2c*/ int           height;
 /*0x30*/ int           duration;
-/*0x38*/
+/*0x34*/
 };
 
 // One "ui-animations" entry of a skin's assets/atlas.json. With grid set, every frame rectangle is split
@@ -1123,7 +1123,7 @@ struct [[offsetcomments]] HtmlParserSettings
 {
 /*0x00*/ eqstd::unordered_set<eqstd::string> forbiddenNames;  // "script" and 43 inline event attributes ("onclick" .. "ontoggle"), lowercase
 /*0x40*/ bool  dumpProcessedHtml;                             // writes "<name>_debug.<ext>" next to the file; always false
-/*0x48*/
+/*0x44*/
 };
 
 // Render target kinds for RenderCallback::AcquireUserImage. Index into a static {name, width, height} table.
@@ -1233,7 +1233,7 @@ public:
 /*0x28*/ CResourceManagerInterface* pResourceManager;
 /*0x30*/ cohtml::Library*           pLibrary;
 /*0x38*/ bool                       finished;
-/*0x40*/
+/*0x3c*/
 };
 
 // Gameface/Skin.cpp. Parsed "<root>/assets/atlas.json".

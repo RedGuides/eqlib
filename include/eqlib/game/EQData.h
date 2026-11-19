@@ -372,10 +372,13 @@ struct [[offsetcomments]] RaidData
 /*0xdc*/
 };
 
+constexpr size_t CRaid_size = 0x3678; // @sizeof(CRaid) :: 2026-11-12 (live) @ 0x140186A19
 
-class [[offsetcomments]] CRaid
+class [[offsetcomments]] CRaid : public PopDialogHandler
 {
 public:
+	virtual ~CRaid() {}
+
 	//EQLIB_OBJECT bool IsInRaid();
 	//EQLIB_OBJECT bool IsInvited();
 	//EQLIB_OBJECT bool IsRaidGroupLeader();
@@ -425,7 +428,6 @@ public:
 	//EQLIB_OBJECT void UpdateLevelAverage();
 
 /*0x0000*/ RaidData          raidData;
-/*0x00dc*/ int               unknown1[2];
 /*0x00e4*/ bool              locations[MAX_RAID_SIZE];
 /*0x012c*/ RaidMember        raidMembers[MAX_RAID_SIZE];
 /*0x2d0c*/ int               raidId;
@@ -443,7 +445,8 @@ public:
 /*0x3668*/ DWORD             levelTotal;                   // Average level of raid members
 /*0x366c*/ bool              Locked;
 /*0x366d*/ bool              bGroupOnInvite;
-/*0x3670*/
+/*0x3670*/ int64_t           LastInviteResponseTime;       // -1 = never; 3s throttle
+/*0x3678*/
 
 	ALT_MEMBER_GETTER_ARRAY(bool, MAX_RAID_SIZE, locations, RaidMemberUsed);
 
@@ -454,6 +457,8 @@ public:
 	ALT_MEMBER_GETTER(int, levelTotal, TotalRaidMemberLevels);
 	ALT_MEMBER_GETTER(eRaidState, raidState, Invited);
 };
+
+SIZE_CHECK(CRaid, CRaid_size);
 
 using EQRAID DEPRECATE("Use CRaid instead of EQRAID") = CRaid;
 using PEQRAID DEPRECATE("Use CRaid instead of EQRAID") = CRaid*;

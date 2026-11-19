@@ -132,7 +132,7 @@ public:
 /*0x08*/ ImplBase*             Self;       // points to this
 /*0x10*/ TypeId                Type;       // Name is null for System
 /*0x20*/ int                   RefCount;   // non-atomic
-/*0x28*/
+/*0x24*/
 
 	uint32_t AddRef() { return ++RefCount; }
 	uint32_t Release()
@@ -218,7 +218,7 @@ SIZE_CHECK(Texture, Texture_size);
 // Shared block that owns a Texture.
 using TextureObject = SharedObject<Texture>;
 
-constexpr size_t TextureObject_size = 0xA0; // @sizeof(TextureObject, EQGraphics) :: 2026-10-19 (live) @ 0x18012C2F7
+constexpr size_t TextureObject_size = 0xA0; // @sizeof(TextureObject, EQGraphics) :: 2026-11-12 (live) @ 0x1801302D7
 SIZE_CHECK(TextureObject, TextureObject_size);
 
 // "class DX9Wrapper::DX11::SwapChain" - one per Device (Device::SwapChain).
@@ -228,17 +228,14 @@ public:
 /*0x00*/ IDXGISwapChain*       DXGISwapChain;
 /*0x08*/ SharedObject<Texture>* BackBuffer;        // wraps buffer 0 (Texture::InitFromExisting)
 /*0x10*/ SharedObject<Texture>* DepthStencil;      // AutoDepthStencilFormat (DSV) at create; R24G8_TYPELESS (SRV|DSV) after Reset
-/*0x18*/ ImplBase*             Unknown0x18;        // released like an Impl, never written by wrapper code (null)
-/*0x20*/ IDXGIOutput*          Output;             // fullscreen target, display modes, gamma
-/*0x28*/
+/*0x18*/ IDXGIOutput*          Output;             // fullscreen target, display modes, gamma
+/*0x20*/
 };
-constexpr size_t SwapChain_size = 0x28;
-SIZE_CHECK(SwapChain, SwapChain_size);
 
 // Shared block that owns a SwapChain.
 using SwapChainObject = SharedObject<SwapChain>;
 
-constexpr size_t SwapChainObject_size = 0x40; // @sizeof(SwapChainObject, EQGraphics) :: 2026-10-19 (live) @ 0x18016979E
+constexpr size_t SwapChainObject_size = 0x38; // @sizeof(SwapChainObject, EQGraphics) :: 2026-11-12 (live) @ 0x18012A9BE
 SIZE_CHECK(SwapChainObject, SwapChainObject_size);
 
 // "class DX9Wrapper::DX11::Device" - all the emulated D3D9 device state.
@@ -285,7 +282,7 @@ SIZE_CHECK(Device, Device_size);
 // Shared block that owns a Device.
 using DeviceObject = SharedObject<Device>;
 
-constexpr size_t DeviceObject_size = 0x1550; // @sizeof(DeviceObject, EQGraphics) :: 2026-10-19 (live) @ 0x18012CE8E
+constexpr size_t DeviceObject_size = 0x1550; // @sizeof(DeviceObject, EQGraphics) :: 2026-11-12 (live) @ 0x180130E6E
 SIZE_CHECK(DeviceObject, DeviceObject_size);
 
 //----------------------------------------------------------------------------
@@ -313,7 +310,7 @@ public:
 /*0x28*/ IDXGIFactory1*        DXGIFactory;
 /*0x30*/
 };
-constexpr size_t System_size = 0x30; // @sizeof(System, EQGraphics) :: 2026-10-19 (live) @ 0x18014FF1D
+constexpr size_t System_size = 0x30; // @sizeof(System, EQGraphics) :: 2026-11-12 (live) @ 0x18015F09D
 SIZE_CHECK(System, System_size);
 
 // "IDirect3DDevice9".
@@ -368,13 +365,13 @@ public:
 
 /*0x28*/ SharedObject<DX11::Device>* Device;
 /*0x30*/ DWORD                 ThreadId;           // creating thread
-/*0x38*/
+/*0x34*/
 
 	DX11::Device* GetDevice() const { return Device ? &Device->Object : nullptr; }
 	ID3D11Device* GetD3D11Device() const { return Device ? Device->Object.D3DDevice : nullptr; }
 	ID3D11DeviceContext* GetD3D11DeviceContext() const { return Device ? Device->Object.D3DDeviceContext : nullptr; }
 };
-constexpr size_t DeviceImpl_size = 0x38; // @sizeof(DeviceImpl, EQGraphics) :: 2026-10-19 (live) @ 0x18012CF25
+constexpr size_t DeviceImpl_size = 0x38; // @sizeof(DeviceImpl, EQGraphics) :: 2026-11-12 (live) @ 0x180130F05
 SIZE_CHECK(DeviceImpl, DeviceImpl_size);
 
 // "IDirect3DSwapChain9"
@@ -389,7 +386,7 @@ public:
 
 	IDXGISwapChain* GetDXGISwapChain() const { return SwapChain ? SwapChain->Object.DXGISwapChain : nullptr; }
 };
-constexpr size_t SwapChainImpl_size = 0x38; // @sizeof(SwapChainImpl, EQGraphics) :: 2026-10-19 (live) @ 0x18016CD2E
+constexpr size_t SwapChainImpl_size = 0x38; // @sizeof(SwapChainImpl, EQGraphics) :: 2026-11-12 (live) @ 0x18016B88E
 SIZE_CHECK(SwapChainImpl, SwapChainImpl_size);
 
 // Common part of TextureImpl and CubeTextureImpl (they share the destructor and GetLevelCount).
@@ -428,7 +425,7 @@ public:
 /*0x030*/ virtual HRESULT UnlockRect(UINT Level) = 0;
 /*0x038*/ virtual HRESULT GetLevelDesc(UINT Level, D3DSURFACE_DESC* pDesc) = 0;
 };
-constexpr size_t TextureImpl_size = 0x38; // @sizeof(TextureImpl, EQGraphics) :: 2026-10-19 (live) @ 0x18012C259
+constexpr size_t TextureImpl_size = 0x38; // @sizeof(TextureImpl, EQGraphics) :: 2026-11-12 (live) @ 0x180130239
 SIZE_CHECK(TextureImpl, TextureImpl_size);
 
 // "IDirect3DCubeTexture9"
@@ -439,7 +436,7 @@ public:
 /*0x020*/ virtual HRESULT UnlockRect(D3DCUBEMAP_FACES FaceType, UINT Level) = 0;
 /*0x028*/ virtual HRESULT GetLevelDesc(UINT Level, D3DSURFACE_DESC* pDesc) = 0;
 };
-constexpr size_t CubeTextureImpl_size = 0x38; // @sizeof(CubeTextureImpl, EQGraphics) :: 2026-10-19 (live) @ 0x18012FF28
+constexpr size_t CubeTextureImpl_size = 0x38; // @sizeof(CubeTextureImpl, EQGraphics) :: 2026-11-12 (live) @ 0x1801340D8
 SIZE_CHECK(CubeTextureImpl, CubeTextureImpl_size);
 
 
@@ -458,7 +455,7 @@ public:
 /*0x3c*/ uint32_t              Padding0x3c;
 /*0x40*/
 };
-constexpr size_t SurfaceImpl_size = 0x40; // @sizeof(SurfaceImpl, EQGraphics) :: 2026-10-19 (live) @ 0x18015C08F
+constexpr size_t SurfaceImpl_size = 0x40; // @sizeof(SurfaceImpl, EQGraphics) :: 2026-11-12 (live) @ 0x18016ADFF
 SIZE_CHECK(SurfaceImpl, SurfaceImpl_size);
 
 // Wraps one ID3D11Buffer.
@@ -484,7 +481,7 @@ public:
 /*0x94*/ uint32_t              Padding0x94[3];
 /*0xa0*/
 };
-constexpr size_t IndexBufferImpl_size = 0xA0; // @sizeof(IndexBufferImpl, EQGraphics) :: 2026-10-19 (live) @ 0x18016C738
+constexpr size_t IndexBufferImpl_size = 0xA0; // @sizeof(IndexBufferImpl, EQGraphics) :: 2026-11-12 (live) @ 0x18016B298
 SIZE_CHECK(IndexBufferImpl, IndexBufferImpl_size);
 
 // "IDirect3DVertexBuffer9"
@@ -504,7 +501,7 @@ public:
 /*0xa8*/ uint64_t              Padding0xa8;
 /*0xb0*/
 };
-constexpr size_t VertexBufferImpl_size = 0xB0; // @sizeof(VertexBufferImpl, EQGraphics) :: 2026-10-19 (live) @ 0x18016CA08
+constexpr size_t VertexBufferImpl_size = 0xB0; // @sizeof(VertexBufferImpl, EQGraphics) :: 2026-11-12 (live) @ 0x18016B568
 SIZE_CHECK(VertexBufferImpl, VertexBufferImpl_size);
 
 // "IDirect3DVertexDeclaration9"
@@ -514,7 +511,7 @@ public:
 /*0x28*/ SharedObject<DX11::DefferedInputLayout>* InputLayout;
 /*0x30*/
 };
-constexpr size_t VertexDeclarationImpl_size = 0x30; // @sizeof(VertexDeclarationImpl, EQGraphics) :: 2026-10-19 (live) @ 0x18016D10B
+constexpr size_t VertexDeclarationImpl_size = 0x30; // @sizeof(VertexDeclarationImpl, EQGraphics) :: 2026-11-12 (live) @ 0x18016BC3B
 SIZE_CHECK(VertexDeclarationImpl, VertexDeclarationImpl_size);
 
 } // namespace DX11
