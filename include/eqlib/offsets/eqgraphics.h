@@ -38,6 +38,8 @@
 
 #define EQGraphics_DebugAPI_Ptr_x                                  0x1803DFDC8
 
+#define DX9Wrapper__DX11__Texture__GetShaderResourceView_x         0x180126500
+
 #if __has_include("../../../../private/eqgraphics-private.h")
 #include "../../../../private/eqgraphics-private.h"
 #endif

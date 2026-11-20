@@ -123,7 +123,7 @@
 ; Same as above, for CSidlScreenWnd vtable
 %macro expand_csidlscreenwnd_overrides 2
 	; CSidlScreenWnd virtual functions
-	make_override 0x348, ?Unknown0x330@?$CSidlScreenWndTrampoline@V%1@eqlib@@@detail@eqlib@@UEAAXPEBD_N@Z, %2
+	make_override 0x348, ?UpdateBindings@?$CSidlScreenWndTrampoline@V%1@eqlib@@@detail@eqlib@@UEAAX_N@Z, %2
 	make_override 0x350, ?OnZone@?$CSidlScreenWndTrampoline@V%1@eqlib@@@detail@eqlib@@UEAAHXZ, %2
 	make_override 0x358, ?OnPreZone@?$CSidlScreenWndTrampoline@V%1@eqlib@@@detail@eqlib@@UEAAHXZ, %2
 	make_override 0x360, ?LoadIniInfo@?$CSidlScreenWndTrampoline@V%1@eqlib@@@detail@eqlib@@UEAAXXZ, %2
@@ -134,9 +134,9 @@
 
 %macro expand_cgfscreenwnd_overrides 2
 	; CGFScreenWnd virtual functions
-	make_override 0x380, ?HandleJsEvent@?$CGFScreenWndTrampoline@V%1@eqlib@@@detail@eqlib@@UEAAXPEAX0@Z, %2
-	make_override 0x388, ?Unknown0x388@?$CGFScreenWndTrampoline@V%1@eqlib@@@detail@eqlib@@UEAAXXZ, %2
-	make_override 0x390, ?Unknown0x390@?$CGFScreenWndTrampoline@V%1@eqlib@@@detail@eqlib@@UEAAXAEBVCXRect@3@@Z, %2
+	make_override 0x380, ?HandleJsEvent@?$CGFScreenWndTrampoline@V%1@eqlib@@@detail@eqlib@@UEAAXPEBUGFJsEvent@3@@Z, %2
+	make_override 0x388, ?OnJsLClick@?$CGFScreenWndTrampoline@V%1@eqlib@@@detail@eqlib@@UEAAXAEBV?$basic_string@DU?$char_traits@D@std@@U?$everquest_allocator@D@eqlib@@@eqstd@@AEBUGFEventModifiers@3@AEBVCXPoint@3@@Z, %2
+	make_override 0x390, ?Center@?$CGFScreenWndTrampoline@V%1@eqlib@@@detail@eqlib@@UEAAXAEBVCXRect@3@@Z, %2
 %endmacro
 
 ; Expand the window override assembly functions for the window

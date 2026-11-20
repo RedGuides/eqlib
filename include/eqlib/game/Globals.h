@@ -133,6 +133,7 @@ EQLIB_VAR uintptr_t pinstEqLogin;
 EQLIB_VAR uintptr_t pinstEQSoundManager;
 EQLIB_VAR uintptr_t pinstEQSpellStrings;
 EQLIB_VAR uintptr_t pinstEQSuiteTextureLoader;
+EQLIB_VAR uintptr_t pinstGF;
 EQLIB_VAR uintptr_t pinstGFViewListener;
 EQLIB_VAR uintptr_t pinstEverQuestInfo;
 EQLIB_VAR uintptr_t pinstItemIconCache;
@@ -818,6 +819,7 @@ EQLIB_VAR ForeignPointer<EqSoundManager>             pEqSoundManager;
 EQLIB_VAR ForeignPointer<EQSpellStrings>             pEQSpellStrings;
 EQLIB_VAR ForeignPointer<CEverQuest, EVERQUEST>      pEverQuest;
 EQLIB_VAR ForeignPointer<SGraphicsEngine>            pGraphicsEngine;
+EQLIB_VAR ForeignPointer<GF::Manager>                pGF;
 EQLIB_VAR ForeignPointer<GF::ViewListener>           pGFViewListener;
 EQLIB_VAR ForeignPointer<CInvSlotMgr>                pInvSlotMgr;
 EQLIB_VAR ForeignPointer<CItemDisplayManager>        pItemDisplayManager;
@@ -1047,6 +1049,7 @@ EQLIB_VAR uintptr_t C2DPrimitiveManager__AddCachedText;
 EQLIB_VAR uintptr_t C2DPrimitiveManager__Render;
 EQLIB_VAR uintptr_t ObjectPreviewView__Render;
 EQLIB_VAR uintptr_t EQGraphics_DebugAPI_Ptr;
+EQLIB_VAR uintptr_t DX9Wrapper__DX11__Texture__GetShaderResourceView;
 
 //============================================================================
 // eqmain.dll Offsets

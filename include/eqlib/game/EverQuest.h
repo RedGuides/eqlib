@@ -50,7 +50,7 @@ enum EPlace
 	CanPlaceAndGoto,
 };
 
-constexpr size_t zoneHeader_size = 0x2A8; // @sizeof(zoneHeader) :: 2026-11-10 (test) @ 0x140ECAD24
+constexpr size_t zoneHeader_size = 0x2A8; // @sizeof(zoneHeader) :: 2026-11-12 (live) @ 0x140ECAD24
 
 struct [[offsetcomments]] zoneHeader
 {
@@ -315,7 +315,7 @@ struct [[offsetcomments]] EQGameOptions
 
 
 // size of EverQuestinfo is the distance from this byte to the end of the struct
-constexpr size_t EverQuestinfo_size = 0x75290; // @sizeof(EverQuestinfo) :: 2026-11-10 (test) @ 0x140ECAB30
+constexpr size_t EverQuestinfo_size = 0x75290; // @sizeof(EverQuestinfo) :: 2026-11-12 (live) @ 0x140ECAB30
 
 struct [[offsetcomments]] EverQuestinfo
 {
@@ -661,48 +661,56 @@ inline namespace deprecated {
 	using PETITIONSTATUS DEPRECATE("Use PetitionStatus instead of PETITIONSTATUS") = PetitionStatus;
 }
 
+
+constexpr size_t CharSelectInfo_size = 0x165; // @sizeof(CharSelectInfo) :: 2026-11-12 (live) @ 0x140224D3F
+
+#pragma pack(push, 1)
+
 struct [[offsetcomments]] CharSelectInfo
 {
-/*0x000*/ char         Name[0x40];
-/*0x040*/ int          Class;
-/*0x044*/ int          Race;
-/*0x048*/ BYTE         Level;
-/*0x04c*/ int          Class2;
-/*0x050*/ int          Race2;
-/*0x054*/ int          CurZoneID;
-/*0x058*/ BYTE         Sex;
-/*0x059*/ BYTE         Face;
-/*0x05c*/ ArmorProperties ArmProp[9];
-/*0x110*/ DWORD        Tint[9];
-/*0x134*/ char         TextureType;
-/*0x135*/ char         ArmorMaterial;
-/*0x136*/ char         ArmorVariation;
-/*0x137*/ char         HeadType;
-/*0x138*/ int          TattooIndex;
-/*0x13c*/ int          FacialAttachmentIndex;
-/*0x140*/ int          Deity;
-/*0x144*/ int          PrimActor;
-/*0x148*/ int          SecdActor;
-/*0x14c*/ BYTE         HairColor;
-/*0x14d*/ BYTE         BeardColor;
-/*0x14e*/ BYTE         LeftEye;
-/*0x14f*/ BYTE         RightEye;
-/*0x150*/ BYTE         Hair;
-/*0x151*/ BYTE         Beard;
-/*0x152*/ bool         bCanGoHome;
-/*0x153*/ bool         bCanTutorial;
-/*0x154*/ int          ParentId;
-/*0x158*/ bool         bTooHighLevel;
-/*0x159*/ bool         bPreFTP;
-/*0x15c*/ int          LastLogin;
-/*0x160*/ bool         bUseable;
-/*0x161*/ bool         bHeroicCharacter;
-/*0x162*/ bool         bShrouded;
-/*0x164*/ int          Unknown0x164;
-/*0x168*/ int          Unknown0x168;
-/*0x16c*/ int          Unknown0x16c;
-/*0x170*/
+/*0x000*/ char            Name[0x40];
+/*0x040*/ int             Class;
+/*0x044*/ int             Race;
+/*0x048*/ BYTE            Level;
+/*0x049*/ int             Class2;
+/*0x04d*/ int             Race2;
+/*0x051*/ int             CurZoneID;
+/*0x055*/ BYTE            Sex;
+/*0x056*/ BYTE            Face;
+/*0x057*/ ArmorProperties ArmProp[9];
+/*0x10b*/ DWORD           Tint[9];
+/*0x12f*/ char            TextureType;
+/*0x130*/ char            ArmorMaterial;
+/*0x131*/ char            ArmorVariation;
+/*0x132*/ char            HeadType;
+/*0x133*/ int             TattooIndex;
+/*0x137*/ int             FacialAttachmentIndex;
+/*0x13b*/ int             Deity;
+/*0x13f*/ int             PrimActor;
+/*0x143*/ int             SecdActor;
+/*0x147*/ BYTE            HairColor;
+/*0x148*/ BYTE            BeardColor;
+/*0x149*/ BYTE            LeftEye;
+/*0x14a*/ BYTE            RightEye;
+/*0x14b*/ BYTE            Hair;
+/*0x14c*/ BYTE            Beard;
+/*0x14d*/ bool            bCanGoHome;
+/*0x14e*/ bool            bCanTutorial;
+/*0x14f*/ int             ParentId;
+/*0x153*/ bool            bTooHighLevel;
+/*0x154*/ bool            bPreFTP;
+/*0x155*/ int             LastLogin;
+/*0x159*/ bool            bUseable;
+/*0x161*/ uint16_t        HeroicType;
+/*0x15b*/ bool            bShrouded;
+/*0x15c*/ int64_t         Unknown0x15d;
+/*0x165*/
 };
+
+#pragma pack(pop)
+
+SIZE_CHECK(CharSelectInfo, CharSelectInfo_size)
+
 
 inline namespace deprecated {
 	using CSINFO DEPRECATE("Use CharSelectInfo instead of CSINFO") = CharSelectInfo;
@@ -718,7 +726,7 @@ public:
 };
 
 
-constexpr size_t CEverQuest_size = 0x19710; // @sizeof(CEverQuest) :: 2026-11-10 (test) @ 0x14035A3C3
+constexpr size_t CEverQuest_size = 0x19710; // @sizeof(CEverQuest) :: 2026-11-12 (live) @ 0x14035A333
 
 class [[offsetcomments]] CEverQuest : public CEverQuestBase, public UniversalChatProxyHandler, public PopDialogHandler
 {

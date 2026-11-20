@@ -241,6 +241,9 @@ const char* szExpansions[NUM_EXPANSIONS + 1] = {
 #if IS_EXPANSION_LEVEL(EXPANSION_LEVEL_SOR)
 	"The Shattering of Ro",
 #endif
+#if IS_EXPANSION_LEVEL(EXPANSION_LEVEL_FOF)
+	"The Favors of Fortune",
+#endif
 	nullptr
 };
 static_assert(lengthof(szExpansions) - 1 == NUM_EXPANSIONS,
@@ -474,6 +477,7 @@ INITIALIZE_EQGAME_OFFSET(pinstEqLogin);
 INITIALIZE_EQGAME_OFFSET(pinstEQSoundManager);
 INITIALIZE_EQGAME_OFFSET(pinstEQSpellStrings);
 INITIALIZE_EQGAME_OFFSET(pinstEQSuiteTextureLoader);
+INITIALIZE_EQGAME_OFFSET(pinstGF);
 INITIALIZE_EQGAME_OFFSET(pinstGFViewListener);
 INITIALIZE_EQGAME_OFFSET(pinstEverQuestInfo);
 INITIALIZE_EQGAME_OFFSET(pinstItemIconCache);
@@ -1140,6 +1144,7 @@ ForeignPointer<EqSoundManager>                   pEqSoundManager;
 ForeignPointer<EQSpellStrings>                   pEQSpellStrings;
 ForeignPointer<CEverQuest, EVERQUEST>            pEverQuest;
 ForeignPointer<SGraphicsEngine>                  pGraphicsEngine;
+ForeignPointer<GF::Manager>                      pGF;
 ForeignPointer<GF::ViewListener>                 pGFViewListener;
 ForeignPointer<CItemDisplayManager>              pItemDisplayManager;
 ForeignPointer<CSpellDisplayManager>             pSpellDisplayManager;
@@ -1495,6 +1500,7 @@ void InitializeEQGameOffsets()
 	pEQSpellStrings                 = pinstEQSpellStrings;
 	pEverQuest                      = pinstCEverQuest;
 	pGraphicsEngine                 = pinstSGraphicsEngine;
+	pGF                             = pinstGF;
 	pGFViewListener                 = pinstGFViewListener;
 	pInvSlotMgr                     = pinstCInvSlotMgr;
 	pItemDisplayManager             = pinstCItemDisplayManager;
@@ -1547,6 +1553,7 @@ uintptr_t C2DPrimitiveManager__AddCachedText = 0;
 uintptr_t C2DPrimitiveManager__Render = 0;
 uintptr_t ObjectPreviewView__Render = 0;
 uintptr_t EQGraphics_DebugAPI_Ptr = 0;
+uintptr_t DX9Wrapper__DX11__Texture__GetShaderResourceView = 0;
 
 uintptr_t __bRenderSceneCalled = 0;
 BOOL* g_bRenderSceneCalled = nullptr;
@@ -1568,6 +1575,7 @@ void InitializeEQGraphicsOffsets(uintptr_t BaseAddress)
 	C2DPrimitiveManager__Render = FixEQGraphicsOffset(C2DPrimitiveManager__Render_x);
 	ObjectPreviewView__Render = FixEQGraphicsOffset(ObjectPreviewView__Render_x);
 	EQGraphics_DebugAPI_Ptr = FixEQGraphicsOffset(EQGraphics_DebugAPI_Ptr_x);
+	DX9Wrapper__DX11__Texture__GetShaderResourceView = FixEQGraphicsOffset(DX9Wrapper__DX11__Texture__GetShaderResourceView_x);
 }
 
 void CleanupEQGraphicsOffsets()
@@ -1587,6 +1595,7 @@ void CleanupEQGraphicsOffsets()
 	C2DPrimitiveManager__Render = 0;
 	ObjectPreviewView__Render = 0;
 	EQGraphics_DebugAPI_Ptr = 0;
+	DX9Wrapper__DX11__Texture__GetShaderResourceView = 0;
 }
 
 #pragma endregion

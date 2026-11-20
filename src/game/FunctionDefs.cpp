@@ -2149,6 +2149,14 @@ FUNCTION_AT_ADDRESS(unsigned int, LoginServerAPI::JoinServer(int, void*, int), E
 
 FUNCTION_AT_ADDRESS(CEQGBitmap*, CEQGBitmap::GetFirstBitmap(), CEQGBitmap__GetFirstBitmap);
 
+#if HAS_DIRECTX_11
+//----------------------------------------------------------------------------
+// DX9Wrapper::DX11::Texture
+//----------------------------------------------------------------------------
+
+FUNCTION_AT_ADDRESS(ID3D11ShaderResourceView*, DX11::Texture::GetOrCreateShaderResourceView(DX11::Device*), DX9Wrapper__DX11__Texture__GetShaderResourceView);
+#endif
+
 //----------------------------------------------------------------------------
 // CDisplay
 //----------------------------------------------------------------------------
