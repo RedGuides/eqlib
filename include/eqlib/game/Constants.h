@@ -781,6 +781,8 @@ enum ALTCURRENCY
 	ALTCURRENCY_LOGOFVENTURES = 62, // ToB (June of 2025)
 	ALTCURRENCY_RIFTTOUCHEDSIGILS = 63, // SOR (this is "RIFT-TOUCHEDSIGILS" in dbsrtr_texts)
 	ALTCURRENCY_FORGOTTENRUINEDCOINS = 64, // SOR
+	ALTCURRENCY_COVETEDSCRIPS = 65, // FOF
+	ALTCURRENCY_DUPLICITOUSMARKS = 66, // FOF
 
 	ALTCURRENCY_FIRST = ALTCURRENCY_DOUBLOONS,
 	ALTCURRENCY_LAST = ALTCURRENCY_FORGOTTENRUINEDCOINS,
@@ -860,9 +862,10 @@ enum ePetCommandType
 	PCT_ToggleRegroup,
 	PCT_RegroupOn,
 	PCT_RegroupOff,
-	PCT_Something,
-	PCT_Something2,
+	PCT_Swarm,
+	PCT_QSwarm,
 	PCT_DoNothing
+	// more...
 };
 
 // Camera modes
@@ -966,7 +969,7 @@ enum class ServerID : int {
 
 
 // zones
-constexpr int ZONE_COUNT = 888;
+constexpr int ZONE_COUNT = 894;
 
 // Math
 

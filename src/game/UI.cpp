@@ -91,13 +91,16 @@ CRadioGroup::~CRadioGroup()
 FORWARD_FUNCTION_TO_VTABLE(void, CButtonWnd::SetRadioGroup(CRadioGroup*), CButtonWnd, SetRadioGroup);
 FORWARD_FUNCTION_TO_VTABLE(int, CButtonWnd::DrawWndText(const CXRect&, const CXRect&), CButtonWnd, DrawWndText);
 FORWARD_FUNCTION_TO_VTABLE(int, CButtonWnd::DrawCooldown(), CButtonWnd, DrawCooldown);
+FORWARD_FUNCTION_TO_VTABLE(void, CButtonWnd::DrawCooldownRect(double, COLORREF), CButtonWnd, DrawCooldownRect);
+FORWARD_FUNCTION_TO_VTABLE(void, CButtonWnd::DrawPowerBar(int, int), CButtonWnd, DrawPowerBar);
+FORWARD_FUNCTION_TO_VTABLE(void, CButtonWnd::DrawPowerBarRect(float, COLORREF, int, int), CButtonWnd, DrawPowerBarRect);
 FORWARD_FUNCTION_TO_VTABLE(void, CButtonWnd::SetCheck(bool, bool), CButtonWnd, SetCheck);
 FORWARD_FUNCTION_TO_VTABLE(void, CButtonWnd::SetCoolDownCompletionTimeDelta(uint32_t, uint32_t), CButtonWnd, SetCoolDownCompletionTimeDelta);
-FORWARD_FUNCTION_TO_VTABLE(void, CButtonWnd::SetCoolDownCompletionTime(uint32_t, uint32_t), CButtonWnd, SetCoolDownCompletionTime);
-FORWARD_FUNCTION_TO_VTABLE(void, CButtonWnd::SetCoolDownCompletionTime(eqtime_t, uint32_t), CButtonWnd, SetCoolDownCompletionTime2);
+FORWARD_FUNCTION_TO_VTABLE(void, CButtonWnd::SetCoolDownCompletionTime(uint32_t, uint32_t), CButtonWnd, SetCoolDownCompletionTime2);
+FORWARD_FUNCTION_TO_VTABLE(void, CButtonWnd::SetCoolDownCompletionTime(eqtime_t, uint32_t), CButtonWnd, SetCoolDownCompletionTime);
 FORWARD_FUNCTION_TO_VTABLE(void, CButtonWnd::SetCoolDownBeginTime(uint32_t, uint32_t), CButtonWnd, SetCoolDownBeginTime);
-FORWARD_FUNCTION_TO_VTABLE(void, CButtonWnd::SetCoolDownUpdatedBeginTime(uint32_t, uint32_t), CButtonWnd, SetCoolDownUpdatedBeginTime);
-FORWARD_FUNCTION_TO_VTABLE(uint32_t, CButtonWnd::GetCoolDownBeginTime() const, CButtonWnd, SetCoolDownUpdatedBeginTime);
+FORWARD_FUNCTION_TO_VTABLE(bool, CButtonWnd::SetCoolDownUpdatedBeginTime(uint32_t, uint32_t), CButtonWnd, SetCoolDownUpdatedBeginTime);
+FORWARD_FUNCTION_TO_VTABLE(uint32_t, CButtonWnd::GetCoolDownBeginTime() const, CButtonWnd, GetCoolDownBeginTime);
 FORWARD_FUNCTION_TO_VTABLE(uint32_t, CButtonWnd::GetCoolDownTotalDuration() const, CButtonWnd, GetCoolDownTotalDuration);
 FORWARD_FUNCTION_TO_VTABLE(uint32_t, CButtonWnd::GetCoolDownTimeRemaining() const, CButtonWnd, GetCoolDownTimeRemaining);
 FORWARD_FUNCTION_TO_VTABLE(void, CButtonWnd::ClearCoolDownCompletionTime(), CButtonWnd, ClearCoolDownCompletionTime);
@@ -948,6 +951,7 @@ static std::unordered_multimap<std::string_view, ForeignPointer<CSidlScreenWnd>&
 	{ "CharacterListWnd",                       pCharacterListWnd.ref<CSidlScreenWnd>() },
 	{ "ClaimWnd",                               pClaimWnd.ref<CSidlScreenWnd>() },
 	{ "ColorPickerWnd",                         pColorPickerWnd.ref<CSidlScreenWnd>() },
+	{ "CollectionDepotWnd",                     pCollectionDepotWnd.ref<CSidlScreenWnd>() },
 	{ "CombatAbilityWnd",                       pCombatAbilityWnd.ref<CSidlScreenWnd>() },
 	{ "CombatSkillSelectWnd",                   pCombatSkillsSelectWnd.ref<CSidlScreenWnd>() },
 	{ "CompassWindow",                          pCompassWnd.ref<CSidlScreenWnd>() },

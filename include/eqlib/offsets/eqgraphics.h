@@ -18,7 +18,7 @@
 // EQGraphics.dll offsets
 //
 
-#define __eqgraphics_fopen_x                                       0x180285ED4
+#define __eqgraphics_fopen_x                                       0x180285BA4
 
 #define CEQGBitmap__GetFirstBitmap_x                               0x180003250
 
@@ -37,6 +37,8 @@
 #define ObjectPreviewView__Render_x                                0x180026870
 
 #define EQGraphics_DebugAPI_Ptr_x                                  0x1803DFDC8
+
+#define DX9Wrapper__DX11__Texture__GetShaderResourceView_x         0x1801264F0
 
 #if __has_include("../../../../private/eqgraphics-private.h")
 #include "../../../../private/eqgraphics-private.h"

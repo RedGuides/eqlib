@@ -15,6 +15,7 @@
 #pragma once
 
 #include "eqlib/game/CXWnd.h"
+#include "eqlib/game/GameFace.h"
 
 namespace eqlib {
 
@@ -156,7 +157,7 @@ public:
 	using CXWndTrampoline<Target>::CXWndTrampoline;
 	using Super = CSidlScreenWndTrampoline<Target>;
 
-	virtual void Unknown0x330(const char* pUnkA, bool bUnkB) override;
+	virtual void UpdateBindings(bool unregister) override;
 	virtual int OnZone() override;
 	virtual int OnPreZone() override;
 	virtual void LoadIniInfo() override;
@@ -172,9 +173,10 @@ public:
 	using CSidlScreenWndTrampoline<Target>::CSidlScreenWndTrampoline;
 	using Super = CGFScreenWndTrampoline<Target>;
 
-	virtual void HandleJsEvent(void* a, void* b) override;
-	virtual void Unknown0x388() override;
-	virtual void Unknown0x390(const CXRect& rect) override;
+	virtual void HandleJsEvent(const GFJsEvent* event) override;
+	virtual void OnJsLClick(const eqstd::string& sender, const GFEventModifiers& modifiers, const CXPoint& position) override;
+	using CSidlScreenWndTrampoline<Target>::Center;
+	virtual void Center(const CXRect& rect) override;
 };
 
 template <typename T>

@@ -50,7 +50,7 @@ enum EPlace
 	CanPlaceAndGoto,
 };
 
-constexpr size_t zoneHeader_size = 0x2A8; // @sizeof(zoneHeader) :: 2026-11-10 (test) @ 0x140ECAD24
+constexpr size_t zoneHeader_size = 0x2A8; // @sizeof(zoneHeader) :: 2026-11-19 (test) @ 0x140ED3DC4
 
 struct [[offsetcomments]] zoneHeader
 {
@@ -201,24 +201,57 @@ public:
 
 using CTargetRing DEPRECATE("Use FreeTargetTracker instead of CTargetRing") = CTargetRing;
 
+enum EQSuccessfulHitFlags : uint32_t
+{
+	SuccessfulHitFlag_WildRampage = 0x00000001,
+	SuccessfulHitFlag_Rampage = 0x00000002,
+	SuccessfulHitFlag_OverTime = 0x00000004,
+	SuccessfulHitFlag_DoubleBowShot = 0x00000008,
+	SuccessfulHitFlag_ForceSpellMsg = 0x00000010,
+	SuccessfulHitFlag_Flurry = 0x00000020,
+	SuccessfulHitFlag_Riposte = 0x00000040,
+	SuccessfulHitFlag_Critical = 0x00000080,
+	SuccessfulHitFlag_Lucky = 0x00000100,
+	SuccessfulHitFlag_FinishingBlow = 0x00000200,
+	SuccessfulHitFlag_CripplingBlow = 0x00000400,
+	SuccessfulHitFlag_Assassinate = 0x00000800,
+	SuccessfulHitFlag_DeadlyStrike = 0x00001000,
+	SuccessfulHitFlag_SlayUndead = 0x00002000,
+	SuccessfulHitFlag_Headshot = 0x00004000,
+	SuccessfulHitFlag_Strikethrough = 0x00008000,
+	SuccessfulHitFlag_LuckyRiposte = 0x00010000,
+	SuccessfulHitFlag_Twincast = 0x00020000,
+	SuccessfulHitFlag_ShieldBlock = 0x00040000,
+	SuccessfulHitFlag_StaffBlock = 0x00080000,
+	SuccessfulHitFlag_Locked = 0x00100000,
+};
 
-#pragma pack(push, 1)
-// fixme x64
+enum EQSuccessfulHealFlags : uint32_t
+{
+	SuccessfulHealFlag_OverTime = 0x00000001,
+	SuccessfulHealFlag_OverTimeChannel = 0x00000002,
+	SuccessfulHealFlag_Critical = 0x00000004,
+	SuccessfulHealFlag_Lucky = 0x00000008,
+	SuccessfulHealFlag_Twincast = 0x00000010,
+	SuccessfulHealFlag_NoLandMessageA = 0x00000020,
+	SuccessfulHealFlag_NoLandMessageB = 0x00000040,
+};
+
 struct [[offsetcomments]] EQSuccessfulHit
 {
 /*0x00*/ uint16_t      DamagedID;                // Spawn that was hit
 /*0x02*/ uint16_t      AttackerID;               // Spawn who did the hit
-/*0x04*/ uint8_t       Skill;                    // 1 HS etc...
-/*0x05*/ int           SpellID;
-/*0x09*/ int           DamageCaused;
-/*0x0d*/ float         Force;
-/*0x11*/ float         HitHeading;
-/*0x15*/ float         HitPitch;
-/*0x19*/ bool          bSecondary;
-/*0x1a*/ uint8_t       Unknown0x1A[6];
-/*0x20*/
+/*0x08*/ int64_t       DamageCaused;
+/*0x10*/ uint32_t      Flags;
+/*0x14*/ int           SpellID;
+/*0x18*/ int           SpellLevel;
+/*0x1c*/ float         Force;
+/*0x20*/ float         HitHeading;
+/*0x24*/ float         HitPitch;
+/*0x28*/ uint8_t       Skill;                    // 1 HS etc...
+/*0x29*/ bool          bSecondary;
+/*0x30*/
 };
-#pragma pack(pop)
 using pEQSuccessfulHit DEPRECATE("Use EQSuccessfulHit* instead of pEQSuccessfulHit") = EQSuccessfulHit*;
 
 struct [[offsetcomments]] EQSuccessfulHeal
@@ -226,10 +259,10 @@ struct [[offsetcomments]] EQSuccessfulHeal
 /*0x00*/ uint16_t      HealedID; // Spawn that was healed
 /*0x02*/ uint16_t      HealerID; // Spawn who did the healing
 /*0x04*/ int           SpellID;
-/*0x08*/ int           ActualHeal; // Amount that was actually healed
-/*0x0c*/ int           TotalHeal; // Amount that would have been healed if it didn't go over max HP
-/*0x10*/ uint32_t      EffectBitmask;
-/*0x14*/
+/*0x08*/ int64_t       ActualHeal; // Amount that was actually healed
+/*0x10*/ int64_t       TotalHeal; // Amount that would have been healed if it didn't go over max HP
+/*0x18*/ uint32_t      EffectBitmask;
+/*0x1c*/
 };
 using pEQSuccessfulHeal DEPRECATE("Use EQSuccessfulHeal* instead of pEQSuccessfulHeal") = EQSuccessfulHeal*;
 
@@ -315,7 +348,7 @@ struct [[offsetcomments]] EQGameOptions
 
 
 // size of EverQuestinfo is the distance from this byte to the end of the struct
-constexpr size_t EverQuestinfo_size = 0x75290; // @sizeof(EverQuestinfo) :: 2026-11-10 (test) @ 0x140ECAB30
+constexpr size_t EverQuestinfo_size = 0x75290; // @sizeof(EverQuestinfo) :: 2026-11-19 (test) @ 0x140ED3BD0
 
 struct [[offsetcomments]] EverQuestinfo
 {
@@ -661,48 +694,52 @@ inline namespace deprecated {
 	using PETITIONSTATUS DEPRECATE("Use PetitionStatus instead of PETITIONSTATUS") = PetitionStatus;
 }
 
+
+constexpr size_t CharSelectInfo_size = 0x170; // @sizeof(CharSelectInfo) :: 2026-11-19 (test) @ 0x14022AF4A
+
 struct [[offsetcomments]] CharSelectInfo
 {
-/*0x000*/ char         Name[0x40];
-/*0x040*/ int          Class;
-/*0x044*/ int          Race;
-/*0x048*/ BYTE         Level;
-/*0x04c*/ int          Class2;
-/*0x050*/ int          Race2;
-/*0x054*/ int          CurZoneID;
-/*0x058*/ BYTE         Sex;
-/*0x059*/ BYTE         Face;
+/*0x000*/ char            Name[0x40];
+/*0x040*/ int             Class;
+/*0x044*/ int             Race;
+/*0x048*/ BYTE            Level;
+/*0x04c*/ int             Class2;
+/*0x050*/ int             Race2;
+/*0x054*/ int             CurZoneID;
+/*0x058*/ BYTE            Sex;
+/*0x059*/ BYTE            Face;
 /*0x05c*/ ArmorProperties ArmProp[9];
-/*0x110*/ DWORD        Tint[9];
-/*0x134*/ char         TextureType;
-/*0x135*/ char         ArmorMaterial;
-/*0x136*/ char         ArmorVariation;
-/*0x137*/ char         HeadType;
-/*0x138*/ int          TattooIndex;
-/*0x13c*/ int          FacialAttachmentIndex;
-/*0x140*/ int          Deity;
-/*0x144*/ int          PrimActor;
-/*0x148*/ int          SecdActor;
-/*0x14c*/ BYTE         HairColor;
-/*0x14d*/ BYTE         BeardColor;
-/*0x14e*/ BYTE         LeftEye;
-/*0x14f*/ BYTE         RightEye;
-/*0x150*/ BYTE         Hair;
-/*0x151*/ BYTE         Beard;
-/*0x152*/ bool         bCanGoHome;
-/*0x153*/ bool         bCanTutorial;
-/*0x154*/ int          ParentId;
-/*0x158*/ bool         bTooHighLevel;
-/*0x159*/ bool         bPreFTP;
-/*0x15c*/ int          LastLogin;
-/*0x160*/ bool         bUseable;
-/*0x161*/ bool         bHeroicCharacter;
-/*0x162*/ bool         bShrouded;
-/*0x164*/ int          Unknown0x164;
-/*0x168*/ int          Unknown0x168;
-/*0x16c*/ int          Unknown0x16c;
+/*0x110*/ DWORD           Tint[9];
+/*0x134*/ char            TextureType;
+/*0x135*/ char            ArmorMaterial;
+/*0x136*/ char            ArmorVariation;
+/*0x137*/ char            HeadType;
+/*0x138*/ int             TattooIndex;
+/*0x13c*/ int             FacialAttachmentIndex;
+/*0x140*/ int             Deity;
+/*0x144*/ int             PrimActor;
+/*0x148*/ int             SecdActor;
+/*0x14c*/ BYTE            HairColor;
+/*0x14d*/ BYTE            BeardColor;
+/*0x14e*/ BYTE            LeftEye;
+/*0x14f*/ BYTE            RightEye;
+/*0x150*/ BYTE            Hair;
+/*0x151*/ BYTE            Beard;
+/*0x152*/ bool            bCanGoHome;
+/*0x153*/ bool            bCanTutorial;
+/*0x154*/ int             ParentId;
+/*0x158*/ bool            bTooHighLevel;
+/*0x159*/ bool            bPreFTP;
+/*0x15c*/ int             LastLogin;
+/*0x160*/ bool            bUseable;
+/*0x162*/ uint16_t        HeroicType;
+/*0x164*/ bool            bShrouded;
+/*0x168*/ int64_t         Unknown0x168;
 /*0x170*/
 };
+
+SIZE_CHECK(CharSelectInfo, CharSelectInfo_size)
+
 
 inline namespace deprecated {
 	using CSINFO DEPRECATE("Use CharSelectInfo instead of CSINFO") = CharSelectInfo;
@@ -718,7 +755,7 @@ public:
 };
 
 
-constexpr size_t CEverQuest_size = 0x19710; // @sizeof(CEverQuest) :: 2026-11-10 (test) @ 0x14035A3C3
+constexpr size_t CEverQuest_size = 0x19710; // @sizeof(CEverQuest) :: 2026-11-19 (test) @ 0x1403607F4
 
 class [[offsetcomments]] CEverQuest : public CEverQuestBase, public UniversalChatProxyHandler, public PopDialogHandler
 {

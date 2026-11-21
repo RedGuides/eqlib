@@ -1256,7 +1256,7 @@ public:
 	int compare(size_type pos1, size_type count1, const T& t,
 		size_type pos2, size_type count2 = npos) const
 	{
-		return std::string_view{ *this }.compare(pos1, count1, 2, pos2, count2);
+		return std::string_view{ *this }.compare(pos1, count1, t, pos2, count2);
 	}
 
 	// Checks if the string begins with the given prefix.

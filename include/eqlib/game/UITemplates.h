@@ -453,12 +453,15 @@ public:
 	EQLIB_OBJECT CStaticHeaderTemplate(CParamStaticHeader*);
 };
 
-class CStaticTextTemplate
+class [[offsetcomments]] CStaticTextTemplate : public CStaticScreenPieceTemplate
 {
 public:
 	EQLIB_OBJECT CStaticTextTemplate(CParamStaticText*);
 
 	EQLIB_OBJECT const CXStr& SetText(const CXStr&);
+
+/*0xa8*/ uint16_t                  TextFlags;
+/*0xac*/
 };
 
 class CSTMLboxTemplate
