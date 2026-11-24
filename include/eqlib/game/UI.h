@@ -288,18 +288,17 @@ public:
 // CRadioGroup
 //============================================================================
 
-class [[offsetcomments]] CRadioGroup
+class [[offsetcomments]] CRadioGroup : public eqstd::enable_shared_from_this<CRadioGroup>
 {
 public:
 	EQLIB_OBJECT CRadioGroup(CXStr name = {});
-	EQLIB_OBJECT virtual ~CRadioGroup();
+	EQLIB_OBJECT ~CRadioGroup();
 
 	CButtonWnd* GetButton(int index) const
 	{
 		return index >= 0 && index < Buttons.GetLength() ? Buttons[index] : nullptr;
 	}
 
-/*0x08*/ uint64_t                 Unknown;
 /*0x10*/ CXStr                    Name;
 /*0x18*/ ArrayClass<CButtonWnd*>  Buttons;
 /*0x30*/ int                      CurSel = -1;
@@ -379,11 +378,14 @@ public:
 	void SetDecalTint(COLORREF cr) { DecalTint = cr; }
 	void SetDecalTint(mq::MQColor color) { DecalTint = color.ToARGB(); }
 
+	eqstd::shared_ptr<CRadioGroup> GetRadioGroup() const { return pRadioGroup.lock(); }
+	__declspec(property(get = GetRadioGroup)) eqstd::shared_ptr<CRadioGroup> pGroup;
+
 	//----------------------------------------------------------------------------
 	// data members
 /*0x268*/ int                   MouseButtonState;
 /*0x26c*/ bool                  bPicture;
-/*0x270*/ eqstd::shared_ptr<CRadioGroup> pGroup;
+/*0x270*/ eqstd::weak_ptr<CRadioGroup> pRadioGroup;
 /*0x280*/ bool                  Checked;
 /*0x281*/ bool                  bMouseOverLastFrame;
 /*0x284*/ CXPoint               DecalOffset;
