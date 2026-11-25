@@ -60,7 +60,7 @@ public:
 };
 
 
-// @size: CDisplay = 0x2E04 @ 0x5F4F15 (05-21-2020 live)
+// constexpr size_t CDisplay_size = 0x55F0; // @sizeof(CDisplay) :: 2026-09-17 (live) @ 0x140274814
 class [[offsetcomments]] CDisplay
 {
 public:
@@ -68,7 +68,7 @@ public:
 	EQLIB_OBJECT ~CDisplay();
 
 	// Imported Functions
-	EQLIB_OBJECT float GetFloorHeight(float X, float Y, float F, float Radius = 0.0f, const CVector3& CollisionVector = CVector3(-1, -1, 1), CActorApplicationData* pAppData = 0, EActorType eActorType = Undefined, float ZOffset = 1.0f);
+	EQLIB_OBJECT float GetFloorHeight(float X, float Y, float F, float Radius = 0.0f, const CVector3& CollisionVector = CVector3(-1, -1, 1), CActorApplicationData* pAppData = nullptr, EActorType eActorType = Undefined, float ZOffset = 1.0f);
 	EQLIB_OBJECT CActorInterface* GetClickedActor(int X, int Y, bool bClimbLadder, CVector3& outHitLocation, CVector3& outHitNormal);
 	EQLIB_OBJECT bool GetWorldFilePath(char*, const char*);
 	EQLIB_OBJECT void ReloadUI(bool, bool);
@@ -241,9 +241,10 @@ public:
 /*0x5088*/ float                  viewAngle;
 /*0x508c*/ float                  aspectRatio;
 /*0x5090*/ int                    titleOverlayIndex;
-/*0x5094*/ int                    nearClipPlane;
+/*0x5094*/ float                  nearClipPlane;
 /*0x5098*/ PALETTEENTRY           palette[256];
-/*0x5498*/ uint8_t                padding[0x5512 - 0x5498]; // to be filled out later...
+/*0x5498*/ uint8_t                padding[0x5511 - 0x5498];
+/*0x5511*/ bool                   bShowCharacterNames;
 /*0x5512*/ bool                   NpcNames;
 /*0x5513*/ bool                   bShowPetNames;
 /*0x5514*/ bool                   bShowMercNames;
@@ -260,7 +261,7 @@ public:
 /*0x551f*/ bool                   bWindowedIncreasedGamma;
 /*0x5520*/ int                    ActorClipPlane;
 /*0x5524*/ int                    ShadowClipPlane;
-/*0x5528*/ int                    Unknown2d80;
+/*0x5528*/ bool                   Unknown0x5528;
 /*0x5530*/ ScreenWndManager       gameScreens;
 /*0x5590*/ ScreenWndManager       charselectScreens;
 /*0x55f0*/

@@ -261,9 +261,9 @@ public:
 	using CXWnd::Center;
 	EQLIB_OBJECT virtual void Center(const CXRect& rect);
 
-/*0x2d0*/ UIScreenComponent                                 WindowComponent;
-/*0x378*/ eqstd::unordered_map<eqstd::string, UIComponent*> ChildComponents;   // keyed by item path
-/*0x3b8*/
+/*0x2f0*/ UIScreenComponent                                 WindowComponent;
+/*0x398*/ eqstd::unordered_map<eqstd::string, UIComponent*> ChildComponents;   // keyed by item path
+/*0x3d8*/
 
 	struct [[offsetcomments]] VirtualFunctionTable : public CSidlScreenWnd::VirtualFunctionTable
 	{

@@ -951,6 +951,7 @@ static std::unordered_multimap<std::string_view, ForeignPointer<CSidlScreenWnd>&
 	{ "CharacterListWnd",                       pCharacterListWnd.ref<CSidlScreenWnd>() },
 	{ "ClaimWnd",                               pClaimWnd.ref<CSidlScreenWnd>() },
 	{ "ColorPickerWnd",                         pColorPickerWnd.ref<CSidlScreenWnd>() },
+	{ "CollectionDepotWnd",                     pCollectionDepotWnd.ref<CSidlScreenWnd>() },
 	{ "CombatAbilityWnd",                       pCombatAbilityWnd.ref<CSidlScreenWnd>() },
 	{ "CombatSkillSelectWnd",                   pCombatSkillsSelectWnd.ref<CSidlScreenWnd>() },
 	{ "CompassWindow",                          pCompassWnd.ref<CSidlScreenWnd>() },

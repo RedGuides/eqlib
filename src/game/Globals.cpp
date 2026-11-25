@@ -1208,6 +1208,7 @@ ForeignPointer<CCharacterCreation>               pCharacterCreation;
 ForeignPointer<CCharacterListWnd>                pCharacterListWnd;
 ForeignPointer<ClaimWindow>                      pClaimWnd;
 ForeignPointer<CColorPickerWnd>                  pColorPickerWnd;
+ForeignPointer<CCollectionDepotWnd>              pCollectionDepotWnd;
 ForeignPointer<CCombatAbilityWnd>                pCombatAbilityWnd;
 ForeignPointer<CCombatSkillsSelectWnd>           pCombatSkillsSelectWnd;
 ForeignPointer<CCompassWnd>                      pCompassWnd;

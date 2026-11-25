@@ -862,9 +862,10 @@ enum ePetCommandType
 	PCT_ToggleRegroup,
 	PCT_RegroupOn,
 	PCT_RegroupOff,
-	PCT_Something,
-	PCT_Something2,
+	PCT_Swarm,
+	PCT_QSwarm,
 	PCT_DoNothing
+	// more...
 };
 
 // Camera modes
@@ -968,7 +969,7 @@ enum class ServerID : int {
 
 
 // zones
-constexpr int ZONE_COUNT = 888;
+constexpr int ZONE_COUNT = 894;
 
 // Math
 

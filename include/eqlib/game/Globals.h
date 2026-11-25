@@ -888,6 +888,7 @@ EQLIB_VAR ForeignPointer<CCharacterCreation>         pCharacterCreation;
 EQLIB_VAR ForeignPointer<CCharacterListWnd>          pCharacterListWnd;
 EQLIB_VAR ForeignPointer<ClaimWindow>                pClaimWnd;
 EQLIB_VAR ForeignPointer<CColorPickerWnd>            pColorPickerWnd;
+EQLIB_VAR ForeignPointer<CCollectionDepotWnd>        pCollectionDepotWnd;
 EQLIB_VAR ForeignPointer<CCombatAbilityWnd>          pCombatAbilityWnd;
 EQLIB_VAR ForeignPointer<CCombatSkillsSelectWnd>     pCombatSkillsSelectWnd;
 EQLIB_VAR ForeignPointer<CCompassWnd>                pCompassWnd;
